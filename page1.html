@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>B2C Documentation - CRS group</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Bootstrap 4 Template For Software Startups">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <link id="theme-style" rel="stylesheet" href="assets/css/custom_css.css">
+
+</head> 
+
+<body class="docs-page">    
+    <header class="header fixed-top">	    
+        <div class="branding docs-branding">
+            <div class="container-fluid position-relative py-2">
+                <div class="docs-logo-wrapper">
+					<button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible me-2 d-xl-none" type="button">
+	                    <span></span>
+	                    <span></span>
+	                    <span></span>
+	                </button>
+	                <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/images/coderdocs-logo.svg" alt="logo"><span class="logo-text">Coder<span class="text-alt">Docs</span></span></a></div>    
+                </div><!--//docs-logo-wrapper-->
+	            <div class="docs-top-utilities d-flex justify-content-end align-items-center">
+	                <div class="top-search-box d-none d-lg-flex">
+		                <form class="search-form">
+				            <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+				            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+				        </form>
+	                </div>
+	
+					<ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
+						<li class="list-inline-item"><a href="#"><i class="fab fa-github fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
+		                <li class="list-inline-item"><a href="#"><i class="fab fa-slack fa-fw"></i></a></li>
+		                <li class="list-inline-item"><a href="#"><i class="fab fa-product-hunt fa-fw"></i></a></li>
+		            </ul><!--//social-list-->
+		            <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-5-documentation-template-for-software-projects/" class="btn btn-primary d-none d-lg-flex">Download</a>
+	            </div><!--//docs-top-utilities-->
+            </div><!--//container-->
+        </div><!--//branding-->
+    </header><!--//header-->
+    
+    
+    <div class="docs-wrapper">
+	    <div id="docs-sidebar" class="docs-sidebar">
+		    <div class="top-search-box d-lg-none p-3">
+                <form class="search-form">
+		            <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+		            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+		        </form>
+            </div>
+		    <nav id="docs-nav" class="docs-nav navbar">
+			    <ul class="section-items list-unstyled nav flex-column pb-3">
+				    <li class="nav-item section-title button_click"><a class="nav-link scrollto active" href="#section-1"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>Home</a></li>
+				    <li class="nav-item section-title mt-3 button_click quickstart"><a class="nav-link scrollto" href="#section-2"><span class="theme-icon-holder me-2"><i class="fas fa-arrow-down"></i></span>Quickstart</a></li>
+				    <li class="nav-item list_collapse quickstart"><a class="nav-link scrollto" href="page1.html">Getting Started</a></li>
+				    <li class="nav-item list_collapse quickstart"><a class="nav-link scrollto" href="#item-2-2">How it works</a></li>
+				    <li class="nav-item list_collapse quickstart"><a class="nav-link scrollto" href="#item-2-3">Which integration option is right for you</a></li>
+						<li class="nav-item list_collapse quickstart"><a class="nav-link scrollto third_level" id="test" href="#item-2-1">Web Widget with Integrated Authentication</a></li>
+						<li class="nav-item list_collapse quickstart"><a class="nav-link scrollto third_level" href="#item-2-1">Web Widget with Custom Authentication</a></li>
+						<li class="nav-item list_collapse quickstart"><a class="nav-link scrollto third_level" href="#item-2-1">API Integration for Custom Web or Mobile App</a></li>
+					<li class="nav-item list_collapse quickstart"><a class="nav-link scrollto" href="#item-2-3">About the APIs</a></li>
+					<li class="nav-item list_collapse quickstart"><a class="nav-link scrollto" href="#item-2-3">Next Steps</a></li>
+
+					<li class="nav-item section-title mt-3 button_click devtools"><a class="nav-link scrollto" href="#section-3"><span class="theme-icon-holder me-2"><i class="fas fa-box"></i></span>Developer Tools</a></li>
+				    <li class="nav-item list_collapse devtools"><a class="nav-link scrollto" href="#item-3-1">Overview</a></li>
+				    <li class="nav-item list_collapse devtools"><a class="nav-link scrollto" href="#item-3-2">Web Widget with Integrated Authentication</a></li>
+						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" id="test" href="#item-2-1">Overview</a></li>
+						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-2-1">Webhook Integration</a></li>
+						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-2-1">Web Messaging Integration</a></li>
+				    <li class="nav-item list_collapse devtools"><a class="nav-link scrollto" href="#item-3-3">Web Widget with Custom Authentication</a></li>
+				    
+					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-4"><span class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>Integrations</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Section Item 4.1</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Section Item 4.2</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-3">Section Item 4.3</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-5"><span class="theme-icon-holder me-2"><i class="fas fa-tools"></i></span>Utilities</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">Section Item 5.1</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">Section Item 5.2</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-3">Section Item 5.3</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-6"><span class="theme-icon-holder me-2"><i class="fas fa-laptop-code"></i></span>Web</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-6-1">Section Item 6.1</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-6-2">Section Item 6.2</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-6-3">Section Item 6.3</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-7"><span class="theme-icon-holder me-2"><i class="fas fa-tablet-alt"></i></span>Mobile</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-7-1">Section Item 7.1</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-7-2">Section Item 7.2</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-7-3">Section Item 7.3</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-8"><span class="theme-icon-holder me-2"><i class="fas fa-book-reader"></i></span>Resources</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-1">Section Item 8.1</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-2">Section Item 8.2</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3">Section Item 8.3</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-9"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span>FAQs</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-9-1">Section Item 9.1</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-9-2">Section Item 9.2</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-9-3">Section Item 9.3</a></li>
+			    </ul>
+
+		    </nav><!--//docs-nav-->
+	    </div><!--//docs-sidebar-->
+	    <div class="docs-content">
+		    <div class="container">
+			    <article class="docs-article" id="section-1">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">TEST <span class="docs-time">Last updated: 2019-06-01</span></h1>
+					    <section class="docs-intro">
+						    <p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
+						</section><!--//docs-intro-->
+						
+						<h5>Github Code Example:</h5>
+						<p>You can <a class="theme-link" href="https://gist.github.com/"  target="_blank">embed your code snippets using Github gists</a></p>
+						<div class="docs-code-block">
+							<!-- ** Embed github code starts ** -->
+							<script src="https://gist.github.com/xriley/fce6cf71edfd2dadc7919eb9c98f3f17.js"></script>
+							<!-- ** Embed github code ends ** -->
+						</div><!--//docs-code-block-->
+						
+					     <h5>Highlight.js Example:</h5>
+						<p>You can <a class="theme-link" href="https://github.com/highlightjs/highlight.js" target="_blank">embed your code snippets using highlight.js</a> It supports <a class="theme-link" href="https://highlightjs.org/static/demo/" target="_blank">185 languages and 89 styles</a>.</p>
+						<p>This template uses <a class="theme-link" href="https://highlightjs.org/static/demo/" target="_blank">Atom One Dark</a> style for the code blocks: <br><code>&#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css&#x22;&#x3E;</code></p>
+						<div class="docs-code-block">
+							<pre class="shadow-lg rounded"><code class="json hljs">[
+  {
+    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"apples"</span>,
+    <span class="hljs-attr">"count"</span>: [<span class="hljs-number">12000</span>, <span class="hljs-number">20000</span>],
+    <span class="hljs-attr">"description"</span>: {<span class="hljs-attr">"text"</span>: <span class="hljs-string">"..."</span>, <span class="hljs-attr">"sensitive"</span>: <span class="hljs-literal">false</span>}
+  },
+  {
+    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"oranges"</span>,
+    <span class="hljs-attr">"count"</span>: [<span class="hljs-number">17500</span>, <span class="hljs-literal">null</span>],
+    <span class="hljs-attr">"description"</span>: {<span class="hljs-attr">"text"</span>: <span class="hljs-string">"..."</span>, <span class="hljs-attr">"sensitive"</span>: <span class="hljs-literal">false</span>}
+  }
+]
+
+
+</code></pre>
+						</div><!--//docs-code-block-->
+						
+						
+				    </header>
+
+
+					<section class="docs-section" id="item-1-1">
+						<h2 class="section-heading">Section Item 1.1</h2>
+						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. </p>
+						<p>Code Example: <code>npm install &lt;package&gt;</code></p>
+						<h5>Unordered List Examples:</h5>
+						<ul>
+							<li><strong class="me-1">HTML5:</strong> <code>&lt;div id="foo"&gt;</code></li>
+							<li><strong class="me-1">CSS:</strong> <code>#foo { color: red }</code></li>
+							<li><strong class="me-1">JavaScript:</strong> <code>console.log(&#x27;#foo\bar&#x27;);</code></li>
+						</ul>
+						<h5>Ordered List Examples:</h5>
+						<ol>
+							<li>Download lorem ipsum dolor sit amet.</li>
+							<li>Click ipsum faucibus venenatis.</li>
+							<li>Configure fermentum malesuada nunc.</li>
+							<li>Deploy donec non ante libero.</li>
+						</ol>
+						<h5>Callout Examples:</h5>
+						<div class="callout-block callout-block-info">
+							
+							<div class="content">
+								<h4 class="callout-title">
+									<span class="callout-icon-holder me-1">
+										<i class="fas fa-info-circle"></i>
+									</span><!--//icon-holder-->
+									Note
+								</h4>
+								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <code>&lt;code&gt;</code> , Nemo enim ipsam voluptatem quia voluptas <a href="#">link example</a> sit aspernatur aut odit aut fugit.</p>
+							</div><!--//content-->
+						</div><!--//callout-block-->
+						
+						<div class="callout-block callout-block-warning">
+							<div class="content">
+								<h4 class="callout-title">
+									<span class="callout-icon-holder me-1">
+										<i class="fas fa-bullhorn"></i>
+									</span><!--//icon-holder-->
+									Warning
+								</h4>
+								<p>Nunc hendrerit odio quis dignissim efficitur. Proin ut finibus libero. Morbi posuere fringilla felis eget sagittis. Fusce sem orci, cursus in tortor <a href="#">link example</a> tellus vel diam viverra elementum.</p>
+							</div><!--//content-->
+						</div><!--//callout-block-->
+						
+						<div class="callout-block callout-block-success">
+							<div class="content">
+								<h4 class="callout-title">
+									<span class="callout-icon-holder me-1">
+										<i class="fas fa-thumbs-up"></i>
+									</span><!--//icon-holder-->
+									Tip
+								</h4>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <a href="#">Link example</a> aenean commodo ligula eget dolor.</p>
+							</div><!--//content-->
+						</div><!--//callout-block-->
+						
+						<div class="callout-block callout-block-danger me-1">
+							<div class="content">
+								<h4 class="callout-title">
+									<span class="callout-icon-holder">
+										<i class="fas fa-exclamation-triangle"></i>
+									</span><!--//icon-holder-->
+									Danger
+								</h4>
+								<p>Morbi eget interdum sapien. Donec sed turpis sed nulla lacinia accumsan vitae ut tellus. Aenean vestibulum <a href="#">Link example</a> maximus ipsum vel dignissim. Morbi ornare elit sit amet massa feugiat, viverra dictum ipsum pellentesque. </p>
+							</div><!--//content-->
+						</div><!--//callout-block-->
+						
+						<h5 class="mt-5">Alert Examples:</h5>
+						<div class="alert alert-primary" role="alert">
+						  This is a primary alert—check it out!
+						</div>
+						<div class="alert alert-secondary" role="alert">
+						  This is a secondary alert—check it out!
+						</div>
+						<div class="alert alert-success" role="alert">
+						  This is a success alert—check it out!
+						</div>
+						<div class="alert alert-danger" role="alert">
+						  This is a danger alert—check it out!
+						</div>
+						<div class="alert alert-warning" role="alert">
+						  This is a warning alert—check it out!
+						</div>
+						<div class="alert alert-info" role="alert">
+						  This is a info alert—check it out!
+						</div>
+						<div class="alert alert-light" role="alert">
+						  This is a light alert—check it out!
+						</div>
+						<div class="alert alert-dark" role="alert">
+						  This is a dark alert—check it out!
+						</div>
+						
+					   
+					</section><!--//section-->
+
+
+
+</body>
+</html> 

@@ -4,3 +4,13 @@
 	/* font-size: 0.90em; */
 	left: 22px;
 }
+
+.no_display
+{
+	display:none;
+}
+
+.go_display
+{
+	dislay:block;
+}
