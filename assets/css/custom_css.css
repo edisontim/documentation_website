@@ -4,7 +4,10 @@
 	/* font-size: 0.90em; */
 	left: 22px;
 }
-
+.logo-icon
+{
+	max-height:1.7em;
+}
 .no_display
 {
 	display:none;
