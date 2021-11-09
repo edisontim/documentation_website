@@ -43,17 +43,19 @@ for (var x = 0; x < sidebar_collapse.length; x++)
 //Have the content of the webpage load another content on click
 
 
-// $(document).ready(function () {
-// 	$(function(){
-// 		$("a.nav-link.scrollto").click(function(e){
-// 			e.preventDefault(); //To prevent the default anchor tag behaviour
-// 			var url = this.href;
-// 			$(".main").load(url, function (){
-// 				console.log("Load was performed");
-// 			});
+$(document).ready(function () {
 
-// 		});
-// 	});
+	$(function(){
+		$("#test").click(function(e){
+			console.log("Hello");
+			e.preventDefault(); //To prevent the default anchor tag behaviour
+			// var url = this.href;
+			// $("#item-1-4").load(url, function (){
+			// 	console.log("Load was performed");
+			// });
+			$('#item-1-4').replaceWith($('#item-1-1'));
+		});
+	});
 
 
-// });
+});
