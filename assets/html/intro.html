@@ -1,0 +1,26 @@
+<!-- start of intro.html -->
+					    <h1 class="docs-heading">Introduction <span class="docs-time">Last updated: 2019-06-01</span></h1>
+<p>This documentation is also available in our <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a>.</p>
+SDKs are currently under development -- so far we have:<br>
+<ol>
+<li><a href="https://github.com/StitchCredit/b2c-api-javascript" target="_blank">_javascript_</a>
+<li><a href="https://github.com/StitchCredit/b2c-api-python" target="_blank">_python_</a>
+</ol>
+<p>Before you start: </p>
+<ul>
+<li>We provide you with a host configuration for our development server and a demo user's identity in a postman environment.
+<li>To quickly grasp the token flow and sequence of API calls, download and import the "Getting Started" postman collections from the <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> and the postman environment we provided to you.
+  <ul>
+  <li>Additionally, the <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> contains a postman collection for each API.
+  </ul>
+<li>Equifax end-points are accessible by first using the User API <strong>/users/efx-config</strong> response data, and then the Equifax <strong>/oauth/token</strong> call.
+<li><strong>User API</strong> and <strong>Equifax API</strong> calls are intended to be called from the end-client/user's device. 
+<li>It is not acceptable to pass any of the data to these calls or responses from these calls to your server.
+<li>Do not save any data. Short term caching is fine, but long-term storage is not.
+<li>Keep in mind, the preauth token is only valid for 30 seconds.
+<li><em><strong>Direct API</strong> calls must originate from your server</em>
+<li><em><strong>User API</strong> calls must originate from the end-client</em>
+<li><em><strong>Equifax API</strong> calls must originate from the end-client</em>
+</ul>
+</span>
+<!-- end of intro.html -->
