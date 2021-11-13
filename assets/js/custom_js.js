@@ -1,15 +1,14 @@
 const sidebar_collapse = document.querySelectorAll('.docs-nav .section-items .button_click');
 const collapsing_content = document.querySelectorAll('.docs-nav .section-items .list_collapse');
 
-console.log("Hello");
-
+// console.log("Hello");
 
 for (var x = 0; x < sidebar_collapse.length; x++)
 {
 	
 	sidebar_collapse[x].onclick = function()
 	{
-		console.log(collapsing_content.length);
+//		console.log(collapsing_content.length);
 		for (var y = 0; y < collapsing_content.length; y++)
 		{
 			let sub_menu_class = collapsing_content[y].className.split(' ').slice(-1);
@@ -20,8 +19,8 @@ for (var x = 0; x < sidebar_collapse.length; x++)
 				menu_class = sub_menu_class;
 			if (sub_menu_class == "active")
 				menu = this.className.split(' ').slice(-2, -1);
-			console.log("sub_menu is " + sub_menu_class);
-			console.log("menu is " + menu_class);
+//			console.log("sub_menu is " + sub_menu_class);
+//			console.log("menu is " + menu_class);
 			if (menu_class == sub_menu_class)
 			{
 				var currentState = collapsing_content[y].style.display;
@@ -31,7 +30,7 @@ for (var x = 0; x < sidebar_collapse.length; x++)
 				}
 				else
 				{
-					collapsing_content[y].style.display="none";
+//					collapsing_content[y].style.display="none";
 				}
 			}
 		}
@@ -47,7 +46,7 @@ $(document).ready(function () {
 
 	$(function(){
 		$("#test").click(function(e){
-			console.log("Hello");
+//			console.log("Hello");
 			e.preventDefault(); //To prevent the default anchor tag behaviour
 			// var url = this.href;
 			// $("#item-1-4").load(url, function (){
