@@ -56,29 +56,29 @@ sidebarToggler.addEventListener('click', () => {
 /* Ref: https://github.com/iamdustan/smoothscroll */
 
 
-// sidebarLinks.forEach((sidebarLink) => {
+sidebarLinks.forEach((sidebarLink) => {
 	
-// 	sidebarLink.addEventListener('click', (e) => {
+	sidebarLink.addEventListener('click', (e) => {
 		
-// 		e.preventDefault();
+		e.preventDefault();
 		
-// 		var target = sidebarLink.getAttribute("href").replace('#', '');
+		var target = sidebarLink.getAttribute("href").replace('#', '');
 		
-// 		//console.log(target);
+		//console.log(target);
 		
-//         document.getElementById(target).scrollIntoView({ behavior: 'smooth' });
+        document.getElementById(target).scrollIntoView({ behavior: 'smooth' });
         
         
-//         //Collapse sidebar after clicking
-// 		if (sidebar.classList.contains('sidebar-visible') && window.innerWidth < 1200){
+        //Collapse sidebar after clicking
+		if (sidebar.classList.contains('sidebar-visible') && window.innerWidth < 1200){
 			
-// 			sidebar.classList.remove('sidebar-visible');
-// 		    sidebar.classList.add('sidebar-hidden');
-// 		} 
+			sidebar.classList.remove('sidebar-visible');
+		    sidebar.classList.add('sidebar-hidden');
+		} 
 		
-//     });
+    });
 	
-// });
+});
 
 
 /* ===== Gumshoe SrollSpy ===== */
