@@ -1,0 +1,20 @@
+Which Integration Option is right for you?
+
+This guide is to help you choose the integration option for the Consumer Credit widget and/or API. 
+
+Option 1: usage of credit reporting on a web page with user authentication managed by StitchCredit
+Option 2: usage of credit reporting on a web page with user authentication managed by you
+Option 3: usage of credit reporting on a custom UI such as a website or mobile app with authentication managed on the website/in the app
+
+FIRST: Are you integrating the StitchCredit widget into a web page?
+
+Either we can manage users or you can.
+
+If we are managing users, then your users register for a StitchCredit account through the widget's registration and identity verification screens. Then, users log into the widget with an email and password after having already logged into your service. (Option 1 - Web Widget with Integrated Authentication)
+
+If you are managing users, then they do not log in through the widget. Instead, you create your own registration screen utilizing our API. You can also create your own screens for the identity verification process (SMS one-time-code and identity quiz questions). You can merge the StitchCredit registration & identity process with your own service's registration, but you have to adhere to the compliance guide for screens. (Option 2 - Web Widget with Custom Authentication)
+
+OTHERWISE: The 3rd Integration option is for customers who want to create their own UI, such as a website or mobile app, entirely using our API. User authentication is managed by the website or in the app.
+
+All custom screens created using the API require Equifax approval (see the compliance guide for approval guidelines). (Option 3 - API Integration for Custom Web or Mobile App)
+
