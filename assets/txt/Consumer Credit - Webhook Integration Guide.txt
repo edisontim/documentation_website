@@ -1,0 +1,310 @@
+WEBHOOKS
+Webhooks are available to notify you when an alert (or other notifications) comes in so that you can message users in whatever fashion you wish to return to your site.
+
+To get started, please provide us a URL endpoint to push the webhook to.
+ * The webhook should implement SSL and Basic HTTP Authentication, so we need a username and password to the endpoint (15-char or less, it's not super secure and probably doesn't need to be).
+
+The basic JSON for the web hook will look like the following (not all fields are present with all requests):
+[{
+    id: "String - Webhook ID, UUID format",
+    type: "String - Webhook Type, see possible values below",
+    user_id: "String - StitchCredit user ID, UUID format",
+    host_id: "String - The host configuration generating the webhook, UUID format",
+    time: "long - Linux epoch, seconds since 1/1/1970",
+    error_code: "String - used to report host errors, future use at the moment",
+    error_msg: "String - error code details"
+    alert_id: "String - id for retrieving additional alert details when available",
+    alert_date: "Date - the date/time the alert was reported",
+    alert_source: "String - name of the institution reporting when available"
+}]
+
+When a webhook is received, a response is needed.  Responses with a status other than true will cause the webhook to be resent.
+[{
+    hook_id: "the ID of the webhook",
+    status: true | false
+}]
+
+Webhook Type Values
+ACCNEW		- New Account Created (only sent when created via web, not direct)
+IDFAIL		- Identity Failed (user identification process failed)
+ACCREG		- Account Registered (user passed identification and is registered for data)
+ACCREGFAIL	- Account Registration Failed (user passed identification, but was unable to register for data)
+ACCCLOSED	- Account Closed (only sent when completed via web, not direct)
+ACCLOCKED	- Account Locked Out (account is temporarily locked out)
+ACCLOGINFAIL	- Login Failure (when user authentication fails, web only)
+ACCALERT	- Account Alert (when credit alert notifications, both daily and real-time)
+SCOREREF	- User Score has been refreshed
+REPORTREF	- User Report has been refreshed
+ERROR		- Error (report important issues that may be of interest)
+TEST		- Test (testing notification)
+
+* Additional webhooks may be added without notice
+** Please see attached Postman Script for some testing API calls.  In particular, the Webhook Test.  Once your host is configured you can use Webhook Test to send a test webhook for a user on demand.
+"Consumer Credit - Test API.postman_collection.json" includes some webhook tests to help you understand and develop your solution.  See the Test API scripts for additional documentation.
+
+TEST API Postman Collection
+
+{
+	"info": {
+		"_postman_id": "ecfa55bb-7382-4439-ae40-8916233c0ed9",
+		"name": "Consumer Credit - Test API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Pre-auth Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/test/preauth-token/{{userId}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"test",
+						"preauth-token",
+						"{{userId}}"
+					]
+				},
+				"description": "Quickly create a preauth token for a preexisting user without having to implement the full Direct Authentication API or complete a full user login."
+			},
+			"response": []
+		},
+		{
+			"name": "Webhook Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//var data = pm.response.json();",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "test",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/test/webhook/send/{{userId}}?count=1&type=ACCNEW",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"test",
+						"webhook",
+						"send",
+						"{{userId}}"
+					],
+					"query": [
+						{
+							"key": "count",
+							"value": "1"
+						},
+						{
+							"key": "type",
+							"value": "ACCNEW",
+							"description": "Choose from: ACCNEW, IDFAIL, IDSVCOUT, ACCREG, ACCREGFAIL, ACCCLOSED, ACCLOCKED, ACCLOGINFAIL, SCOREREF, REPORTREF, TEST, ERROR"
+						}
+					]
+				},
+				"description": "Send a sample webhook request for a registered userid under your host.\n\nChoose a webhook type from: ACCNEW, IDFAIL, IDSVCOUT, ACCREG, ACCREGFAIL, ACCCLOSED, ACCLOCKED, ACCLOGINFAIL, SCOREREF, REPORTREF, TEST, ERROR"
+			},
+			"response": []
+		},
+		{
+			"name": "Webhook Sink",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//var data = pm.response;",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "test",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"type\": \"ERROR\",\r\n    \"user_id\": \"d9126b53-48ea-40b7-933d-3bc6084f287e\",\r\n    \"time\": \"2020-07-26T05:36:00\",\r\n    \"error_code\": \"SC999\",\r\n    \"error_msg\": \"Test Error\"\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/test/webhook/sink",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"test",
+						"webhook",
+						"sink"
+					],
+					"query": [
+						{
+							"key": "fail",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				},
+				"description": "This endpoint simulates sending a webhook.  The current URL responds with success unless the fail parameter is marked.\n\nUse to directly verify that your webhook endpoint is working.  Change the URL to point to your server endpoint.  Update the Basic Authentication username & password accordingly."
+			},
+			"response": []
+		},
+		{
+			"name": "Webhook Test: Alert",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//var data = pm.response.json();",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "test",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"alertId\":\"CRT:36641804\",\"alertType\":\"BlockedInquiryAlert\",\"creationDate\":\"2021-01-02-20:32\",\"dataSource\":\"EQUIFAX\",\"dateReported\":\"2021-01-02-20:31\",\"enrollmentId\":\"281380\",\"partnerKey\":\"3e78eae7-a3d0-4b72-9bc3-6493b91e84b6\",\"reportingFrequency\":\"RTINQ\",\"tenantKey\":\"EFX-US\",\"institutionType\":\"Miscellaneous Utilities\",\"institutionName\":\"APPLIED TECHNOLOGY GROUP INC\",\"memberNumber\":\"990UZ07496\",\"inquiryIntent\":\"Real Estate\",\"postedDuringMaintenancePeriod\":\"no\",\"inquiryType\":\"CR\",\"endUserText\":\"Naval Credit Union\",\"institutionAddressLine1\":\"Site Address 1\",\"institutionAddressLine2\":\"St# 2 2nd line\",\"institutionCity\":\"ROANOKE\",\"institutionState\":\"IN\",\"institutionPostalCode\":\"46783\",\"institutionPhoneNumber\":\"\",\"customerReferenceNumber\":\"6B0A07E6-4965-4063-A866-5A96C3E21762\"}"
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/test/webhook/send/{{userId}}?count=1&type=ACCALERT",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"test",
+						"webhook",
+						"send",
+						"{{userId}}"
+					],
+					"query": [
+						{
+							"key": "count",
+							"value": "1"
+						},
+						{
+							"key": "type",
+							"value": "ACCALERT"
+						}
+					]
+				},
+				"description": "Send a sample alert request for a registered userid under your host.  The sample alert body included is representative of a real-time alert.  Standard alerts have considerably less information.  The additional alert information is only available using the Direct API endpoint Get Alert Detail at this time."
+			},
+			"response": []
+		}
+	]
+}

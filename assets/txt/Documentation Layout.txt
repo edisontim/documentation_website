@@ -1,0 +1,61 @@
+Home
+Quickstart
+	Getting Started
+	How it works
+	Which integration option is right for you
+		Web Widget with Integrated Authentication
+		Web Widget with Custom Authentication
+		API Integration for Custom Web or Mobile App
+	About the APIs
+	Next Steps
+Developer Tools
+	Overview
+	Web Widget with Integrated Authentication
+		Overview
+		Webhook Integration
+		Web Messaging Integration
+	Web Widget with Custom Authentication
+		Overview
+		API Process Flow
+		B2C Communication & Token Flow
+		Webhook Integration
+		Web Messaging Integration
+		Postman collections
+		Samples
+	API Integration for Custom Web or Mobile App
+		Overview
+		API Process Flow
+		App Integration
+		B2C Communication & Token Flow
+		Compliance
+		Webhook Integration
+		Managing Users
+		Postman collections
+	SDKs (under development)
+		javascript
+		python
+	Consumer Credit API Setup
+	Postman collections
+	Endpoints
+	Webhooks
+API
+	Overview
+	Access Credentials
+	Token Validity Times
+	Direct API
+		Endpoints
+	User API
+		Endpoints
+	Equifax API
+		Endpoints
+	Test API
+		Endpoints
+	OpenAPI Definition File
+Sandbox
+	Overview
+		Sandbox overview
+		Using Sandbox
+		Testing
+	Test credentials
+Security
+	Integration and security
