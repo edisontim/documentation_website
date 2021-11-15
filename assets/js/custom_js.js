@@ -9,15 +9,15 @@ if (sidebar_scroll == null)
 	
 
 //scroll sidebar when scrolling the main document
-window.addEventListener('scroll', (event) => {
-	var window_scroll = window.scrollY;
-	var window_height = content_container.getBoundingClientRect().height;
-	var sidebar_height = $("#docs-sidebar").height();
+// window.addEventListener('scroll', (event) => {
+// 	var window_scroll = window.scrollY;
+// 	var window_height = content_container.getBoundingClientRect().height;
+// 	var sidebar_height = $("#docs-sidebar").height();
 
-	console.log( "window_height " + window_height + " sidebar_height " + sidebar_height);
-	var height_ratio = sidebar_height / window_height; 
-	sidebar_scroll.scrollTop = window_scroll * height_ratio;
-});
+// 	console.log( "window_height " + window_height + " sidebar_height " + sidebar_height);
+// 	var height_ratio = sidebar_height / window_height; 
+// 	sidebar_scroll.scrollTop = window_scroll * height_ratio;
+// });
 
 
 
