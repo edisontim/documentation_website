@@ -8,14 +8,15 @@ const content_container = document.querySelector('.container');
 var window_height = content_container.getBoundingClientRect().height;
 console.log($(".docs-nav").height());
 //scroll sidebar when scrolling the main document
-window.addEventListener('scroll', (event) => {
-	var window_scroll = window.scrollY;
-	// var sidebar_height = $("#docs-sidebar").height();
-	var sidebar_height = 2687;
+// window.addEventListener('scroll', (event) => {
+// 	var window_scroll = window.scrollY;
+// 	var window_height = content_container.getBoundingClientRect().height;
+// 	var sidebar_height = $("#docs-sidebar").height();
 
-	var height_ratio = sidebar_height / window_height; 
-	sidebar_scroll.scrollTop = window_scroll * height_ratio;
-});
+// 	console.log( "window_height " + window_height + " sidebar_height " + sidebar_height);
+// 	var height_ratio = sidebar_height / window_height; 
+// 	sidebar_scroll.scrollTop = window_scroll * height_ratio;
+// });
 
 
 
