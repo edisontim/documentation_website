@@ -4,17 +4,15 @@
 const sidebar_scroll = document.getElementById('docs-sidebar');
 const content_container = document.querySelector('.container');
 
-if (sidebar_scroll == null)
-	console.log("failed to get content element");
 	
-
+var window_height = content_container.getBoundingClientRect().height;
+console.log($(".docs-nav").height());
 //scroll sidebar when scrolling the main document
 window.addEventListener('scroll', (event) => {
 	var window_scroll = window.scrollY;
-	var window_height = content_container.getBoundingClientRect().height;
-	var sidebar_height = $("#docs-sidebar").height();
+	// var sidebar_height = $("#docs-sidebar").height();
+	var sidebar_height = 2687;
 
-	console.log( "window_height " + window_height + " sidebar_height " + sidebar_height);
 	var height_ratio = sidebar_height / window_height; 
 	sidebar_scroll.scrollTop = window_scroll * height_ratio;
 });
@@ -77,11 +75,3 @@ window.addEventListener('scroll', (event) => {
 
 
 	// });
-
-
-	$('window').scroll(function() {
-		console.log("hi");
-	});
-	$('#docs-sidebar').scroll(function() {
-		console.log(sidebar_scroll.scrollTop);
-	});
