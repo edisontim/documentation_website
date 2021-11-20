@@ -1,0 +1,15 @@
+&lt;html>
+  &lt;head>
+    &lt;title>StitchCredit&lt;/title>
+    &lt;meta name="description" content="StitchCredit Consumer Credit Reports"/>
+    &lt;link rel="icon" href="/favicon.ico">
+    &lt;style>
+      body { background: #F9FAFB; }
+      #sc-iframe { border:none;overflow:hidden;padding:0px;margin:0px;
+      width:100%;height:100vh;z-index:1;position:absolute;left:0;top:0; }
+    &lt;/style>
+  &lt;/head>
+  &lt;body>
+    &lt;iframe id="sc-iframe" src="https://efx-dev.stitchcredit.com/api/users/start?key=[API-KEY]&amp;ocf=[flags]&amp;oct=[color]" width=“100%” height=“100vh”>&lt;/iframe>
+  &lt;/body>
+&lt;/html>

@@ -1,8 +1,14 @@
 /* Adding another sub-section for the menu, so moving that section to the right to mark the fact that it's a subsection*/
 .docs-nav .section-items .third_level
 {
-	/* font-size: 0.90em; */
+	font-size: 0.90em;
 	left: 22px;
+}
+/* A fourth section*/
+.docs-nav .section-items .fourth_level
+{
+	font-size: 0.80em;
+	left: 33px;
 }
 .logo-icon
 {
