@@ -37,7 +37,7 @@
 	                    <span></span>
 	                    <span></span>
 	                </button>
-	                <div class="site-logo"><a class="navbar-brand" href="docs-page.html"><img class="logo-icon me-2" src="assets/images/StitchCredit_color-02.png" alt="logo"><span class="logo-text"><span class="text-alt">Docs</span></span></a></div>    
+	                <div class="site-logo"><a class="navbar-brand" href="docs-page.html"><img class="logo-icon me-2" src="assets/images/StitchCredit_color-02.png" alt="logo"/><span class="logo-text"><span class="text-alt">Docs</span></span></a></div>    
                 </div><!--//docs-logo-wrapper-->
 	            <div class="docs-top-utilities d-flex justify-content-end align-items-center">
 	                <div class="top-search-box d-none d-lg-flex">
@@ -684,7 +684,7 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 							The Web Widget must perform the necessary exchange of information via the corresponding APIs. This diagram shows the API process flow.
 							</p>
 							<p>
-							<img src="assets/images/api_process_flow.png" style="display:flex; margin:auto; max-width: 45vw;">
+							<img src="assets/images/api_process_flow.png" style="display:flex; margin:auto; max-width: 45vw;"/>
 							</p>
 						</section>
 
@@ -694,7 +694,7 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 							The diagram shows the communication exchange that must occur between the consumer, your servers (marked Customer Servers), StitchCredit servers (marked CRS Tech Servers) and the Equifax Servers.
 							</p>
 							<p>
-							<img src="assets/images/b2c_communcation_and_token_flow.png" style="display:flex; margin:auto; max-width: 45vw;">
+							<img src="assets/images/b2c_communcation_and_token_flow.png" style="display:flex; margin:auto; max-width: 45vw;"/>
 							</p>
 						</section>
 
@@ -1015,15 +1015,126 @@ var xhr = new XMLHttpRequest();
 							Your custom application must perform the necessary exchange of information via the corresponding APIs. This diagram shows the API process flow.
 							</p>
 							<p>
-							<img src="assets/images/api_process_flow.png" style="display:flex; margin:auto; max-width: 45vw;">
+							<img src="assets/images/api_process_flow.png" style="display:flex; margin:auto; max-width: 45vw;"/>
 							</p>
 						</section>
 
 						<section class="docs-section" id="item-3-4-3">
 							<h3 class="section-heading">App Integration</h3>
-							<p>
-							TODO
-							</p>
+								<h4>Sign Up</h4>
+
+								<strong>Consumers must agree to StitchCredit’s Terms of Use and Privacy Policy <em>prior to the Identity process</em></strong>
+								<blockquote>
+								<p>By clicking "Register” and creating an account you accept StitchCredit’s <a href="https://efx-dev.stitchcredit.com/terms-of-use" title="Terms of use">Terms of Use</a> and <a href="https://efx-dev.stitchcredit.com/privacy-policy">Privacy Policy</a>. StitchCredit does not maintain critical personal data, much less sell or otherwise disclose your personal information to anyone else. You may opt-out of email correspondence, except confirmation Emails, which often contain important information about your account.</p>
+								</blockquote>
+								Linking to the Following Terms of Use and Privacy Policy is advised to maintain the latest verbiage
+								<ul>
+								<li>StitchCredit Terms of Use <a href="https://app.termly.io/embed/terms-of-use/cd8446e8-9910-4a02-8f7c-36d9921a3bc7">https://app.termly.io/embed/terms-of-use/cd8446e8-9910-4a02-8f7c-36d9921a3bc7</a>
+								</li>
+
+								<li>StitchCredit Privacy Policy <a href="https://app.termly.io/embed/terms-of-use/958f774c-a642-41e7-9696-7ac060bdf44c">https://app.termly.io/embed/terms-of-use/958f774c-a642-41e7-9696-7ac060bdf44c</a>
+								</li>
+								</ul>
+
+								<div class="row" style="display: flex">
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105094648-96573000-5a72-11eb-9429-6b84ba036804.png" alt="Image of page example for Sign Up" style="width:100%" />
+								  </div>
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105094606-83446000-5a72-11eb-83c7-df5d4ba541ae.png" alt="Image of page example for Registering Terms of Use" style="width:100%" />
+								  </div>
+								</div>
+
+								<h4>Login</h4>
+
+								<div class="row" style="display: flex">
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105094441-4aa48680-5a72-11eb-86c9-9a9e7a64ed90.png" alt="Image of credit report page example" style="width:50%" />
+								  </div>
+								</div>
+								<h4>Identity</h4>
+
+								<p>Consumers must be notified and express specific consent to access third party data to verify identity</p>
+								<p>Required Identity Consent language:</p>
+								<blockquote>
+								<p>You understand that by clicking “Continue”, you are explicitly agreeing to and providing “written instructions” to StitchCredit under the Fair Credit Reporting Act to obtain my credit information from one or more of the three nationwide credit reporting agencies. Third-party sources, including your mobile carrier may be used to verify your identity. You authorize StitchCredit to obtain such information for you to confirm your identity, and, for as long as you are a member of StitchCredit, to provide you with your credit information. You may elect to terminate your account and this authorization at any time.</p>
+								</blockquote>
+								<div class="row" style="display: flex">
+								<div class="column" style="flex: 50%; padding: 5px;">
+								  <img src="https://user-images.githubusercontent.com/76128486/105093444-c0a7ee00-5a70-11eb-85ef-b4a17e4c2b45.png" alt="Image of identity page example" style="width:100%" />
+								</div>
+								<div class="column" style="flex: 50%; padding: 5px;">
+								  <img src="https://user-images.githubusercontent.com/76128486/105093564-edf49c00-5a70-11eb-8d03-c46d83010b07.png" alt="Image of page example for consumer consent language" style="width:100%" />
+								</div>
+								</div>
+
+								<h4>Mobile Verification</h4>
+
+								<p>Mobile Identity Consent language: </p>
+								<blockquote>
+								<p>We will attempt to verify your identity by sending a text with a one-time code to your mobile phone number ending in xxxx.</p>
+								</blockquote>
+								<blockquote>
+								<p>Message and data rates may apply.</p>
+								</blockquote>
+								<div class="row" style="display: flex">
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105093896-6f4c2e80-5a71-11eb-9185-1a2b78596470.png" alt="Image of page for sending code via SMS to verify identity" style="width:100%" />
+								  </div>
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105093817-504d9c80-5a71-11eb-8334-7e2ecb8d0129.png" alt="Image of page for entering identity verifying code via SMS" style="width:100%" />
+								  </div>
+								</div>
+
+								<h4>Identification Quiz</h4>
+
+								<div class="row" style="display: flex">
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105093707-2ac09300-5a71-11eb-9abd-8c89bd399057.png" alt="Image of page for identification quiz" style="width:100%" />
+								  </div>
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105093655-17adc300-5a71-11eb-96e3-d8a3162a2349.png" alt="Image of page for successful sign up as a result of successful identification" style="width:100%" />
+								  </div>
+								</div>
+
+								<h4>Dashboard/Score</h4>
+
+								<div class="row" style="display: flex">
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105093416-b4239580-5a70-11eb-8e00-193613850be6.png" alt="Image of page for showing dashboard of scores returned by various bureaus" style="width:100%" />
+								  </div>
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105093301-80e10680-5a70-11eb-99a3-e4b868dce698.png" alt="Image of page for showing score returned by a single bureaus" style="width:100%" />
+								  </div>
+								</div>
+
+								<h4>Reports</h4>
+
+								<div class="row" style="display: flex">
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105094067-b508f700-5a71-11eb-94f0-5b72489546fe.png" alt="Image of page for showing report summary" style="width:100%" />
+								  </div>
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105094037-a6224480-5a71-11eb-8f45-31cf52bd78a2.png" alt="Image of page for showing score credit accounts" style="width:100%" />
+								  </div>
+								</div>
+
+								<h4>Monitoring</h4>
+
+								<div class="row" style="display: flex">
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105093951-83902b80-5a71-11eb-8989-31bacb070fa2.png" alt="Image of page showing credit monitoring" style="width:50%" />
+								  </div>
+								</div>
+
+								<h4>ID Restoration</h4>
+
+								<div class="row" style="display: flex">
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105093759-3b710900-5a71-11eb-9f72-e67e6bba79d9.png" alt="Image of page showing ID restoration" style="width:50%" />
+								  </div>
+								</div>
+
 						</section>
 
 						<section class="docs-section" id="item-3-4-4">
@@ -1032,7 +1143,7 @@ var xhr = new XMLHttpRequest();
 							The diagram shows the communication exchange that must occur between the consumer, your servers (marked Customer Servers), StitchCredit servers (marked CRS Tech Servers) and the Equifax Servers.
 							</p>
 							<p>
-							<img src="assets/images/b2c_communcation_and_token_flow.png" style="display:flex; margin:auto; max-width: 45vw;">
+							<img src="assets/images/b2c_communcation_and_token_flow.png" style="display:flex; margin:auto; max-width: 45vw;"/>
 							</p>
 						</section>
 
