@@ -1,0 +1,3 @@
+&lt;iframe id="sc-iframe" 
+src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b87-c0618b0bc194&amp;ocf=537952251&amp;ocl=https://www.premierconsumer.org/assets/images/en/logo.jpg&amp;oct=5f5ce0"> 
+&lt;/iframe>
