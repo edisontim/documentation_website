@@ -29,6 +29,15 @@
 	color: #252930;
 }
 
+.crop div {
+	flex: 50%;
+	padding: 5px;
+	overflow: hidden;
+}
+
+.crop img {
+        margin-top: -22%;
+    }
 
 .kVVBQg {
     color: rgb(212, 31, 28);

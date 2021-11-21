@@ -46,7 +46,7 @@
 				            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
 				        </form>
 	                </div>
-<!--	
+<!--
 					<ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
 						<li class="list-inline-item"><a href="#"><i class="fab fa-github fa-fw"></i></a></li>
 			            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
@@ -81,7 +81,7 @@
 				    <li class="nav-item list_collapse quickstart"><a class="nav-link scrollto" href="#item-2-3">Getting Started</a></li>
 				    <li class="nav-item list_collapse quickstart"><a class="nav-link scrollto" href="#item-2-4">Which integration option is right for you</a></li>
 						<li class="nav-item list_collapse quickstart"><a class="nav-link scrollto third_level" href="#item-2-4-1">Web Widget with Integrated Authentication</a></li>
-						<li class="nav-item list_collapse quickstart"><a class="nav-link scrollto third_level" href="#item-2-4-2">Web Widget with Custom Authentication</a></li>
+						<li class="nav-item list_collapse quickstart"><a class="nav-link scrollto third_level" href="#item-2-4-2">Web Integration with Custom Authentication</a></li>
 						<li class="nav-item list_collapse quickstart"><a class="nav-link scrollto third_level" href="#item-2-4-3">API Integration for Custom Web or Mobile App</a></li>
 					<li class="nav-item list_collapse quickstart"><a class="nav-link scrollto" href="#item-2-4">About the APIs</a></li>
 					<li class="nav-item list_collapse quickstart"><a class="nav-link scrollto" href="#item-2-5">Next Steps</a></li>
@@ -96,7 +96,7 @@
 							<li class="nav-item list_collapse devtools"><a class="nav-link scrollto fourth_level" href="#item-3-2-4-1">Web Messaging using POST Messages</a></li>
 							<li class="nav-item list_collapse devtools"><a class="nav-link scrollto fourth_level" href="#item-3-2-4-2">Responsiveness Breakpoints</a></li>
 						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-2-5">Samples</a></li>
-				    <li class="nav-item list_collapse devtools"><a class="nav-link scrollto" href="#item-3-3">Web Widget with Custom Authentication</a></li>
+				    <li class="nav-item list_collapse devtools"><a class="nav-link scrollto" href="#item-3-3">Web Integration with Custom Authentication</a></li>
 						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-1">Overview</a></li>
 						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-2">API Process Flow</a></li>
 						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-3">B2C Communication & Token Flow</a></li>
@@ -174,27 +174,19 @@
 				    </header>
 					<section class="docs-section" id="item-2-1">
 						<h2 class="section-heading">Before you start</h2>
-<!--
-						SDKs are currently under development -- so far we have:<br>
-						<ol>
-							<li><a href="https://github.com/StitchCredit/b2c-api-javascript" target="_blank">_javascript_</a>
-							<li><a href="https://github.com/StitchCredit/b2c-api-python" target="_blank">_python_</a>
-						</ol>
--->
 						We provide you with a host configuration for our development server and a demo user's identity in a postman environment.
 						<ul>
-							<li>To quickly grasp the token flow and sequence of API calls, download and import the "Getting Started" postman collections from the <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> and the postman environment we provided to you.
-							<ul>
-								<li>Additionally, the <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> contains a postman collection for each API.
-							</ul>
-							<li>Equifax end-points are accessible by first using the User API <strong>/users/efx-config</strong> response data, and then the Equifax <strong>/oauth/token</strong> call.
-							<li><strong>User API</strong> and <strong>Equifax API</strong> calls are intended to be called from the end-client/user's device. 
-							<li>It is not acceptable to pass any of the data to these calls or responses from these calls to your server.
-							<li>Do not save any data. Short term caching is fine, but long-term storage is not.
-							<li>Keep in mind, the preauth token is only valid for 30 seconds.
-							<li><em><strong>Direct API</strong> calls must originate from your server</em>
-							<li><em><strong>User API</strong> calls must originate from the end-client</em>
-							<li><em><strong>Equifax API</strong> calls must originate from the end-client</em>
+							<li>To quickly grasp the token flow and sequence of API calls, download and import the "Getting Started" postman collections from the <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> and the postman environment we provided to you. <br>
+							The <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> contains a postman collection for each API.
+							</li>
+							<li>Equifax end-points are accessible by first using the <a href="#item-4-5">User API</a> <strong>/users/efx-config</strong> response data, and then the <a href="#item-4-6">Equifax</a> <strong>/oauth/token</strong> call.</li>
+							<li><strong><a href="#item-4-5">User API</a></strong> and <strong><a href="#item-4-6">Equifax API</a></strong> calls are intended to be called from the end-client/user's device. </li>
+							<li>It is not acceptable to pass any of the data to these calls or responses from these calls to your server. </li>
+							<li>Do not save any data. Short term caching is fine, but long-term storage is not. </li>
+							<li>Keep in mind, the preauth token is only valid for 30 seconds. </li>
+							<li><em><strong><a href="#item-4-4">Direct API</a></strong> calls must originate from your server</em> </li>
+							<li><em><strong><a href="#item-4-5">User API</a></strong> calls must originate from the end-client</em> </li>
+							<li><em><strong><a href="#item-4-6">Equifax API</a></strong> calls must originate from the end-client</em> </li>
 						</ul>
 					</section><!--//section-->
 
@@ -207,23 +199,23 @@
 						It's easy to add Credit Score & Reports to your existing customer experience by embedding our code into your HTML doc, page or website.
 						</p>
 					</section><!--//section-->
-					
+
 					<section class="docs-section" id="item-2-3">
 						<h2 class="section-heading">Getting started</h2>
 						<p>First, let's determine the way in which you will interact with the consumer credit APIs. This will determine the type of integration that you require and how to implement the integration pattern.</p>
 					</section><!--//section-->
-					
+
 					<section class="docs-section" id="item-2-4">
 						<!-- start of which.html -->
 						<h2 class="section-heading">Which Integration Option is right for you</h2>
 
 						<p>
-						This guide is to help you choose the integration option for the Consumer Credit widget and/or API. 
+						This guide is to help you choose the integration option for the Consumer Credit widget, web integration and/or API. 
 						</p>
 						<ol>
-							<li>Usage of credit reporting on a web page with user authentication managed by StitchCredit<br>
-							<li>Usage of credit reporting on a web page with user authentication managed by you<br>
-							<li>Usage of credit reporting on a custom UI such as a website or mobile app with authentication managed on the website/in the app<br>
+							<li>Usage of credit reporting on a web page with user authentication managed by StitchCredit</li>
+							<li>Usage of credit reporting on a web page with user authentication managed by you</li>
+							<li>Usage of credit reporting on a custom UI such as a website or mobile app with authentication managed on the website/in the app</li>
 						</ol>
 						<p>
 						<strong>FIRST</strong>: Are you integrating the StitchCredit widget into a web page?
@@ -236,7 +228,7 @@
 						If we are managing users, then your users register for a StitchCredit account through the widget's registration and identity verification screens. Then, users log into the widget with an email and password after having already logged into your service. (Option 1 - Web Widget with Integrated Authentication).
 						</li>
 						<li>
-						If you are managing users, then they do not log in through the widget. Instead, you create your own registration screen utilizing our API. You can also create your own screens for the identity verification process (SMS one-time-code and identity quiz questions). You can merge the StitchCredit registration & identity process with your own service's registration, but you have to adhere to the compliance guide for screens. (Option 2 - Web Widget with Custom Authentication)
+						If you are managing users, then they do not log in through the widget. Instead, you create your own registration screen utilizing our API. You can also create your own screens for the identity verification process (SMS one-time-code and identity quiz questions). You can merge the StitchCredit registration & identity process with your own service's registration, but you have to adhere to the compliance guide for screens. (Option 2 - Web Integration with Custom Authentication)
 						</li>
 						</ul>
 						<p>
@@ -259,7 +251,7 @@
 							</p>
 						</section><!--//section-->
 						<section class="docs-section" id="item-2-4-2">
-						<h3 class="section-heading">Web Widget with Custom Authentication</h3>
+						<h3 class="section-heading">Web Integration with Custom Authentication</h3>
 							<p>
 							This option does not require users to log in through the widget. Instead, you create a registration screen utilizing the StitchCredit Consumer Credit API. 
 							</p>
@@ -270,7 +262,7 @@
 							The html Sample files in the documentation demonstrate the different views for this integration option. 
 							</p>
 							<p>
-							More information can be found in section <a href="#item-3-3">Web Widget with Custom Authentication</a>.
+							More information can be found in section <a href="#item-3-3">Web Integration with Custom Authentication</a>.
 							</p>
 
 						</section><!--//section-->
@@ -314,7 +306,7 @@
 						    Based on the integration option, there are different tools, however we always provide some sort of sample as well as documentation on the necessary integration steps.
 						    </p>
 					</section><!--//section-->
-					
+
 					<section class="docs-section" id="item-3-2">
 						<h2 class="section-heading">Web Widget with Integrated Authentication</h2>
 						<p></p>
@@ -332,45 +324,28 @@
 						</section><!--//section-->
 						<section class="docs-section" id="item-3-2-2">
 						<h3 class="section-heading">Simple Integration Guide</h3>
+						<p>
 						<strong>Web Integration Requirements:</strong>
 						<ul>
 							<li><span style="background-color: #FFFF99">API Key</span></li>
-							<li>Host Registration (eg your web site address) </li>
+							<li>Host Registration (eg your web site address)</li>
 							<li><span style="background-color: #BBEE77">Integration Host &amp; parameters</span></li>
 							<li><span style="background-color: #FF6666">Configuration Flags</span></li>
-							<li><span style="background-color: #B2FFFF">Primary Theme Color (six character hex, without #)</span>    <br>
+							<li><span style="background-color: #B2FFFF">Primary Theme Color (six character hex, without #)</span></li>
+						</ul>
 
-							</li>
-							</ul>
-							<p><strong>Sample Embed Page:</strong>
-							<br>
-							To embed into HTML, create an iframe as shown in the following example with its <strong>src</strong> reflecting this color-coded URL:
-							<br></p>
-							<p><strong>"<span style="background-color: #BBEE77"><a href="https://efx-dev.stitchcredit.com/api/users/start?key=">https://efx-dev.stitchcredit.com/api/users/start?key=</a></span><span style="background-color: #FFFF99">[API-KEY]</span><span style="background-color: #BBEE77">&amp;ocf=</span><span style="background-color: #FF6666">[FLAGS]</span><span style="background-color: #BBEE77">&amp;oct=</span><span style="background-color: #B2FFFF">[COLOR]</span>"</strong></p>
-							<br>
-
-							<p><em>Embed example:</em></p>
-							<pre><code data-language="html">
-&lt;html>
-  &lt;head>
-    &lt;title>StitchCredit&lt;/title>
-    &lt;meta name="description" content="StitchCredit Consumer Credit Reports"/>
-    &lt;link rel="icon" href="/favicon.ico">
-    &lt;style>
-      body { background: #F9FAFB; }
-      #sc-iframe { border:none;overflow:hidden;padding:0px;margin:0px;
-      width:100%;height:100vh;z-index:1;position:absolute;left:0;top:0; }
-    &lt;/style>
-  &lt;/head>
-  &lt;body>
-    &lt;iframe id="sc-iframe" src="https://efx-dev.stitchcredit.com/api/users/start?key=[API-KEY]&amp;ocf=[flags]&amp;oct=[color]" width=“100%” height=“100vh”>&lt;/iframe>
-  &lt;/body>
-&lt;/html>
-</code></pre>
-						
+						<p>
+						To embed into HTML, create an iframe as shown in the following example with its <strong>src</strong> reflecting this color-coded URL:
+						<br>
+						<strong>"<span style="background-color: #BBEE77"><a href="https://efx-dev.stitchcredit.com/api/users/start?key=">https://efx-dev.stitchcredit.com/api/users/start?key=</a></span><span style="background-color: #FFFF99">[API-KEY]</span><span style="background-color: #BBEE77">&amp;ocf=</span><span style="background-color: #FF6666">[FLAGS]</span><span style="background-color: #BBEE77">&amp;oct=</span><span style="background-color: #B2FFFF">[COLOR]</span>"</strong>
+						</p>
 						</section><!--//section-->
+
+<!-- TODO: IS THIS NECESSARY? Web Widget integration should take all the pain out of things. -->
+
 						<section class="docs-section" id="item-3-2-3">
 						<h3 class="section-heading">Webhook Integration</h3>
+<!-- TODO: move this to an server-side insert as it is used more than once -->
 							<p>
 							Webhooks are available to notify you when an alert (or other notifications) comes in so that you can message users in whatever fashion you wish to return to your site.
 							</p>
@@ -407,18 +382,18 @@
 							<p>
 							Webhook Type Values
 							<ul>
-								<li>ACCNEW		- New Account Created (only sent when created via web, not direct)
-								<li>IDFAIL		- Identity Failed (user identification process failed)
-								<li>ACCREG		- Account Registered (user passed identification and is registered for data)
-								<li>ACCREGFAIL	- Account Registration Failed (user passed identification, but was unable to register for data)
-								<li>ACCCLOSED	- Account Closed (only sent when completed via web, not direct)
-								<li>ACCLOCKED	- Account Locked Out (account is temporarily locked out)
-								<li>ACCLOGINFAIL	- Login Failure (when user authentication fails, web only)
-								<li>ACCALERT	- Account Alert (when credit alert notifications, both daily and real-time)
-								<li>SCOREREF	- User Score has been refreshed
-								<li>REPORTREF	- User Report has been refreshed
-								<li>ERROR		- Error (report important issues that may be of interest)
-								<li>TEST		- Test (testing notification)
+								<li>ACCNEW		- New Account Created (only sent when created via web, not direct)</li>
+								<li>IDFAIL		- Identity Failed (user identification process failed)</li>
+								<li>ACCREG		- Account Registered (user passed identification and is registered for data)</li>
+								<li>ACCREGFAIL	- Account Registration Failed (user passed identification, but was unable to register for data)</li>
+								<li>ACCCLOSED	- Account Closed (only sent when completed via web, not direct)</li>
+								<li>ACCLOCKED	- Account Locked Out (account is temporarily locked out)</li>
+								<li>ACCLOGINFAIL	- Login Failure (when user authentication fails, web only)</li>
+								<li>ACCALERT	- Account Alert (when credit alert notifications, both daily and real-time)</li>
+								<li>SCOREREF	- User Score has been refreshed</li>
+								<li>REPORTREF	- User Report has been refreshed</li>
+								<li>ERROR		- Error (report important issues that may be of interest)</li>
+								<li>TEST		- Test (testing notification)</li>
 							</ul>
 							Additional webhooks may be added without notice
 							</p>
@@ -432,6 +407,7 @@
 						<section class="docs-section" id="item-3-2-4">
 						<h3 class="section-heading">Web Messaging Integration</h3>
 							<section class="docs-section" id="item-3-2-4-1">
+<!-- TODO: move this to an server-side insert as it is used more than once -->
 							<h4 class="section-heading">Web Messaging using POST Messages</h4>
 								<p>
 								To interact with the Consumer Credit Widget, you will need to implement a structure using POST Message to receive, process and respond to events generated by the Consumer Credit Widget in the iFrame.
@@ -529,8 +505,8 @@ var xhr = new XMLHttpRequest();
 								<p>
 								Each breakpoint (a key) matches with a fixed screen width (a value):
 								<ul>
-									<li>sm, small: 600px
-									<li>md, medium: 960px
+									<li>sm, small: 600px</li>
+									<li>md, medium: 960px</li>
 								</ul>
 								</p>
 							</section><!--//section-->
@@ -538,7 +514,10 @@ var xhr = new XMLHttpRequest();
 						<section class="docs-section" id="item-3-2-5">
 						<h3 class="section-heading">Samples</h3>
 							<p>
-							Here is a sample with the appropriate iframe:
+							TODO: Include screenshots from Consumer Credit Widget.ppt
+							</p>
+							<p>
+							Here is an example of the iframe code configured with API-Key, flags, and color:
 							</p>
 							<pre><code data-language="html">
 &lt;iframe id="sc-iframe" 
@@ -553,121 +532,32 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 							Users will need to log into the widget with an email and password after having already logged into your service.
 							</p>
 							<p>
-							Here is an example direct_sample.html:
-							</p>
+							Here is an embedded example :
 							<pre><code data-language="html">
 &lt;html>
   &lt;head>
     &lt;title>StitchCredit&lt;/title>
-    &lt;link rel="icon" href="/favicon.ico" />
-    &lt;meta name="description" content="StitchCredit Consumer Credit Reports" />
-    &lt;meta
-      name="viewport"
-      content="minimum-scale=1, initial-scale=1, width=device-width"
-    />
+    &lt;meta name="description" content="StitchCredit Consumer Credit Reports"/>
+    &lt;link rel="icon" href="/favicon.ico">
     &lt;style>
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        position: relative;
-        background: #eeeeee;
-      }
-      #sc-iframe {
-        margin: 0;
-        padding: 0;
-        z-index: 1;
-        width: 100%;
-        height: 100vh;
-        border: none;
-        overflow: hidden;
-      }
+      body { background: #F9FAFB; }
+      #sc-iframe { border:none;overflow:hidden;padding:0px;margin:0px;
+      width:100%;height:100vh;z-index:1;position:absolute;left:0;top:0; }
     &lt;/style>
   &lt;/head>
   &lt;body>
-    &lt;iframe
-      id="sc-iframe" allowTransparency="true"
-      src="https://efx-dev.stitchcredit.com/login-direct?key=5a10e0d7-1dc8-4325-929f-d0d131990527&amp;ocf=2039"
-    >&lt;/iframe>
-    &lt;script>
-    //this just throws in a default ID if one isn't provided on the query string
-    const id = document.location.search.length > 0 ? document.location.search.split('&amp;')[0].split('=')[1] : '048741d2-3dcf-4892-8fb0-99930a540cc1';
-    console.log("ID: ",id);
-    console.log("Loading Message Listener...");
-
-    window.addEventListener("message", receiveMessage, false);
-
-    function receiveMessage(event) {
-        if(event &amp;&amp; event.source &amp;&amp; event.data) {
-            // You only need to implement the types that are important/relevant to your use case.
-            if(event.data.type === 'AUTH_REQUIRED') {
-                //The iframe clident will post this message when a valid preauth token does not exist.
-                //Posting a proper message with a preauth token in response allows the client to continue seemlessly.
-                //console.log("Auth Required Event Received");
-                const es = event.source;
-                //this code uses a test endpoint on the server to provide a preauth-token for any user ID without the usual hurdles.
-                //This is ONLY for testing and does not exist in the production environment.
-                getData("https://efx-dev.stitchcredit.com/api/test/preauth-token/"+id, function() {
-                    const token = JSON.parse(this.responseText).token;
-                    console.log("Status: ", this.status, ", token: ", token);
-                    es.postMessage({type: 'PREAUTH', token: this.status == 200 ? token : null},"*");
-                });
-            }
-            else if(event.data.type === 'REG_STARTED') {
-                const es = event.source;
-                //only valid for full web implementation, Direct API already creates the customer, so this will never happen in those instances
-				// (new Date().valueOf()) - is used to generate a new email ID on the fly for testing purposes
-                es.postMessage({type: 'REG', data: {fname:"Gertrude", lname:"Harkenreadeo", email: "test+" + (new Date().valueOf()) + "@test.com"}},"*");
-            }
-            else if(event.data.type === 'IDENTITY_STARTED') {
-                const es = event.source;
-                //You could use this function to pre-populate the given fields.  DoB and SSN will never be prepopulated as it violates compliance
-				// new Date().valueOf().toString() - generates a unique number for street2 to ensure each run goes through the full identity process, remove to test sequential sign up of the same user
-                es.postMessage({type: 'IDENTITY', data: {street1:"305 Linden Av", street2: new Date().valueOf().toString(), city: "Atlanta", state: "GA", zip: "30316", mobile: "0000000000"}},"*");
-            }
-            else if(event.data.type === 'LOGIN_SUCCESSFUL') {
-                console.log("User succesfully logged in");
-            }
-            else if(event.data.type === 'LOGIN_FAILED') {
-                //if you see this message more than a few times in a row, it's likely an issue
-                //typically this will only occur for full web implementations, not Direct API
-                console.log("User login failed");
-            }
-            else if(event.data.type === 'USER_ENROLLED') {
-                //User successfully completed identity and has been enrolled for consumer data
-                console.log("User enrollment successful");
-            }
-            else if(event.data.type === 'IDENTITY_FAILED') {
-                //Identity process failed, user is likely "stuck" as they cannot continue
-                console.log("User identity failure");
-            }
-            else if(event.data.type === 'SERVICE_FAILURE') {
-                //Identity process failed most likely due to a service outage, but the user is stuck as they cannot continue without passing identity
-                console.log("Identity service failure");
-            }
-        }
-
-        function getData(req, action) {
-        var xhr = new XMLHttpRequest();
-            xhr.responesType = 'json';
-            xhr.onload = action;
-            xhr.open("GET", req);
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.send();
-        }
-
-    }
-    &lt;/script>
+    &lt;iframe id="sc-iframe" src="https://efx-dev.stitchcredit.com/api/users/start?key=[API-KEY]&amp;ocf=[flags]&amp;oct=[color]" width=“100%” height=“100vh”>&lt;/iframe>
   &lt;/body>
 &lt;/html>
 							</code></pre>
+
 						</section><!--//section-->
 
 					</section><!--//section-->
-					
+
 					<section class="docs-section" id="item-3-3">
-						<h2 class="section-heading">Web Widget with Custom Authentication</h2>
-						<p></p>
+						<h2 class="section-heading">Web Integration with Custom Authentication</h2>
+						<p>TODO: verify content versus more up-to-date PPT: Web Integration with Customer Authentication Guide</p>
 						<section class="docs-section" id="item-3-3-1">
 							<h3 class="section-heading">Overview</h3>
 							<p>
@@ -680,6 +570,19 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 
 						<section class="docs-section" id="item-3-3-2">
 							<h3 class="section-heading">API Process Flow</h3>
+							<p>
+							A token from /direct/login is required for all other <a href="#item-4-4">Direct API</a>end-points in yellow.
+							It is a bearer authorization token.
+							</p>
+							<p>
+							Once you have a preauth token, returned from /direct/user-reg or /direct/preauth-token, pass it to the Web UI entry point in the embedded iFrame.
+							</p>
+							<p>
+							Be sure to <strong>save the ID</strong> returned from /direct/user-reg or you won’t be able to reauthorize the user when they return.
+							</p>
+							<p>
+							**<em>The preauth token is only valid for 30 seconds</em>
+							</p>
 							<p>
 							The Web Widget must perform the necessary exchange of information via the corresponding APIs. This diagram shows the API process flow.
 							</p>
@@ -736,18 +639,18 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 							<p>
 							Webhook Type Values
 							<ul>
-								<li>ACCNEW		- New Account Created (only sent when created via web, not direct)
-								<li>IDFAIL		- Identity Failed (user identification process failed)
-								<li>ACCREG		- Account Registered (user passed identification and is registered for data)
-								<li>ACCREGFAIL	- Account Registration Failed (user passed identification, but was unable to register for data)
-								<li>ACCCLOSED	- Account Closed (only sent when completed via web, not direct)
-								<li>ACCLOCKED	- Account Locked Out (account is temporarily locked out)
-								<li>ACCLOGINFAIL	- Login Failure (when user authentication fails, web only)
-								<li>ACCALERT	- Account Alert (when credit alert notifications, both daily and real-time)
-								<li>SCOREREF	- User Score has been refreshed
-								<li>REPORTREF	- User Report has been refreshed
-								<li>ERROR		- Error (report important issues that may be of interest)
-								<li>TEST		- Test (testing notification)
+								<li>ACCNEW		- New Account Created (only sent when created via web, not direct)</li>
+								<li>IDFAIL		- Identity Failed (user identification process failed)</li>
+								<li>ACCREG		- Account Registered (user passed identification and is registered for data)</li>
+								<li>ACCREGFAIL	- Account Registration Failed (user passed identification, but was unable to register for data)</li>
+								<li>ACCCLOSED	- Account Closed (only sent when completed via web, not direct)</li>
+								<li>ACCLOCKED	- Account Locked Out (account is temporarily locked out)</li>
+								<li>ACCLOGINFAIL	- Login Failure (when user authentication fails, web only)</li>
+								<li>ACCALERT	- Account Alert (when credit alert notifications, both daily and real-time)</li>
+								<li>SCOREREF	- User Score has been refreshed</li>
+								<li>REPORTREF	- User Report has been refreshed</li>
+								<li>ERROR		- Error (report important issues that may be of interest)</li>
+								<li>TEST		- Test (testing notification)</li>
 							</ul>
 							Additional webhooks may be added without notice
 							</p>
@@ -859,8 +762,8 @@ var xhr = new XMLHttpRequest();
 								<p>
 								Each breakpoint (a key) matches with a fixed screen width (a value):
 								<ul>
-									<li>sm, small: 600px
-									<li>md, medium: 960px
+									<li>sm, small: 600px</li>
+									<li>md, medium: 960px</li>
 								</ul>
 								</p>
 							</section><!--//section-->
@@ -872,14 +775,35 @@ var xhr = new XMLHttpRequest();
 							<p>
 							Access Credentials have been sent to you in a Postman Environment upon registration via email. The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.
 							</p>
-							<p>
 							Consumer Credit Postman Collections include pre-defined API calls to help you understand and develop your solution. See the Test API scripts for additional documentation.
 							</p>
 						</section>
 						<section class="docs-section" id="item-3-3-7">
 							<h3 class="section-heading">Samples</h3>
 							<p>
-							Here is an implementation of this (<em>direct_sample.html</em>):
+							Here is an implementation of the Sample iFrame page with inline user token:
+							<pre><code data-language="html">
+&lt;html>
+    &lt;head>
+        &lt;title>StitchCredit&lt;/title>
+        &lt;meta name="description" content="StitchCredit Consumer Credit Reports"/>
+        &lt;link rel="icon" href="/favicon.ico">
+        &lt;style>
+            body { background: #F9FAFB; }
+            #sc-iframe { border: none; overflow: hidden; padding: 0px; margin: 0px; width: 100%; height: 100vh; z-index: 1; position: absolute; left: 0; top: 0; }
+        &lt;/style>
+    &lt;/head>
+    &lt;body>
+         &lt;iframe id="sc-iframe" 
+            src=“https://efx-dev.stitchcredit.com/login-direct?key=[API-KEY]&amp;token=[PREAUTH-TOKEN]&amp;ocf=[FLAGS] &amp;oct=[COLOR]&amp;ocl=[LOGO-URL]”     
+            width=“100%” height=“100vh” frameborder=“0”>
+         &lt;/iframe>
+    &lt;/body>
+&lt;/html>
+							</code></pre>
+							</p>
+							<p>
+							Here is an implementation of the Tabbed User Interface with Dynamic Consumer Authentication integration (<em>direct_sample.html</em>):
 							<pre><code data-language="html">
 &lt;html>
   &lt;head>
@@ -987,6 +911,25 @@ var xhr = new XMLHttpRequest();
 &lt;/html>
 							</code></pre>
 							</p>
+							<p>
+							Here is an implementation of All-in-One User Interface with dynamic Consumer Authentication integration (<em>aio_sample.html</em>):
+							<pre><code data-language="html">
+							TODO
+							</code></pre>
+							</p>
+							<p>
+							Here is an implementation of Tile User Interface with dynamic Consumer Authentication integration (<em>tile_sample.html</em>):
+							<pre><code data-language="html">
+							TODO
+							</code></pre>
+							</p>
+							<p>
+							Here is an implementation of Tile User Interface with dynamic Consumer Authentication integration and configuration display flags override (<em>tile_sample_score_only.html</em>):
+							<pre><code data-language="html">
+							TODO
+							</code></pre>
+							</p>
+
 						</section><!--//section-->
 					</section><!--//section-->
 
@@ -1021,7 +964,7 @@ var xhr = new XMLHttpRequest();
 
 						<section class="docs-section" id="item-3-4-3">
 							<h3 class="section-heading">App Integration</h3>
-								<h4>Sign Up</h4>
+								<h4>Sign-up / Registration Terms of Use</h4>
 
 								<strong>Consumers must agree to StitchCredit’s Terms of Use and Privacy Policy <em>prior to the Identity process</em></strong>
 								<blockquote>
@@ -1035,23 +978,24 @@ var xhr = new XMLHttpRequest();
 								<li>StitchCredit Privacy Policy <a href="https://app.termly.io/embed/terms-of-use/958f774c-a642-41e7-9696-7ac060bdf44c">https://app.termly.io/embed/terms-of-use/958f774c-a642-41e7-9696-7ac060bdf44c</a>
 								</li>
 								</ul>
-
-								<div class="row" style="display: flex">
+								NOTE: linking to the above Terms of Use and Privacy Policy is advised to maintain the latest verbiage
+								<div class="row crop" style="display: flex">
 								  <div class="column" style="flex: 50%; padding: 5px;">
-								    <img src="https://user-images.githubusercontent.com/76128486/105094648-96573000-5a72-11eb-9429-6b84ba036804.png" alt="Image of page example for Sign Up" style="width:100%" />
+								    <img src="https://user-images.githubusercontent.com/76128486/105094648-96573000-5a72-11eb-9429-6b84ba036804.png" alt="Image of page example for Sign Up" style="width:100%" class="crop" />
 								  </div>
 								  <div class="column" style="flex: 50%; padding: 5px;">
-								    <img src="https://user-images.githubusercontent.com/76128486/105094606-83446000-5a72-11eb-83c7-df5d4ba541ae.png" alt="Image of page example for Registering Terms of Use" style="width:100%" />
+								    <img src="https://user-images.githubusercontent.com/76128486/105094606-83446000-5a72-11eb-83c7-df5d4ba541ae.png" alt="Image of page example for Registering Terms of Use" style="width:100%" class="crop" />
 								  </div>
 								</div>
 
 								<h4>Login</h4>
 
-								<div class="row" style="display: flex">
+								<div class="row crop" style="display: flex">
 								  <div class="column" style="flex: 50%; padding: 5px;">
-								    <img src="https://user-images.githubusercontent.com/76128486/105094441-4aa48680-5a72-11eb-86c9-9a9e7a64ed90.png" alt="Image of credit report page example" style="width:50%" />
+								    <img src="https://user-images.githubusercontent.com/76128486/105094441-4aa48680-5a72-11eb-86c9-9a9e7a64ed90.png" alt="Image of credit report page example" style="width:50%" class="crop" />
 								  </div>
 								</div>
+
 								<h4>Identity</h4>
 
 								<p>Consumers must be notified and express specific consent to access third party data to verify identity</p>
@@ -1059,79 +1003,107 @@ var xhr = new XMLHttpRequest();
 								<blockquote>
 								<p>You understand that by clicking “Continue”, you are explicitly agreeing to and providing “written instructions” to StitchCredit under the Fair Credit Reporting Act to obtain my credit information from one or more of the three nationwide credit reporting agencies. Third-party sources, including your mobile carrier may be used to verify your identity. You authorize StitchCredit to obtain such information for you to confirm your identity, and, for as long as you are a member of StitchCredit, to provide you with your credit information. You may elect to terminate your account and this authorization at any time.</p>
 								</blockquote>
-								<div class="row" style="display: flex">
+								<div class="row crop" style="display: flex" class="crop">
 								<div class="column" style="flex: 50%; padding: 5px;">
-								  <img src="https://user-images.githubusercontent.com/76128486/105093444-c0a7ee00-5a70-11eb-85ef-b4a17e4c2b45.png" alt="Image of identity page example" style="width:100%" />
+								  <img src="https://user-images.githubusercontent.com/76128486/105093444-c0a7ee00-5a70-11eb-85ef-b4a17e4c2b45.png" alt="Image of identity page example" style="width:100%" class="crop" />
 								</div>
 								<div class="column" style="flex: 50%; padding: 5px;">
-								  <img src="https://user-images.githubusercontent.com/76128486/105093564-edf49c00-5a70-11eb-8d03-c46d83010b07.png" alt="Image of page example for consumer consent language" style="width:100%" />
+								  <img src="https://user-images.githubusercontent.com/76128486/105093564-edf49c00-5a70-11eb-8d03-c46d83010b07.png" alt="Image of page example for consumer consent language" style="width:100%" class="crop" />
 								</div>
 								</div>
 
-								<h4>Mobile Verification</h4>
+								<h4>Identification (option 1): mobile</h4>
 
 								<p>Mobile Identity Consent language: </p>
 								<blockquote>
+								<p>
+								Users must consent to receiving an SMS message for authentication – note that not all users will qualify to do mobile identification, roughly 60% do at the moment.
+								</p>
 								<p>We will attempt to verify your identity by sending a text with a one-time code to your mobile phone number ending in xxxx.</p>
 								</blockquote>
 								<blockquote>
 								<p>Message and data rates may apply.</p>
 								</blockquote>
-								<div class="row" style="display: flex">
+								<div class="row crop" style="display: flex">
 								  <div class="column" style="flex: 50%; padding: 5px;">
-								    <img src="https://user-images.githubusercontent.com/76128486/105093896-6f4c2e80-5a71-11eb-9185-1a2b78596470.png" alt="Image of page for sending code via SMS to verify identity" style="width:100%" />
+								    <img src="https://user-images.githubusercontent.com/76128486/105093896-6f4c2e80-5a71-11eb-9185-1a2b78596470.png" alt="Image of page for sending code via SMS to verify identity" style="width:100%" class="crop" />
 								  </div>
 								  <div class="column" style="flex: 50%; padding: 5px;">
-								    <img src="https://user-images.githubusercontent.com/76128486/105093817-504d9c80-5a71-11eb-8334-7e2ecb8d0129.png" alt="Image of page for entering identity verifying code via SMS" style="width:100%" />
-								  </div>
-								</div>
-
-								<h4>Identification Quiz</h4>
-
-								<div class="row" style="display: flex">
-								  <div class="column" style="flex: 50%; padding: 5px;">
-								    <img src="https://user-images.githubusercontent.com/76128486/105093707-2ac09300-5a71-11eb-9abd-8c89bd399057.png" alt="Image of page for identification quiz" style="width:100%" />
-								  </div>
-								  <div class="column" style="flex: 50%; padding: 5px;">
-								    <img src="https://user-images.githubusercontent.com/76128486/105093655-17adc300-5a71-11eb-96e3-d8a3162a2349.png" alt="Image of page for successful sign up as a result of successful identification" style="width:100%" />
+								    <img src="https://user-images.githubusercontent.com/76128486/105093817-504d9c80-5a71-11eb-8334-7e2ecb8d0129.png" alt="Image of page for entering identity verifying code via SMS" style="width:100%" class="crop" />
 								  </div>
 								</div>
 
-								<h4>Dashboard/Score</h4>
-
-								<div class="row" style="display: flex">
+								<h4>Identification (option 2): quiz</h4>
+								<p>
+								Users who don’t qualify or are unable to pass mobile verification must pass an identity quiz. Users will have at most 2 chances to pass a quiz, assuming enough questions can be generated. Users may re-enter and try to pass the identity quiz again, however two attempts (2 chances each) is the limit and will result in a 72-hr lockout.
+								</p>
+								<div class="row crop" style="display: flex">
 								  <div class="column" style="flex: 50%; padding: 5px;">
-								    <img src="https://user-images.githubusercontent.com/76128486/105093416-b4239580-5a70-11eb-8e00-193613850be6.png" alt="Image of page for showing dashboard of scores returned by various bureaus" style="width:100%" />
+								    <img src="https://user-images.githubusercontent.com/76128486/105093707-2ac09300-5a71-11eb-9abd-8c89bd399057.png" alt="Image of page for identification quiz" style="width:100%" class="crop" />
 								  </div>
 								  <div class="column" style="flex: 50%; padding: 5px;">
-								    <img src="https://user-images.githubusercontent.com/76128486/105093301-80e10680-5a70-11eb-99a3-e4b868dce698.png" alt="Image of page for showing score returned by a single bureaus" style="width:100%" />
-								  </div>
-								</div>
-
-								<h4>Reports</h4>
-
-								<div class="row" style="display: flex">
-								  <div class="column" style="flex: 50%; padding: 5px;">
-								    <img src="https://user-images.githubusercontent.com/76128486/105094067-b508f700-5a71-11eb-94f0-5b72489546fe.png" alt="Image of page for showing report summary" style="width:100%" />
-								  </div>
-								  <div class="column" style="flex: 50%; padding: 5px;">
-								    <img src="https://user-images.githubusercontent.com/76128486/105094037-a6224480-5a71-11eb-8f45-31cf52bd78a2.png" alt="Image of page for showing score credit accounts" style="width:100%" />
+								    <img src="https://user-images.githubusercontent.com/76128486/105093655-17adc300-5a71-11eb-96e3-d8a3162a2349.png" alt="Image of page for successful sign up as a result of successful identification" style="width:100%" class="crop" />
 								  </div>
 								</div>
 
-								<h4>Monitoring</h4>
+								<h4>Credit Score - Dashboard</h4>
+								<p>
+								The provider of the score is required – do not use a logo, you must have marketing approval from a bureau to use their logo. 
+								<strong>VantageScore&copy; 3.0 using Equifax Data</strong> – must be present, just like that (VantageScore is one word and it’s a brand, ignore the mistake in this image). The date the score was pulled is required. The date the next score will be available is strongly encouraged, this is based on the weekly or monthly refresh you subscribe to VantageScore&copy; 3.0 is known as an “educational score” and may differ from the FICO&copy; Score used to determine credit availability – notice must be given
 
-								<div class="row" style="display: flex">
+								</p>
+
+								<div class="row crop" style="display: flex">
 								  <div class="column" style="flex: 50%; padding: 5px;">
-								    <img src="https://user-images.githubusercontent.com/76128486/105093951-83902b80-5a71-11eb-8989-31bacb070fa2.png" alt="Image of page showing credit monitoring" style="width:50%" />
+								    <img src="https://user-images.githubusercontent.com/76128486/105093416-b4239580-5a70-11eb-8e00-193613850be6.png" alt="Image of page for showing dashboard of scores returned by various bureaus" style="width:100%" class="crop" />
+								  </div>
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105093301-80e10680-5a70-11eb-99a3-e4b868dce698.png" alt="Image of page for showing score returned by a single bureaus" style="width:100%" class="crop" />
 								  </div>
 								</div>
 
-								<h4>ID Restoration</h4>
-
-								<div class="row" style="display: flex">
+								<h4>Credit Report</h4>
+								<p>
+								The provider of the report is required. The date the report was pulled is required.
+								</p>
+								<div class="row crop" style="display: flex">
 								  <div class="column" style="flex: 50%; padding: 5px;">
-								    <img src="https://user-images.githubusercontent.com/76128486/105093759-3b710900-5a71-11eb-9f72-e67e6bba79d9.png" alt="Image of page showing ID restoration" style="width:50%" />
+								    <img src="https://user-images.githubusercontent.com/76128486/105094067-b508f700-5a71-11eb-94f0-5b72489546fe.png" alt="Image of page for showing report summary" style="width:100%" class="crop" />
+								  </div>
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105094037-a6224480-5a71-11eb-8f45-31cf52bd78a2.png" alt="Image of page for showing score credit accounts" style="width:100%" class="crop" />
+								  </div>
+								</div>
+
+								<h4>Credit Monitoring</h4>
+								<p>
+								The provider of the alert is required. The date the alert is required.
+								</p>
+
+								<div class="row crop" style="display: flex">
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105093951-83902b80-5a71-11eb-8989-31bacb070fa2.png" alt="Image of page showing credit monitoring" style="width:50%; margin-top: -8%;" class="crop" />
+								  </div>
+								</div>
+
+								<h4>Identity Restoration</h4>
+
+								<p>
+								This product content must be delivered as is.
+								</p>
+								<p>
+								<strong>Equifax&copy; ID Restoration</strong><br>
+								Has your identity been compromised?<br>
+								<ul>
+								<li>A specialist will help you work through the process.</li>
+								<li>Once your issues are resolved, we continue to monitor the situation for three months.</li>
+								<li>Call today so that we may help you verify and begin resolving any discrepancies.</li>
+								<li>Call 1-877-368-4940 today to get started</li>
+								</ul>
+								</p>
+								<div class="row crop" style="display: flex">
+								  <div class="column" style="flex: 50%; padding: 5px;">
+								    <img src="https://user-images.githubusercontent.com/76128486/105093759-3b710900-5a71-11eb-9f72-e67e6bba79d9.png" alt="Image of page showing ID restoration" style="width:50%; margin-top: -8%;" class="crop" />
 								  </div>
 								</div>
 
@@ -1150,7 +1122,20 @@ var xhr = new XMLHttpRequest();
 						<section class="docs-section" id="item-3-4-5">
 							<h3 class="section-heading">Compliance</h3>
 							<p>
-							TODO
+							Consumers must always know who they are dealing with. Content delivered to users must not be misleading in any way. Consumers must know where the data came from. Pages with consumer credit data must be compliant with all data presentation requirements and restrictions, no matter how small.
+							</p>
+							<p>
+							Login security must be present:
+							<ul>
+							<li>Account lockout after 5 consecutive failed attempts</li>
+							<li>Multi-step account recovery process</li>
+							</ul>
+							</p>
+							<p>
+							Customers may not access consumer data at any time. Saving data at any time is NOT PERMITTED under any circumstances.
+							</p>
+							<p>
+							Terms of Use and Privacy Policy are from and through StitchCredit – there is no ability to white label this at this time.
 							</p>
 						</section>
 
@@ -1192,18 +1177,18 @@ var xhr = new XMLHttpRequest();
 							<p>
 							Webhook Type Values
 							<ul>
-								<li>ACCNEW		- New Account Created (only sent when created via web, not direct)
-								<li>IDFAIL		- Identity Failed (user identification process failed)
-								<li>ACCREG		- Account Registered (user passed identification and is registered for data)
-								<li>ACCREGFAIL	- Account Registration Failed (user passed identification, but was unable to register for data)
-								<li>ACCCLOSED	- Account Closed (only sent when completed via web, not direct)
-								<li>ACCLOCKED	- Account Locked Out (account is temporarily locked out)
-								<li>ACCLOGINFAIL	- Login Failure (when user authentication fails, web only)
-								<li>ACCALERT	- Account Alert (when credit alert notifications, both daily and real-time)
-								<li>SCOREREF	- User Score has been refreshed
-								<li>REPORTREF	- User Report has been refreshed
-								<li>ERROR		- Error (report important issues that may be of interest)
-								<li>TEST		- Test (testing notification)
+								<li>ACCNEW		- New Account Created (only sent when created via web, not direct)</li>
+								<li>IDFAIL		- Identity Failed (user identification process failed)</li>
+								<li>ACCREG		- Account Registered (user passed identification and is registered for data)</li>
+								<li>ACCREGFAIL	- Account Registration Failed (user passed identification, but was unable to register for data)</li>
+								<li>ACCCLOSED	- Account Closed (only sent when completed via web, not direct)</li>
+								<li>ACCLOCKED	- Account Locked Out (account is temporarily locked out)</li>
+								<li>ACCLOGINFAIL	- Login Failure (when user authentication fails, web only)</li>
+								<li>ACCALERT	- Account Alert (when credit alert notifications, both daily and real-time)</li>
+								<li>SCOREREF	- User Score has been refreshed</li>
+								<li>REPORTREF	- User Report has been refreshed</li>
+								<li>ERROR		- Error (report important issues that may be of interest)</li>
+								<li>TEST		- Test (testing notification)</li>
 							</ul>
 							Additional webhooks may be added without notice
 							</p>
@@ -1215,11 +1200,108 @@ var xhr = new XMLHttpRequest();
 							</p>
 						</section><!--//section-->
 
+						<ul>
+							<li>To quickly grasp the token flow and sequence of API calls, download and import the "Getting Started" postman collections from the <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> and the postman environment we provided to you. <br>
+							The <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> contains a postman collection for each API.
+							</li>
+							<li>Equifax end-points are accessible by first using the <a href="#item-4-5">User API</a> <strong>/users/efx-config</strong> response data, and then the <a href="#item-4-6">Equifax</a> <strong>/oauth/token</strong> call.</li>
+							<li><strong><a href="#item-4-5">User API</a></strong> and <strong><a href="#item-4-6">Equifax API</a></strong> calls are intended to be called from the end-client/user's device. </li>
+							<li>It is not acceptable to pass any of the data to these calls or responses from these calls to your server. </li>
+							<li>Do not save any data. Short term caching is fine, but long-term storage is not. </li>
+							<li>Keep in mind, the preauth token is only valid for 30 seconds. </li>
+							<li><em><strong><a href="#item-4-4">Direct API</a></strong> calls must originate from your server</em> </li>
+							<li><em><strong><a href="#item-4-5">User API</a></strong> calls must originate from the end-client</em> </li>
+							<li><em><strong><a href="#item-4-6">Equifax API</a></strong> calls must originate from the end-client</em> </li>
+						</ul>
 
 						<section class="docs-section" id="item-3-4-7">
 							<h3 class="section-heading">Managing Users</h3>
 							<p>
-							TODO
+							The basic steps to create a new user and manage returning users, including data access:
+							<ol>
+							<li>NEW USERS</li>
+								<ol>
+								<li><a href="#item-4-4">Direct API</a>
+									<ol>
+									<li>Customer Login</li>
+									<li>Register New User: Be sure to save the userId when Registering a New User or you will not be able to generate a returning token for the user</li>
+									</ol>
+								</li>
+								<li><a href="#item-4-5">User API</a>
+									<ol>
+									<li>Preauth Token</li>
+									<li>User Identity</li>
+									<li>Phone Verify</li>
+									<li>Send Mobile Code</li>
+									<li>Verify Mobile Code</li>
+									<li>Get EFX Config</li>
+									</ol>
+								</li>
+								<li><a href="#item-4-6">Equifax API</a>
+									<ol>
+									<li>OAUTH Token</li>
+									<li>Credit Score Latest</li>
+									<li>Credit Score History</li>
+									<li>Credit Report List</li>
+									<li>Credit Report Summary</li>
+									<li>Credit Report (First in list)</li>
+									</ol>
+								</li>
+								</ol>
+							<li>RETURNING USERS
+								<ol>
+								<li><a href="#item-4-4">Direct API</a>
+									<ol>
+									<li>Customer Login</li>
+									<li>New User Token</li>
+									</ol>
+								</li>
+								<li><a href="#item-4-5">User API</a>
+									<ol>
+									<li>Preauth Token - if (idpass=false), the next four calls would need to be made, otherwise skip to Get EFX Config if true)</li>
+									<li>User Identity</li>
+									<li>Phone Verify</li>
+									<li>Send Mobile Code</li>
+									<li>Verify Mobile Code</li>
+									<li>Get EFX Config</li>
+									</ol>
+								</li>
+								<li><a href="#item-4-6">Equifax API</a>
+									<ol>
+									<li>OAUTH Token</li>
+									<li>Credit Score Latest</li>
+									<li>Credit Score History</li>
+									<li>Credit Report List</li>
+									<li>Credit Report Summary</li>
+									<li>Credit Report (First in list)</li>
+									</ol>
+								</li>
+								</ol>
+							</li>
+							</ol>
+							<p>
+							The Consumer Credit - Getting Started - New User.postman_collection.json will walk you through these steps in order
+							</p>
+							<p>
+							When creating creating a new user:
+							</p>
+							<p>Be sure to save the userId when Registering a New User or you will not be able to generate a returning token for the user. <em>As a matter of security, we do not allow the listing of user IDs.</em>
+							</p>
+							<p>
+							Once you create a user the identity information is hashed and used to verify if the same identity is being re-enrolled.  If a matching hash is found it will skip the identification process.  This is great in production, but may limit your ability to test.  To get past this, just add a number to the USER_STREET_2 and increment it each time you register a new user and want to go through the full authentication process.
+							</p>
+							<p>
+							In the test environment it is important that you use the User Test Identity provided to you <strong>verbatim</strong>.  You may change the email address and phone number <strong>ONLY</strong>.
+							<p>
+							Additional Notes:
+							<ul>
+								<li>On Register New User - change the email to your email.  You may add a +1, +2, etc to keep reusing the same email address (ex: test+1@test.com)</li>
+								<li>On Register New User & User Identity - change the phone number to your mobile phone number or you won't receive the SMS messages.</li>
+								<li>Using the Phone Verify, Send Mobile Code, Verify Mobile Code method, the code in the test system passes through, so you can just keep clicking the send on those functions, though you will receive the text as well.</li>
+								<li>For the Get Identity Quiz and Verify Identity Quiz methods, you will need to find the correct answers and update the Verify Identity Quiz body accordingly to successfully authenticate using those methods.</li>
+								<li>When registering a new user, be sure to save the userId or you will not be able to log that user in later.  As a matter of security, we do not allow the listing of user IDs.</li>
+								<li>REMEMBER - you MUST use the test user data EXACTLY as it is provided.  Only the phone number and email should be changed.</li>
+							</ul>
 							</p>
 						</section><!--//section-->
 
@@ -1230,7 +1312,13 @@ var xhr = new XMLHttpRequest();
 							</p>
 							<p>
 							Consumer Credit Postman Collections include pre-defined API calls to help you understand and develop your solution. See the Test API scripts for additional documentation.
+							<ul>
+							<li>The Consumer Credit - Getting Started - New User.postman_collection.json will walk you through the Create New User steps in order</li>
+							<li>The Consumer Credit - Getting Started - Returning User.postman_collection.json will walk you through the Returning User steps in order</li>
+							</ul>
+							In the <strong>test</strong> environment it is important that you use the User Test Identity provided to you verbatim. You may change the email address and phone number <strong>ONLY.</strong>
 							</p>
+
 						</section>
 
 
@@ -1238,9 +1326,35 @@ var xhr = new XMLHttpRequest();
 
 					<section class="docs-section" id="item-3-5">
 						<h2 class="section-heading">SDKs (under development)</h2>
-						<p>
-						TODO
-						</p>
+						<section class="docs-section" id="item-3-5-1">
+							<h3 class="section-heading">Overview</h3>
+							<p>
+							<em>SDKs are currently under development -- so far we have:</em>
+							<ul>
+								<li><a href="https://github.com/StitchCredit/b2c-api-javascript" target="_blank"><em>javascript</em></a></li>
+								<li><a href="https://github.com/StitchCredit/b2c-api-python" target="_blank"><em>python</em></a></li>
+							</ul>
+							</p>
+						</section>
+						<section class="docs-section" id="item-3-5-2">
+							<h3 class="section-heading">javascript</h3>
+							<p>
+							You will find an installation guide and a getting started guide for the SDK: EcreditDirectApi - JavaScript client for ecredit-direct-api StitchCredit API.
+							</p>
+							<p>
+							This is the the current SDK for <a href="https://github.com/StitchCredit/b2c-api-javascript" target="_blank"><em>javascript</em></a>
+							</p>
+						</section>
+						<section class="docs-section" id="item-3-5-3">
+							<h3 class="section-heading">python</h3>
+							<p>
+							You will find a description of requirements, an installation & usage guide, and a getting started guide for the SDK: ecreditapi - python client for ecredit-direct-api StitchCredit API.
+							</p>
+							<p>
+							This is the the current SDK for <a href="https://github.com/StitchCredit/b2c-api-python" target="_blank"><em>python</em></a>
+							</p>
+						</section>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-3-6">
@@ -1253,22 +1367,80 @@ var xhr = new XMLHttpRequest();
 					<section class="docs-section" id="item-3-7">
 						<h2 class="section-heading">Postman collections</h2>
 						<p>
-						TODO
+						The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.
 						</p>
+						<p>
+						Consumer Credit Postman Collections include pre-defined API calls to help you understand and develop your solution. See the Test API scripts for additional documentation.
+						<ul>
+						<li>The Consumer Credit - Getting Started - New User.postman_collection.json will walk you through the Create New User steps in order</li>
+						<li>The Consumer Credit - Getting Started - Returning User.postman_collection.json will walk you through the Returning User steps in order</li>
+						</ul>
+						In the <strong>test</strong> environment it is important that you use the User Test Identity provided to you verbatim. You may change the email address and phone number <strong>ONLY.</strong>
+						</p>
+						<p>
+						TODO: include Postman Collections
+						</p>
+
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-3-8">
 						<h2 class="section-heading">Endpoints</h2>
 						<p>
-						TODO
+						Please refer to the various sections within the <a href="#section-4">API Guide</a> for the specific API endpoints.
 						</p>
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-3-9">
 						<h2 class="section-heading">Webhooks</h2>
-						<p>
-						TODO
-						</p>
+<!-- TODO: move this to an server-side insert as it is used more than once -->
+							<p>
+							Webhooks are available to notify you when an alert (or other notifications) comes in so that you can message users in whatever fashion you wish to return to your site.
+							</p>
+							<p>
+							The basic JSON for the web hook will look like the following (not all fields are present with all requests):
+							<pre><code data-language="json">
+[{
+    id: "String - Webhook ID, UUID format",
+    type: "String - Webhook Type, see possible values below",
+    user_id: "String - StitchCredit user ID, UUID format",
+    host_id: "String - The host configuration generating the webhook, UUID format",
+    time: "long - Linux epoch, seconds since 1/1/1970",
+    error_code: "String - used to report host errors, future use at the moment",
+    error_msg: "String - error code details"
+    alert_id: "String - id for retrieving additional alert details when available",
+    alert_date: "Date - the date/time the alert was reported",
+    alert_source: "String - name of the institution reporting when available"
+}]
+							</code></pre>
+							<p>
+							When a webhook is received, a response is needed.  Responses with a status other than true will cause the webhook to be resent.
+							<pre><code data-language="json">
+[{
+    hook_id: "the ID of the webhook",
+    status: true | false
+}]
+							</code></pre>
+							<p>
+							Webhook Type Values
+							<ul>
+								<li>ACCNEW		- New Account Created (only sent when created via web, not direct)</li>
+								<li>IDFAIL		- Identity Failed (user identification process failed)</li>
+								<li>ACCREG		- Account Registered (user passed identification and is registered for data)</li>
+								<li>ACCREGFAIL	- Account Registration Failed (user passed identification, but was unable to register for data)</li>
+								<li>ACCCLOSED	- Account Closed (only sent when completed via web, not direct)</li>
+								<li>ACCLOCKED	- Account Locked Out (account is temporarily locked out)</li>
+								<li>ACCLOGINFAIL	- Login Failure (when user authentication fails, web only)</li>
+								<li>ACCALERT	- Account Alert (when credit alert notifications, both daily and real-time)</li>
+								<li>SCOREREF	- User Score has been refreshed</li>
+								<li>REPORTREF	- User Report has been refreshed</li>
+								<li>ERROR		- Error (report important issues that may be of interest)</li>
+								<li>TEST		- Test (testing notification)</li>
+							</ul>
+							Additional webhooks may be added without notice
+							</p>
+							<p>
+							"Consumer Credit - Test API.postman_collection.json" includes some webhook tests to help you understand and develop your solution.  See the Test API scripts for additional documentation.
+							</p>
 					</section><!--//section-->
 
 			    </article><!--//docs-article-->
@@ -1278,248 +1450,355 @@ var xhr = new XMLHttpRequest();
 					    <h1 class="docs-heading">API</h1>
 					    <section class="docs-intro">
 						<p>
-						TODO
+						With StitchCredit's Consumer Credit API, you can offer Consumer Credit Scores and Credit Monitoring directly as part of your web or mobile experience.
 						</p>
 						</section><!--//docs-intro-->
 				    </header>
 					<section class="docs-section" id="item-4-1">
 						<h2 class="section-heading">Overview</h2>
 						<p>
-						TODO
+						To quickly grasp the token flow and sequence of API calls, download and import the "Getting Started" postman collections from the <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> and the postman environment we provided to you.<br>
+						The <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> contains a postman collection for each API.
 						</p>
+						<p>
+						<ul>
+							<li><em><strong><a href="#item-4-4">Direct API</a></strong> calls must originate from your server</em> </li>
+							<li><em><strong><a href="#item-4-5">User API</a></strong> calls must originate from the end-client</em> </li>
+							<li><em><strong><a href="#item-4-6">Equifax API</a></strong> calls must originate from the end-client</em> </li>
+						</ul>
+						Equifax end-points are accessible by first using the <a href="#item-4-5">User API</a> <strong>/users/efx-config</strong> response data, and then the Equifax <strong>/oauth/token</strong> call. As mentioned above, <strong><a href="#item-4-5">User API</a></strong> and <strong><a href="#item-4-6">Equifax API</a></strong> calls are intended to be called from the end-client/user's device.
+						</p>
+						<p>
+						It is not acceptable to pass any of the data to these calls or responses from these calls to your server. Do not save any data. Short term caching is fine, but long-term storage is not. 
+						</p>
+
 					</section><!--//section-->
-					
+
 					<section class="docs-section" id="item-4-2">
 						<h2 class="section-heading">Access Credentials</h2>
 						<p>
-						TODO
+						Access Credentials will be sent to you in a Postman Environment upon registration via email.
 						</p>
 					</section><!--//section-->
-					
+
 					<section class="docs-section" id="item-4-3">
 						<h2 class="section-heading">Token Validity Times</h2>
 						<p>
-						TODO
+						<div style="display: table; clear: both;width: 80%;">
+						  <div style="float: left; width: 50%;">
+						    <p>
+						      <strong>Direct Tokens</strong>
+						    </p>
+						    <p>
+						      <strong>Preauth Tokens</strong>
+						    </p>
+						    <p>
+						      <strong>User Tokens</strong>
+						    </p>
+						    <p>
+						      <strong>Refresh Tokens</strong>
+						    </p>
+						    <p>
+						      <strong>Mobile Verification Tokens</strong>
+						    </p>
+						    <p>
+						      <strong>Customer Tokens</strong>
+						    </p>
+						    <p>
+						      <strong>Action Tokens</strong>
+						    </p>
+						  </div>
+						  <div style="float: left; width: 50%;">
+						    <p>
+						      1 hour
+						    </p>
+						    <p>
+						      30 seconds
+						    </p>
+						    <p>
+						      15 minutes
+						    </p>
+						    <p>
+						      Valid after 15 minutes, and expire after 30 minutes
+						    </p>
+						    <p>
+						      15 minutes
+						    </p>
+						    <p>
+						      Valid for 1 day (not used in <a href="#item-4-4">Direct API</a>)
+						    </p>
+						    <p>
+						      Valid for 10 minutes (not used in <a href="#item-4-4">Direct API</a>)
+						    </p>
+						  </div>
+						</div>
+						</p>
+						<p>
+						Keep in mind, the preauth token is only valid for 30 <strong>seconds</strong>.
 						</p>
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-4-4">
 						<h2 class="section-heading">Direct API</h2>
-					
+
 						<p>
 						<em><strong>Direct API</strong> calls must originate from your server</em>
+						</p>
+						<p>
+						A token from /direct/login is required for all other <a href="#item-4-4">Direct API</a>end-points in yellow.
+						It is a bearer authorization token.
+						</p>
+						<p>
+						Once you have a preauth token, returned from /direct/user-reg or /direct/preauth-token, pass it to the Web UI entry point in the embedded iFrame.
+						</p>
+						<p>
+						Be sure to <strong>save the ID</strong> returned from /direct/user-reg or you won’t be able to reauthorize the user when they return.
+						</p>
+						<p>
+						**<em>The preauth token is only valid for 30 seconds</em>
 						</p>
 
 						<section class="docs-section" id="item-4-4-1">
 						<h3 class="section-heading">Endpoints</h3>
+							<p>
+							<div style="display: table; clear: both;">
+							  <div style="background-color:#BBEE77; float: left; width: 50%;">
+							    Customer Login
+							  </div>
+							  <div style="background-color:#BBEE77;float: left; width: 50%;">
+							    /direct/login
+							  </div>
+							</div>
+							<div style="display: table; clear: both;">
+							  <div style="background-color:#FFFF99; float: left; width: 50%;">
+							    Register New User
+							    <br>
+							    New User Token
+							    <br>
+							    Change Email
+							    <br>
+							    Change Phone
+							    <br>
+							    Close Account
+							    <br>
+							    Update Refresh
+							    <br>
+							  </div>
+							  <div style="background-color:#FFFF99;float: left; width: 50%;">
+							    /direct/user-reg
+							    <br>
+							    /direct/preauth-token
+							    <br>
+							    /direct/change-email
+							    <br>
+							    /direct/change-phone
+							    <br>
+							    /direct/close-account
+							    <br>
+							    /direct/update-refresh [PREMIUM FEATURE]
+							    <br>
+							  </div>
+							</div>
+							</p>
 							<p>Collection of end-points that should be called from your server.</p>
-							<h4>1. Customer Login (POST)</h4><p>/direct/login</p>
-								<p>Using your credentials in the request body ("apikey" and "secret"), the response will contain the <em>token</em> and <em>refresh</em> token.<br>
-								These tokens are required for completing the other requests to <strong>Direct API</strong> endpoints.<br></p>
-								<p>This token will be valid for approximately one hour. After the one hour, the refresh token will become valid. <br></p>
-								<p>If the token expires, use <strong>/direct/refresh-token?token={<em>refresh</em>}</strong> to get a new token <br></p>
+							<ol>
+								<h4><li>Customer Login (POST)</h4><p>/direct/login</p>
+									<p>Using your credentials in the request body ("apikey" and "secret"), the response will contain the <em>token</em> and <em>refresh</em> token.<br>
+									These tokens are required for completing the other requests to <strong>Direct API</strong> endpoints.<br></p>
+									<p>This token will be valid for approximately one hour. After the one hour, the refresh token will become valid. <br></p>
+									<p>If the token expires, use <strong>/direct/refresh-token?token={<em>refresh</em>}</strong> to get a new token <br></p>
+									<br>
+								<h6>REQUEST BODY SCHEMA: application/json</h6>
+								<p>Add your credentials to "apikey" and "secret". <em>(keep these credentials a secret)</em></p>
+								<ul>
+									<li>secret : string<span class="kVVBQg">required</span></li>
+									<li>apikey : string<span class="kVVBQg">required</span></li>
+								</ul>
+								<h6>RESPONSE SCHEMA: */*</h6>
+								<p>200 : This response contains a <strong>token</strong> and a <strong>refresh token</strong>.</p>
+								<ul>
+									<li>token : string</li>
+									<li>expires : integer &lt;int64&gt;</li>
+									<li>refresh : string </li>
+								</ul>
 								<br>
-							<h6>REQUEST BODY SCHEMA: application/json</h6>
-							<p>Add your credentials to "apikey" and "secret". <em>(keep these credentials a secret)</em></p>
-							<ul>
-								<li>secret : string<span class="kVVBQg">required</span></li>
-								<li>apikey : string<span class="kVVBQg">required</span></li>
-							</ul>
-							<h6>RESPONSE SCHEMA: */*</h6>
-							<p>200 : This response contains a <strong>token</strong> and a <strong>refresh token</strong>.</p>
-							<ul>
-								<li>token : string</li>
-								<li>expires : integer &lt;int64&gt;</li>
-								<li>refresh : string </li>
-							</ul>
-							<br>
-							<br>
-
-
-							<h4>2. CUSTOMER REFRESH TOKEN (GET)</h4><p>/direct/refresh-token</p>
-							<h6>QUERY PARAMETERS</h6>
-							<ul>
-								<li>secret : string<span class="kVVBQg">required</span>
-								<span class="code">Example : token={{rdtoken}}</span>
 								</li>
-							</ul>
-							</br>
-							<h6>HEADER PARAMETERS</h6>
-							<ul>
-								<li>Content-type : string<span class="kVVBQg">required</span>
-								<span class="code">Example : application/json</span>
+								<h4><li>CUSTOMER REFRESH TOKEN (GET)</h4><p>/direct/refresh-token</p>
+								<h6>QUERY PARAMETERS</h6>
+								<ul>
+									<li>secret : string<span class="kVVBQg">required</span>
+									<span class="code">Example : token={{rdtoken}}</span>
+									</li>
+								</ul>
+								</br>
+								<h6>HEADER PARAMETERS</h6>
+								<ul>
+									<li>Content-type : string<span class="kVVBQg">required</span>
+									<span class="code">Example : application/json</span>
+									</li>
+								</ul>
+								<h6>RESPONSE SCHEMA: */*</h6>
+								<p>200 default response</p>
+								<ul>
+									<li>token : string</li>
+									<li>expires : integer &lt;int64&gt;</li>
+									<li>refresh : string </li>
+								</ul>
+								<br>
 								</li>
-							</ul>
-							<h6>RESPONSE SCHEMA: */*</h6>
-							<p>200 default response</p>
-							<ul>
-								<li>token : string</li>
-								<li>expires : integer &lt;int64&gt;</li>
-								<li>refresh : string </li>
-							</ul>
-							<br>
-							<br>
+								<h4><li>REGISTER NEW USER (POST)</h4><p>/direct/user-reg</p>
+								<p>Creates a new user with unique <strong>userId</strong> and <strong>preauth token</strong>.<br></p>
+								<p>When a user logs back in, use <strong>/direct/preauth-token/{userId}</strong> to generate that user a new <strong>preauth token</strong> and a new <strong>userId</strong> (refer to <strong>Returning User</strong>)</p>
+								<p>Don't store the token across sessions. Use the userId from the previous session to generate a new userId and a new preauth token.</p>
+								<h6>REQUEST BODY SCHEMA: application/json</h6>
+								<p>Add your credentials to "apikey" and "secret". <em>(keep these credentials a secret)</em></p>
+								<ul>
+									<li>email : string<span class="kVVBQg">required</span></li>
+									<li>fname : string<span class="kVVBQg">required</span></li>
+									<li>lname : string<span class="kVVBQg">required</span></li>
+									<li>mobile : string<span class="kVVBQg">required</span></li>
+								</ul>
+								<h6>RESPONSE SCHEMA: */*</h6>
+								<p>200 default response, contains <strong>userId</strong> and <strong>preauth token</strong>.</p>
+								<ul>
+									<li>userId : string &lt;uuid&gt;</li>
+									<li>token : string </li>
+								</ul>
+								<br>
+								</li>
+								<h4><li>NEW USER TOKEN (GET)</h4><p>/direct/preauth-token/{userId}</p>
+								<h6>PATH PARAMETERS</h6>
+								<ul>
+									<li>userId : string<span class="kVVBQg">required</span></li>
+								</ul>
+								<h6>HEADER PARAMETERS</h6>
+								<ul>
+									<li>Content-type : string<span class="kVVBQg">required</span></li>
+									<span class="code">Example : application/json</span>
+								</ul>
+								<h6>RESPONSE SCHEMA: */*</h6>
+								<p>200 default response.</p>
+								<ul>
+									<li>userId : string &lt;uuid&gt;</li>
+									<li>token : string </li>
+								</ul>
+								<br>
+								</li>
+								<h4><li>CLOSE USER ACCOUNT (POST)</h4><p>/direct/close-account/{userId}</p>
+								<h6>PATH PARAMETERS</h6>
+								<ul>
+									<li>userId : string<span class="kVVBQg">required</span></li>
+								</ul>
+								<h6>HEADER PARAMETERS</h6>
+								<ul>
+									<li>Content-type : string<span class="kVVBQg">required</span></li>
+									<span class="code">Example : application/json</span>
+								</ul>
+								<h6>RESPONSE SCHEMA: */*</h6>
+								<p>200 default response.</p>
+								<ul>
+									<li>object</li>
+								</ul>
+								<br>
 
-							<h4>3. REGISTER NEW USER (POST)</h4><p>/direct/user-reg</p>
-							<p>Creates a new user with unique <strong>userId</strong> and <strong>preauth token</strong>.<br></p>
-							<p>When a user logs back in, use <strong>/direct/preauth-token/{userId}</strong> to generate that user a new <strong>preauth token</strong> and a new <strong>userId</strong> (refer to <strong>Returning User</strong>)</p>
-							<p>Don't store the token across sessions. Use the userId from the previous session to generate a new userId and a new preauth token.</p>
-							<h6>REQUEST BODY SCHEMA: application/json</h6>
-							<p>Add your credentials to "apikey" and "secret". <em>(keep these credentials a secret)</em></p>
-							<ul>
-								<li>email : string<span class="kVVBQg">required</span></li>
-								<li>fname : string<span class="kVVBQg">required</span></li>
-								<li>lname : string<span class="kVVBQg">required</span></li>
-								<li>mobile : string<span class="kVVBQg">required</span></li>
-							</ul>
-							<h6>RESPONSE SCHEMA: */*</h6>
-							<p>200 default response, contains <strong>userId</strong> and <strong>preauth token</strong>.</p>						
-							<ul>
-								<li>userId : string &lt;uuid&gt;</li>
-								<li>token : string </li>
-							</ul>
-							<br>
-							<br>
+								</li>
+								<h4><li>CHANGE USER EMAIL (POST)</h4><p>/direct/change-email/{userId}</p>
+								<h6>PATH PARAMETERS</h6>
+								<ul>
+									<li>userId : string<span class="kVVBQg">required</span></li>
+								</ul>
+								<h6>REQUEST BODY SCHEMA: application/json</h6>
+								<ul>
+									<li>email : string<span class="kVVBQg">required</span></li>
+								</ul>
+								<h6>RESPONSE SCHEMA: */*</h6>
+								<p>200 default response.</p>
+								<ul>
+									<li>object</li>
+								</ul>
+								<br>
+								</li>
+								<h4><li>CHANGE USER PHONE (POST)</h4><p>/direct/change-mobile/{userId}</p>
+								<h6>PATH PARAMETERS</h6>
+								<ul>
+									<li>userId : string<span class="kVVBQg">required</span></li>
+								</ul>
+								<h6>REQUEST BODY SCHEMA: application/json</h6>
+								<ul>
+									<li>mobile : string<span class="kVVBQg">required</span></li>
 
-							<h4>4. NEW USER TOKEN (GET)</h4><p>/direct/preauth-token/{userId}</p>
-							<h6>PATH PARAMETERS</h6>
-							<ul>
-								<li>userId : string<span class="kVVBQg">required</span></li>
-							</ul>
-							<h6>HEADER PARAMETERS</h6>
-							<ul>
-								<li>Content-type : string<span class="kVVBQg">required</span></li>
-								<span class="code">Example : application/json</span>
-							</ul>
-							<h6>RESPONSE SCHEMA: */*</h6>
-							<p>200 default response.</p>						
-							<ul>
-								<li>userId : string &lt;uuid&gt;</li>
-								<li>token : string </li>
-							</ul>
-							<br>
-							<br>
+								</ul>
+								<h6>RESPONSE SCHEMA: */*</h6>
+								<p>200 default response.</p>
+								<ul>
+									<li>object</li>
+								</ul>
+								<br>
+								</li>
+								<h4><li>CHANGE USER HOST (POST)</h4><p>/direct/change-host/{userId}</p>
+								<h6>PATH PARAMETERS</h6>
+								<ul>
+									<li>userId : string<span class="kVVBQg">required</span></li>
+								</ul>
+								<h6>QUERY PARAMETERS</h6>
+								<ul>
+									<li>host : string<span class="kVVBQg">required</span></li>
+									<span class="code">Example : application/json</span>
+								</ul>
+								<h6>HEADER PARAMETERS</h6>
+								<ul>
+									<li>Content-type : string<span class="kVVBQg">required</span></li>
+									<span class="code">Example : application/json</span>
+								</ul>
+								<h6>RESPONSE SCHEMA: */*</h6>
+								<p>200 default response.</p>
+								<ul>
+									<li>object</li>
+								</ul>
+								<br>
+								</li>
+								<h4><li>UPDATE USER REFRESH DATA (POST)</h4><p>/direct/update-refresh/{userId}</p>
+								<p><strong>*Premium Feature - May Require Additional Access</strong></p>
+								<h6>PATH PARAMETERS</h6>
+								<ul>
+									<li>userId : string<span class="kVVBQg">required</span></li>
+								</ul>
+								<h6>QUERY PARAMETERS</h6>
+								<ul>
+									<li>rmonly : boolean<span class="kVVBQg">required</span></li>
+									<span class="code">Example : rmonly=false</span>
+								</ul>
+								<h6>HEADER PARAMETERS</h6>
+								<ul>
+									<li>Content-type : string<span class="kVVBQg">required</span></li>
+									<span class="code">Example : application/json</span>
+								</ul>
+								<h6>RESPONSE SCHEMA: */*</h6>
+								<p>200 default response.</p>
+								<ul>
+									<li>object</li>
+								</ul>
+								<br>
 
-							<h4>5. CLOSE USER ACCOUNT (POST)</h4><p>/direct/close-account/{userId}</p>
-							<h6>PATH PARAMETERS</h6>
-							<ul>
-								<li>userId : string<span class="kVVBQg">required</span></li>
-							</ul>
-							<h6>HEADER PARAMETERS</h6>
-							<ul>
-								<li>Content-type : string<span class="kVVBQg">required</span></li>
-								<span class="code">Example : application/json</span>
-							</ul>
-							<h6>RESPONSE SCHEMA: */*</h6>
-							<p>200 default response.</p>						
-							<ul>
-								<li>object</li>
-							</ul>
-							<br>
-							<br>
-
-
-							<h4>6. CHANGE USER EMAIL (POST)</h4><p>/direct/change-email/{userId}</p>
-							<h6>PATH PARAMETERS</h6>
-							<ul>
-								<li>userId : string<span class="kVVBQg">required</span></li>
-							</ul>
-							<h6>REQUEST BODY SCHEMA: application/json</h6>
-							<ul>
-								<li>email : string<span class="kVVBQg">required</span></li>
-							</ul>
-							<h6>RESPONSE SCHEMA: */*</h6>
-							<p>200 default response.</p>						
-							<ul>
-								<li>object</li>
-							</ul>
-							<br>
-							<br>
-
-							<h4>7. CHANGE USER PHONE (POST)</h4><p>/direct/change-mobile/{userId}</p>
-							<h6>PATH PARAMETERS</h6>
-							<ul>
-								<li>userId : string<span class="kVVBQg">required</span></li>
-							</ul>
-							<h6>REQUEST BODY SCHEMA: application/json</h6>
-							<ul>
-								<li>mobile : string<span class="kVVBQg">required</span></li>
-			
-							</ul>
-							<h6>RESPONSE SCHEMA: */*</h6>
-							<p>200 default response.</p>						
-							<ul>
-								<li>object</li>
-							</ul>
-							<br>
-							<br>
-
-							<h4>8. CHANGE USER HOST (POST)</h4><p>/direct/change-host/{userId}</p>
-							<h6>PATH PARAMETERS</h6>
-							<ul>
-								<li>userId : string<span class="kVVBQg">required</span></li>
-							</ul>
-							<h6>QUERY PARAMETERS</h6>
-							<ul>
-								<li>host : string<span class="kVVBQg">required</span></li>
-								<span class="code">Example : application/json</span>
-							</ul>
-							<h6>HEADER PARAMETERS</h6>
-							<ul>
-								<li>Content-type : string<span class="kVVBQg">required</span></li>
-								<span class="code">Example : application/json</span>
-							</ul>
-							<h6>RESPONSE SCHEMA: */*</h6>
-							<p>200 default response.</p>						
-							<ul>
-								<li>object</li>
-							</ul>
-							<br>
-							<br>
-
-							<h4>9. UPDATE USER REFRESH DATA (POST)</h4><p>/direct/update-refresh/{userId}</p>
-							<p><strong>*Premium Feature - May Require Additional Access</strong></p>
-							<h6>PATH PARAMETERS</h6>
-							<ul>
-								<li>userId : string<span class="kVVBQg">required</span></li>
-							</ul>
-							<h6>QUERY PARAMETERS</h6>
-							<ul>
-								<li>rmonly : boolean<span class="kVVBQg">required</span></li>
-								<span class="code">Example : rmonly=false</span>
-							</ul>
-							<h6>HEADER PARAMETERS</h6>
-							<ul>
-								<li>Content-type : string<span class="kVVBQg">required</span></li>
-								<span class="code">Example : application/json</span>
-							</ul>
-							<h6>RESPONSE SCHEMA: */*</h6>
-							<p>200 default response.</p>						
-							<ul>
-								<li>object</li>
-							</ul>
-							<br>
-							<br>
-
-
-							<h4>10. GET ALERT DETAIL (GET)</h4><p>/direct/efx-alert/{alertId}</p>
-							<p><strong>*Premium Feature - May Require Additional Access</strong></p>
-							<h6>PATH PARAMETERS</h6>
-							<ul>
-								<li>alertId : string<span class="kVVBQg">required</span></li>
-							</ul>
-							<h6>HEADER PARAMETERS</h6>
-							<ul>
-								<li>Content-type : string<span class="kVVBQg">required</span></li>
-								<span class="code">Example : application/json</span>
-							</ul>
-							<h6>RESPONSE SCHEMA: */*</h6>
-							<p>200 default response.</p>						
-							<ul>
-								<li>object</li>
-							</ul>
+								</li>
+								<h4><li>GET ALERT DETAIL (GET)</h4><p>/direct/efx-alert/{alertId}</p>
+								<p><strong>*Premium Feature - May Require Additional Access</strong></p>
+								<h6>PATH PARAMETERS</h6>
+								<ul>
+									<li>alertId : string<span class="kVVBQg">required</span></li>
+								</ul>
+								<h6>HEADER PARAMETERS</h6>
+								<ul>
+									<li>Content-type : string<span class="kVVBQg">required</span></li>
+									<span class="code">Example : application/json</span>
+								</ul>
+								<h6>RESPONSE SCHEMA: */*</h6>
+								<p>200 default response.</p>
+								<ul>
+									<li>object</li>
+								</ul>
+							</ol>
 						</section><!--//section-->
-
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-4-5">
@@ -1527,12 +1806,152 @@ var xhr = new XMLHttpRequest();
 						<p>
 						<em><strong>User API</strong> calls must originate from the end-client</em>
 						</p>
-
+						<p>
+						Equifax end-points are accessible by first using the User API <strong>/users/efx-config</strong> response data, and then the <a href="#item-4-6">Equifax</a> <strong>/oauth/token</strong> call.
+						</p>
+						<p>
+						<strong>User API</strong> and <strong><a href="#item-4-6">Equifax API</a></strong> calls are intended to be called from the end-client/user's device. 
+						</p>
 						<section class="docs-section" id="item-4-5-1">
 						<h3 class="section-heading">Endpoints</h3>
 							<p>
-							TODO
+							<div style="display: table; clear: both; width:80%">
+							  <div style="float: left; width: 50%;">
+							    Preauth Token
+							    <br>
+							    User Identity
+							    <br>
+							    Phone Verify
+							    <br>
+							    Send Mobile Code
+							    <br>
+							    Renew Mobile Code
+							    <br>
+							    Verify Mobile Code
+							    <br>
+							    Get Identity Quiz
+							    <br>
+							    Verify Identity Quiz
+							    <br>
+							    Get EFX Config
+							  </div>
+							  <div style="float: left; width: 50%;">
+							    /users/preauth-token
+							    <br>
+							    /users/identity
+							    <br>
+							    /users/get-mobile
+							    <br>
+							    /users/send-code
+							    <br>
+							    /users/renew-code
+							    <br>
+							    /users/verify-code
+							    <br>
+							    /users/get-quiz
+							    <br>
+							    /users/verify-quiz
+							    <br>
+							    /users/efx-config
+							  </div>
+							</div>
+							<div style="display: table; clear: both; width:80%">
+							  <div style="float: left; width: 50%;">
+							    Start
+							    <br>
+							    Initialize
+							    <br>
+							    Customer Login
+							    <br>
+							    Register New User
+							    <br>
+							    Password Recovery
+							    <br>
+							    Recovery Token Verify
+							    <br>
+							    Password Reset
+							    <br>
+							    Action Token
+							    <br>
+							    Change Email
+							    <br>
+							    Change Phone
+							    <br>
+							    Change Password
+							    <br>
+							    Change Recovery
+							    <br>
+							    Close Account
+							    <br>
+							  </div>
+							  <div style="float: left; width: 50%;">
+							    /users/start
+							    <br>
+							    /users/initialize
+							    <br>
+							    /users/login
+							    <br>
+							    /users/register
+							    <br>
+							    /users/password-recovery
+							    <br>
+							    /users/recovery-token
+							    <br>
+							    /users/password-reset
+							    <br>
+							    /users/action-token
+							    <br>
+							    /users/change-email
+							    <br>
+							    /users/change-phone
+							    <br>
+							    /users/change-password
+							    <br>
+							    /users/change-recovery
+							    <br>
+							    /users/close-account
+							    <br>
+							  </div>
+							</div>
 							</p>
+							<ol>
+								<h4><li>TODO</h4>
+								<p>TODO</p>
+
+								<h6>PATH PARAMETERS</h6>
+								<ul>
+									<li>userId : string<span class="kVVBQg">required</span></li>
+								</ul>
+								<h6>QUERY PARAMETERS</h6>
+								<ul>
+									<li>count : integer &lt;int32><span class="kVVBQg">required</span>
+									<span class="code">Example : count=1</span>
+									</li>
+									<li>type : string<span class="kVVBQg">required</span>
+									<span class="code">Example : type=NEW_ACCOUNT</span>
+									</li>
+								</ul>
+								</br>
+								<h6>HEADER PARAMETERS</h6>
+								<ul>
+									<li>Content-type : string<span class="kVVBQg">required</span></li>
+									<span class="code">Example : application/json</span>
+								</ul>
+								<h6>REQUEST BODY SCHEMA: application/json</h6>
+								Array () [
+								<ul>
+									<li>type : string<span class="kVVBQg">required</span></li>
+									<li>user_id : string<span class="kVVBQg">required</span></li>
+									<li>time : string<span class="kVVBQg">required</span></li>
+									<li>error_code : string<span class="kVVBQg">required</span></li>
+									<li>error_msg : string<span class="kVVBQg">required</span></li>
+								</ul>
+								]
+								<h6>RESPONSE SCHEMA: */*</h6>
+								<p>200 default response.</p>
+								<br>
+								</li>
+							</ol>
 						</section><!--//section-->
 
 					</section><!--//section-->
@@ -1542,11 +1961,92 @@ var xhr = new XMLHttpRequest();
 						<p>
 						<em><strong>Equifax API</strong> calls must originate from the end-client</em>
 						</p>
+						<p>
+						Equifax end-points are accessible by first using the <a href="#item-4-5">User API</a> <strong>/users/efx-config</strong> response data, and then the Equifax <strong>/oauth/token</strong> call. As mentioned above, <strong><a href="#item-4-5">User API</a></strong> and <strong><a href="#item-4-6">Equifax API</a></strong> calls are intended to be called from the end-client/user's device.
+						</p>
 
 						<section class="docs-section" id="item-4-6-1">
 						<h3 class="section-heading">Endpoints</h3>
 							<p>
-							TODO
+							<div style="display: table; clear: both;">
+							  <div style="float: left; width: 50%;">
+							    Delivery Token
+							    <br>
+							    Credit Alerts
+							    <br>
+							    Credit Score
+							    <br>
+							    Credit Score History
+							    <br>
+							    Credit Report List
+							    <br>
+							    Credit Report
+							    <br>
+							    Credit Report Summary
+							    <br>
+							    Credit Report PDF
+							    <br>
+							  </div>
+							  <div style="float: left; width: 50%;">
+							    /oauth/token
+							    <br>
+							    /v1/creditMonitoring
+							    <br>
+							    /v1/creditScore
+							    <br>
+							    /v1/creditScore/history
+							    <br>
+							    /v1/creditReport
+							    <br>
+							    /v1/creditReport/{reportId}
+							    <br>
+							    /v1/creditReport/{reportId}/summary
+							    <br>
+							    /v1/creditReport/{reportId}/print
+							    <br>
+							  </div>
+							</div>
+							</p>
+
+							<p>
+							<ol>
+								<h4><li>TODO</h4>
+								<p>TODO</p>
+
+								<h6>PATH PARAMETERS</h6>
+								<ul>
+									<li>userId : string<span class="kVVBQg">required</span></li>
+								</ul>
+								<h6>QUERY PARAMETERS</h6>
+								<ul>
+									<li>count : integer &lt;int32><span class="kVVBQg">required</span>
+									<span class="code">Example : count=1</span>
+									</li>
+									<li>type : string<span class="kVVBQg">required</span>
+									<span class="code">Example : type=NEW_ACCOUNT</span>
+									</li>
+								</ul>
+								</br>
+								<h6>HEADER PARAMETERS</h6>
+								<ul>
+									<li>Content-type : string<span class="kVVBQg">required</span></li>
+									<span class="code">Example : application/json</span>
+								</ul>
+								<h6>REQUEST BODY SCHEMA: application/json</h6>
+								Array () [
+								<ul>
+									<li>type : string<span class="kVVBQg">required</span></li>
+									<li>user_id : string<span class="kVVBQg">required</span></li>
+									<li>time : string<span class="kVVBQg">required</span></li>
+									<li>error_code : string<span class="kVVBQg">required</span></li>
+									<li>error_msg : string<span class="kVVBQg">required</span></li>
+								</ul>
+								]
+								<h6>RESPONSE SCHEMA: */*</h6>
+								<p>200 default response.</p>
+								<br>
+								</li>
+							</ol>
 							</p>
 						</section><!--//section-->
 
@@ -1555,13 +2055,73 @@ var xhr = new XMLHttpRequest();
 					<section class="docs-section" id="item-4-7">
 						<h2 class="section-heading">Test API</h2>
 						<p>
-						TODO
+						Collection of end-points for testing webhooks
 						</p>
 
 						<section class="docs-section" id="item-4-7-1">
 						<h3 class="section-heading">Endpoints</h3>
 							<p>
-							TODO
+							<ol>
+								<h4><li>New Pre-auth Token</h4>
+								<p>/test/preauth-token/{userId}</p>
+
+								<h6>PATH PARAMETERS</h6>
+								<ul>
+									<li>userId : string<span class="kVVBQg">required</span></li>
+								</ul>
+								<h6>HEADER PARAMETERS</h6>
+								<ul>
+									<li>Content-type : string<span class="kVVBQg">required</span></li>
+									<span class="code">Example : application/json</span>
+								</ul>
+								<h6>RESPONSE SCHEMA: */*</h6>
+								<p>200 default response.</p>
+								<br>
+								</li>
+								<li>Webhook Test</h4>
+								<p>/test/webhook/send/{userId}</p>
+
+								<h6>PATH PARAMETERS</h6>
+								<ul>
+									<li>userId : string<span class="kVVBQg">required</span></li>
+								</ul>
+								<h6>QUERY PARAMETERS</h6>
+								<ul>
+									<li>count : integer &lt;int32><span class="kVVBQg">required</span>
+									<span class="code">Example : count=1</span>
+									</li>
+									<li>type : string<span class="kVVBQg">required</span>
+									<span class="code">Example : type=NEW_ACCOUNT</span>
+									</li>
+								</ul>
+								</br>
+								<h6>HEADER PARAMETERS</h6>
+								<ul>
+									<li>Content-type : string<span class="kVVBQg">required</span></li>
+									<span class="code">Example : application/json</span>
+								</ul>
+								<h6>RESPONSE SCHEMA: */*</h6>
+								<p>200 default response.</p>
+								<br>
+								</li>
+								<li>Webhook Sink</h4>
+								<p>/test/webhook/sink</p>
+
+								<h6>REQUEST BODY SCHEMA: application/json</h6>
+								Array () [
+								<ul>
+									<li>type : string<span class="kVVBQg">required</span></li>
+									<li>user_id : string<span class="kVVBQg">required</span></li>
+									<li>time : string<span class="kVVBQg">required</span></li>
+									<li>error_code : string<span class="kVVBQg">required</span></li>
+									<li>error_msg : string<span class="kVVBQg">required</span></li>
+								</ul>
+								]
+								<h6>RESPONSE SCHEMA: */*</h6>
+								<p>200 default response.</p>
+								<br>
+								</li>
+							</ol>
 							</p>
 						</section><!--//section-->
 
@@ -1570,7 +2130,7 @@ var xhr = new XMLHttpRequest();
 					<section class="docs-section" id="item-4-8">
 						<h2 class="section-heading">OpenAPI Definition File</h2>
 							<p>
-							TODO
+							The OpenAPI definition file can be <a href="https://efx-dev.stitchcredit.com/api/stitch-docs/">downloaded</a> or viewed in <a href="https://efx-dev.stitchcredit.com/api/swagger-ui/index.html?configUrl=/api/stitch-docs/swagger-config#/">Swagger</a>.
 							</p>
 					</section><!--//section-->
 
@@ -1581,43 +2141,47 @@ var xhr = new XMLHttpRequest();
 					    <h1 class="docs-heading">Sandbox</h1>
 					    <section class="docs-intro">
 							<p>
-							TODO
+							StitchCredit has created a Sandbox for you to begin and test your development. 
 							</p>
 						</section><!--//docs-intro-->
 				    </header>
 					<section class="docs-section" id="item-5-1">
 						<h2 class="section-heading">Overview</h2>
 						<p>
-						TODO
 						</p>
 
 						<section class="docs-section" id="item-5-1-1">
 						<h3 class="section-heading">Sandbox overview</h3>
 							<p>
-							TODO
+							Consumer Credit Postman Collections include pre-defined API calls to help you understand and develop your solution. See the Test API scripts for additional documentation.
+							<ul>
+							<li>The Consumer Credit - Getting Started - New User.postman_collection.json will walk you through the Create New User steps in order</li>
+							<li>The Consumer Credit - Getting Started - Returning User.postman_collection.json will walk you through the Returning User steps in order</li>
+							</ul>
 							</p>
 						</section><!--//section-->
 
 						<section class="docs-section" id="item-5-1-2">
 						<h3 class="section-heading">Using Sandbox</h3>
 							<p>
-							TODO
+							To quickly grasp the token flow and sequence of API calls, download and import the "Getting Started" postman collections from the <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> and the postman environment we provided to you.<br>
+							The <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> contains a postman collection for each API.
 							</p>
 						</section><!--//section-->
 
 						<section class="docs-section" id="item-5-1-3">
 						<h3 class="section-heading">Testing</h3>
 							<p>
-							TODO
+							In the <strong>test</strong> environment it is important that you use the User Test Identity provided to you verbatim. You may change the email address and phone number <strong>ONLY.</strong>
 							</p>
 						</section><!--//section-->
 
 					</section><!--//section-->
-					
+
 					<section class="docs-section" id="item-5-2">
 						<h2 class="section-heading">Test Credentials</h2>
 							<p>
-							TODO
+							Access Credentials have been sent to you in a Postman Environment upon registration via email. The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.
 							</p>
 					</section><!--//section-->
 			    </article><!--//docs-article-->
@@ -1638,7 +2202,7 @@ var xhr = new XMLHttpRequest();
 							TODO
 							</p>
 					</section><!--//section-->
-					
+
 			    </article><!--//docs-article-->
 			    
 	        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
