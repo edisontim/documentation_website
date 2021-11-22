@@ -174,20 +174,24 @@
 				    </header>
 					<section class="docs-section" id="item-2-1">
 						<h2 class="section-heading">Before you start</h2>
+						<p>
 						We provide you with a host configuration for our development server and a demo user's identity in a postman environment.
+						</p>
+						<p>
+						To quickly grasp the token flow and sequence of API calls, download and import the "Getting Started" postman collections from the <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> and the postman environment we provided to you.<br>
+						The <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> contains a postman collection for each API.
+						</p>
+						<p>
 						<ul>
-							<li>To quickly grasp the token flow and sequence of API calls, download and import the "Getting Started" postman collections from the <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> and the postman environment we provided to you. <br>
-							The <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> contains a postman collection for each API.
-							</li>
-							<li>Equifax end-points are accessible by first using the <a href="#item-4-5">User API</a> <strong>/users/efx-config</strong> response data, and then the <a href="#item-4-6">Equifax</a> <strong>/oauth/token</strong> call.</li>
-							<li><strong><a href="#item-4-5">User API</a></strong> and <strong><a href="#item-4-6">Equifax API</a></strong> calls are intended to be called from the end-client/user's device. </li>
-							<li>It is not acceptable to pass any of the data to these calls or responses from these calls to your server. </li>
-							<li>Do not save any data. Short term caching is fine, but long-term storage is not. </li>
-							<li>Keep in mind, the preauth token is only valid for 30 seconds. </li>
 							<li><em><strong><a href="#item-4-4">Direct API</a></strong> calls must originate from your server</em> </li>
 							<li><em><strong><a href="#item-4-5">User API</a></strong> calls must originate from the end-client</em> </li>
 							<li><em><strong><a href="#item-4-6">Equifax API</a></strong> calls must originate from the end-client</em> </li>
 						</ul>
+						Equifax end-points are accessible by first using the <a href="#item-4-5">User API</a> <strong>/users/efx-config</strong> response data, and then the Equifax <strong>/oauth/token</strong> call. As mentioned above, <strong><a href="#item-4-5">User API</a></strong> and <strong><a href="#item-4-6">Equifax API</a></strong> calls are intended to be called from the end-client/user's device.
+						</p>
+						<p>
+						It is not acceptable to pass any of the data to these calls or responses from these calls to your server. Do not save any data. Short term caching is fine, but long-term storage is not. 
+						</p>
 					</section><!--//section-->
 
 					<section class="docs-section" id="item-2-2">
@@ -404,6 +408,7 @@
 							"Consumer Credit - Test API.postman_collection.json" includes some webhook tests to help you understand and develop your solution.  See the Test API scripts for additional documentation.
 							</p>
 						</section><!--//section-->
+
 						<section class="docs-section" id="item-3-2-4">
 						<h3 class="section-heading">Web Messaging Integration</h3>
 							<section class="docs-section" id="item-3-2-4-1">
@@ -2365,20 +2370,6 @@ var xhr = new XMLHttpRequest();
 							"Consumer Credit - Test API.postman_collection.json" includes some webhook tests to help you understand and develop your solution.  See the Test API scripts for additional documentation.
 							</p>
 						</section><!--//section-->
-
-						<ul>
-							<li>To quickly grasp the token flow and sequence of API calls, download and import the "Getting Started" postman collections from the <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> and the postman environment we provided to you. <br>
-							The <a href="https://drive.google.com/drive/folders/1VU0awRVnOswE1e9srB_tJ7nBxqUZFN2-?usp=sharing" target="_blank">Google Drive</a> contains a postman collection for each API.
-							</li>
-							<li>Equifax end-points are accessible by first using the <a href="#item-4-5">User API</a> <strong>/users/efx-config</strong> response data, and then the <a href="#item-4-6">Equifax</a> <strong>/oauth/token</strong> call.</li>
-							<li><strong><a href="#item-4-5">User API</a></strong> and <strong><a href="#item-4-6">Equifax API</a></strong> calls are intended to be called from the end-client/user's device. </li>
-							<li>It is not acceptable to pass any of the data to these calls or responses from these calls to your server. </li>
-							<li>Do not save any data. Short term caching is fine, but long-term storage is not. </li>
-							<li>Keep in mind, the preauth token is only valid for 30 seconds. </li>
-							<li><em><strong><a href="#item-4-4">Direct API</a></strong> calls must originate from your server</em> </li>
-							<li><em><strong><a href="#item-4-5">User API</a></strong> calls must originate from the end-client</em> </li>
-							<li><em><strong><a href="#item-4-6">Equifax API</a></strong> calls must originate from the end-client</em> </li>
-						</ul>
 
 						<section class="docs-section" id="item-3-4-7">
 							<h3 class="section-heading">Managing Users</h3>
@@ -7655,6 +7646,7 @@ var xhr = new XMLHttpRequest();
 			    <footer class="footer">
 				    <div class="container text-center py-5">
 				        <small class="copyright">Copyright &copy; 2021</small>
+<!--
 				        <ul class="social-list list-unstyled pt-4 mb-0">
 						    <li class="list-inline-item"><a href="#"><i class="fab fa-github fa-fw"></i></a></li> 
 				            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
