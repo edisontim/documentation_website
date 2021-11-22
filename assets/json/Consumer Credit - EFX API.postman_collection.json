@@ -1,0 +1,441 @@
+{
+	"info": {
+		"_postman_id": "6a775eeb-7324-447c-9564-157940e7d587",
+		"name": "StitchCredit - EFX API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OAUTH Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cad6b17b-9322-4759-9809-c06b85ddeca9",
+						"exec": [
+							"var response = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"efxtoken\", response.access_token);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "scope",
+							"value": "delivery",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "jwt-bearer",
+							"type": "text"
+						},
+						{
+							"key": "api_key",
+							"value": "{{efx_api_key}}",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion",
+							"value": "{{efx_assertion}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{efx_url}}/oauth/token",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "scope",
+									"value": "delivery",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "jwt-bearer",
+									"type": "text"
+								},
+								{
+									"key": "api_key",
+									"value": "{{efx_api_key}}",
+									"type": "text"
+								},
+								{
+									"key": "client_assertion",
+									"value": "{{efx_assertion}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{efx_url}}/oauth/token",
+							"host": [
+								"{{efx_url}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "javascript",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate, no-store",
+							"name": "Cache-Control",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip",
+							"name": "Content-Encoding",
+							"description": "The type of encoding used on the data."
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Aug 2015 13:31:36 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Expires",
+							"value": "0",
+							"name": "Expires",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache, no-cache",
+							"name": "Pragma",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"key": "Server",
+							"value": "Apache-Coyote/1.1",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"name": "X-Content-Type-Options",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY",
+							"name": "X-Frame-Options",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"name": "X-XSS-Protection",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookie": [],
+					"body": "{\"access_token\":\"87e22d35-0089-4613-809b-62f248c2c978\",\"token_type\":\"bearer\",\"expires_in\":610,\"scope\":\"read write\"}"
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "{{content-type}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditMonitoring/healthcheck?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditMonitoring",
+						"healthcheck"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit Monitoring",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditMonitoring?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditMonitoring"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit Report List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "64ef860f-2992-4d8b-a1f4-86173f8e1793",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"reportId\",data[0].id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit Report Summary (First in list)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}/summary?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}",
+						"summary"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Full Credit Report (First in list)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit Report (First in list) - PRINT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}/print?access_token={{efxtoken}}",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}",
+						"print"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "{{efxtoken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit Score Latest",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditScore/latest?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditScore",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit Score History",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditScore/history?historicalLimit=24&format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditScore",
+						"history"
+					],
+					"query": [
+						{
+							"key": "historicalLimit",
+							"value": "24"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

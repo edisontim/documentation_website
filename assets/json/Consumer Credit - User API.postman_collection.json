@@ -1,0 +1,553 @@
+{
+	"info": {
+		"_postman_id": "78ea84a5-dd24-48c3-872a-2654e894b062",
+		"name": "StitchCredit - User API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Preauth Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "370399eb-c2d3-4d02-b5e6-28e4cd217059",
+						"exec": [
+							"var data = pm.response.json();\r",
+							"if (data) {\r",
+							"    if (data.token) pm.environment.set(\"utoken\", data.token);\r",
+							"    if (data.refresh) pm.environment.set(\"rutoken\", data.refresh);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/preauth-token/{{paToken}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"preauth-token",
+						"{{paToken}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Refresh Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							"var data = pm.response.json();",
+							"if(data) {",
+							"    if(data.token) pm.environment.set(\"utoken\",data.token);",
+							"    if(data.refresh) pm.environment.set(\"rutoken\",data.refresh);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/refresh-token?token={{rutoken}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"refresh-token"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{rutoken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Identity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"ssn\":\"{{USER_SSN}}\",\"dob\":\"{{USER_DOB}}\",\"mobile\":\"{{USER_MOBILE}}\",\"street1\":\"{{USER_STREET1}}\",\"street2\":\"{{USER_STREET2}}\",\"city\":\"{{USER_CITY}}\",\"state\":\"{{USER_STATE}}\",\"zip\":\"{{USER_ZIP}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/identity",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"identity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Phone Verify",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"mtoken\",data.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/get-mobile",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"get-mobile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Mobile Code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"mTransactionKey\",data.key);",
+							"pm.environment.set(\"passcode\",data.passcode);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/send-code/{{mtoken}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"send-code",
+						"{{mtoken}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Renew Mobile Code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"mTransactionKey\",data.key);",
+							"pm.environment.set(\"passcode\",data.passcode);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"key\":\"{{mTransactionKey}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/renew-code",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"renew-code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Mobile Code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"key\":\"{{mTransactionKey}}\",\"code\":\"{{passcode}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/verify-code",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"verify-code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Identity Quiz",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"qTransactionKey\",data.key);",
+							"pm.environment.set(\"qzId\",data.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/get-quiz",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"get-quiz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Identity Quiz",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"key\":\"{{qTransactionKey}}\",\"id\":\"{{qzId}}\",\"answers\": [{\"qid\":1,\"aid\":3},{\"qid\":2,\"aid\":3},{\"qid\":3,\"aid\":3}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/verify-quiz",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"verify-quiz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get EFX Config",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"efx_url\",data.url);",
+							"pm.environment.set(\"efx_api_key\",data.id);",
+							"pm.environment.set(\"efx_assertion\",data.secret);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/efx-config",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"efx-config"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

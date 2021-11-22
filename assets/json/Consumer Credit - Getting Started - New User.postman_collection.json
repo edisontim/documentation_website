@@ -1,0 +1,711 @@
+{
+	"info": {
+		"_postman_id": "f65c1f1d-3127-4b15-9ee6-0b85182b16e5",
+		"name": "StitchCredit - Getting Started - New User",
+		"description": "Consumer API - Getting Started Instructions\r\nUse the provided Postman Environment in conjunction with this collection of requests.\r\nThe steps are provided in order to create a new user and retrieve the data.\r\nStep 2 changes depending on whether it is a new or returning user.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Step 1: Customer Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c973714d-5902-4cb8-a5f7-a0668ecbfba9",
+						"exec": [
+							"var data = pm.response.json();",
+							"if(data) {",
+							"    if(data.token) pm.environment.set(\"dtoken\",data.token);",
+							"    if(data.refresh) pm.environment.set(\"rdtoken\",data.refresh);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"secret\": \"{{SECRET}}\",\n    \"apikey\": \"{{API_KEY}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/login",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 2: Register New User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e792209a-7d96-47bf-9d1e-34f0a81b407b",
+						"exec": [
+							"var data = pm.response.json();",
+							"if (data) {",
+							"    if (data.token) pm.environment.set(\"paToken\", data.token);",
+							"    if (data.userId) pm.environment.set(\"userId\", data.userId);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"{{USER_EMAIL}}\",\"fname\":\"{{USER_FNAME}}\",\"lname\":\"{{USER_LNAME}}\",\"mobile\":\"{{USER_MOBILE}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/user-reg",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"user-reg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 3: Preauth Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4ec1bd9d-1e69-4bee-ab8f-e62bfb4936a2",
+						"exec": [
+							"var data = pm.response.json();\r",
+							"if (data) {\r",
+							"    if (data.token) pm.environment.set(\"utoken\", data.token);\r",
+							"    if (data.refresh) pm.environment.set(\"rutoken\", data.refresh);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/preauth-token/{{paToken}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"preauth-token",
+						"{{paToken}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 4: User Identity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4844f292-674b-4a57-aeb9-fcc54b7f32c3",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"ssn\":\"{{USER_SSN}}\",\"dob\":\"{{USER_DOB}}\",\"mobile\":\"{{USER_MOBILE}}\",\"street1\":\"{{USER_STREET1}}\",\"street2\":\"{{USER_STREET2}}{{$randomint}}\",\"city\":\"{{USER_CITY}}\",\"state\":\"{{USER_STATE}}\",\"zip\":\"{{USER_ZIP}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/identity",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"identity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 5: Phone Verify",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b24aa4f-6416-4267-b007-ec17926c66b0",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"mtoken\",data.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/get-mobile",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"get-mobile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 6: Send Mobile Code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e167cb9e-3ed4-4caa-ad53-ec6aa6fdc965",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"mTransactionKey\",data.key);",
+							"pm.environment.set(\"passcode\",data.passcode);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/send-code/{{mtoken}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"send-code",
+						"{{mtoken}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 7: Verify Mobile Code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f7628e0d-6e0a-4d3e-8047-aa5c7be00c78",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"key\":\"{{mTransactionKey}}\",\"code\":\"{{passcode}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/verify-code",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"verify-code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 8: Get EFX Config",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "91b6c3dd-27b6-4247-951d-64bdbcd84a3f",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"efx_url\",data.url);",
+							"pm.environment.set(\"efx_api_key\",data.id);",
+							"pm.environment.set(\"efx_assertion\",data.secret);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/efx-config",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"efx-config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 9: OAUTH Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "765b8623-45f4-41ab-9d6a-77cd709b4612",
+						"exec": [
+							"var response = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"efxtoken\", response.access_token);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "scope",
+							"value": "delivery",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "jwt-bearer",
+							"type": "text"
+						},
+						{
+							"key": "api_key",
+							"value": "{{efx_api_key}}",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion",
+							"value": "{{efx_assertion}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{efx_url}}/oauth/token",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 10]: Credit Monitoring",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditMonitoring?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditMonitoring"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 10]: Credit Score Latest",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditScore/latest?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditScore",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 10]: Credit Score History",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditScore/history?historicalLimit=24&format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditScore",
+						"history"
+					],
+					"query": [
+						{
+							"key": "historicalLimit",
+							"value": "24"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 11: Credit Report List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1e02ed8-b430-4b11-9129-b3c55c5177e2",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"reportId\",data[0].id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 12]: Credit Report Summary (First in list)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}/summary?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}",
+						"summary"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 12]: Full Credit Report (First in list)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 12]: Credit Report (First in list) - PRINT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}/print?access_token={{efxtoken}}",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}",
+						"print"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "{{efxtoken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

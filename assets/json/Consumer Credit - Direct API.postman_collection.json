@@ -1,0 +1,581 @@
+{
+	"info": {
+		"_postman_id": "1e3be246-0e2d-472e-8d8b-462f00852568",
+		"name": "StitchCredit - Direct API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customer Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c7ffe89c-fa8a-4891-9231-e69679dc2259",
+						"exec": [
+							"var data = pm.response.json();",
+							"if(data) {",
+							"    if(data.token) pm.environment.set(\"dtoken\",data.token);",
+							"    if(data.refresh) pm.environment.set(\"rdtoken\",data.refresh);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"secret\": \"{{SECRET}}\",\n    \"apikey\": \"{{API_KEY}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/login",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Refresh Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							"var data = pm.response.json();",
+							"if(data) {",
+							"    if(data.token) pm.environment.set(\"dtoken\",data.token);",
+							"    if(data.refresh) pm.environment.set(\"rdtoken\",data.refresh);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/refresh-token?token={{rdtoken}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"refresh-token"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{rdtoken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register New User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "550c9d9e-0719-4eea-9ee8-dbc634154585",
+						"exec": [
+							"var data = pm.response.json();",
+							"if (data) {",
+							"    if (data.token) pm.environment.set(\"paToken\", data.token);",
+							"    if (data.userId) pm.environment.set(\"userId\", data.userId);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"{{USER_EMAIL}}\",\"fname\":\"{{USER_FNAME}}\",\"lname\":\"{{USER_LNAME}}\",\"mobile\":\"{{USER_MOBILE}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/user-reg",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"user-reg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New User Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ceca0cf9-2f98-4dce-9c20-ec51795e6aa1",
+						"exec": [
+							"var data = pm.response.json();",
+							"if (data) {",
+							"    if (data.token) pm.environment.set(\"paToken\", data.token);",
+							"    if (data.userId) pm.environment.set(\"userId\", data.userId);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/preauth-token/{{userId}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"preauth-token",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Close User Account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/close-account/{{userId}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"close-account",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change User Email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"test@test.com\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/change-email/{{userId}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"change-email",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change User Phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "870bd1c5-5348-49ad-9fc1-7e05469b2ef9",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"mobile\": \"1234567890\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/change-mobile/{{userId}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"change-mobile",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change User Host",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e93f5174-f782-4c38-8a95-5dfb4e336521",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/change-host/{{userId}}?host={{HOST_ID}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"change-host",
+						"{{userId}}"
+					],
+					"query": [
+						{
+							"key": "host",
+							"value": "{{HOST_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Refresh Date",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "04ee5e00-2b02-429f-b7bb-dcfcc9451d13",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/update-refresh/{{userId}}?rmonly=false",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"update-refresh",
+						"{{userId}}"
+					],
+					"query": [
+						{
+							"key": "rmonly",
+							"value": "false"
+						}
+					]
+				},
+				"description": "*Premium Feature - May Require Additional Access"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Alert Detail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "50689d78-4a1f-4f41-9eb3-698257f83698",
+						"exec": [
+							"var data = pm.response.json();",
+							"if (data) {",
+							"    if (data.token) pm.environment.set(\"paToken\", data.token);",
+							"    if (data.userId) pm.environment.set(\"userId\", data.userId);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/efx-alert/{{alertId}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"efx-alert",
+						"{{alertId}}"
+					]
+				},
+				"description": "*Premium Feature - May Require Additional Access"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
