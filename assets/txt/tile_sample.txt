@@ -1,0 +1,105 @@
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;StitchCredit&lt;/title&gt;
+	&lt;link rel=&quot;icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+	&lt;meta name=&quot;description&quot; content=&quot;StitchCredit Consumer Credit Reports&quot; /&gt;
+	&lt;meta
+	name=&quot;viewport&quot;
+	content=&quot;minimum-scale=1, initial-scale=1, width=device-width&quot;
+	/&gt;
+	&lt;style&gt;
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+		position: relative;
+		background: #eeeeee;
+	}
+	#sc-iframe {
+		display:block;
+		margin: 0 auto;
+		padding: 0;
+		z-index: 1;
+		width: 500px;
+		height: 675px;
+		border: none;
+		overflow: hidden;
+	}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;iframe
+	id=&quot;sc-iframe&quot; allowTransaparency=&quot;true&quot;
+	src=&quot;https://efx-dev.stitchcredit.com/login-tile?key=5a10e0d7-1dc8-4325-929f-d0d131990527&amp;ocf=2039&quot;
+	&gt;&lt;/iframe&gt;
+	&lt;script&gt;
+	//this just throws in a default ID if one isn't provided on the query string
+	const id = document.location.search.length &gt; 0 ? document.location.search.split('&amp;')[0].split('=')[1] : '988a6fd7-7297-4757-8b96-907daa14a1f6';
+	console.log(&quot;ID: &quot;,id);
+	console.log(&quot;Loading Message Listener...&quot;);
+
+	window.addEventListener(&quot;message&quot;, receiveMessage, false);
+
+	function receiveMessage(event) {
+		if(event &amp;&amp; event.source &amp;&amp; event.data) {
+			// You only need to implement the types that are important/relevant to your use case.
+			if(event.data.type === 'AUTH_REQUIRED') {
+				//The iframe clident will post this message when a valid preauth token does not exist.
+				//Posting a proper message with a preauth token in response allows the client to continue seemlessly.
+				//console.log(&quot;Auth Required Event Received&quot;);
+				const es = event.source;
+				//this code uses a test endpoint on the server to provide a preauth-token for any user ID without the usual hurdles.
+				//This is ONLY for testing and does not exist in the production environment.
+				getData(&quot;https://efx-dev.stitchcredit.com/api/test/preauth-token/&quot;+id, function() {
+					const token = JSON.parse(this.responseText).token;
+					console.log(&quot;Status: &quot;, this.status, &quot;, token: &quot;, token);
+					es.postMessage({type: 'PREAUTH', token: this.status == 200 ? token : null},&quot;*&quot;);
+				});
+			}
+			else if(event.data.type === 'REG_STARTED') {
+				const es = event.source;
+				//only valid for full web implementation, Direct API already creates the customer, so this will never happen in those instances
+		// (new Date().valueOf()) - is used to generate a new email ID on the fly for testing purposes
+				es.postMessage({type: 'REG', data: {fname:&quot;Gertrude&quot;, lname:&quot;Harkenreadeo&quot;, email: &quot;test+&quot; + (new Date().valueOf()) + &quot;@test.com&quot;}},&quot;*&quot;);
+			}
+			else if(event.data.type === 'IDENTITY_STARTED') {
+				const es = event.source;
+				//You could use this function to pre-populate the given fields.  DoB and SSN will never be prepopulated as it violates compliance
+		// new Date().valueOf().toString() - generates a unique number for street2 to ensure each run goes through the full identity process, remove to test sequential sign up of the same user
+				es.postMessage({type: 'IDENTITY', data: {street1:&quot;305 Linden Av&quot;, street2: new Date().valueOf().toString(), city: &quot;Atlanta&quot;, state: &quot;GA&quot;, zip: &quot;30316&quot;, mobile: &quot;0000000000&quot;}},&quot;*&quot;);
+			}
+			else if(event.data.type === 'LOGIN_SUCCESSFUL') {
+				console.log(&quot;User succesfully logged in&quot;);
+			}
+			else if(event.data.type === 'LOGIN_FAILED') {
+				//if you see this message more than a few times in a row, it's likely an issue
+				//typically this will only occur for full web implementations, not Direct API
+				console.log(&quot;User login failed&quot;);
+			}
+			else if(event.data.type === 'USER_ENROLLED') {
+				//User successfully completed identity and has been enrolled for consumer data
+				console.log(&quot;User enrollment successful&quot;);
+			}
+			else if(event.data.type === 'IDENTITY_FAILED') {
+				//Identity process failed, user is likely &quot;stuck&quot; as they cannot continue
+				console.log(&quot;User identity failure&quot;);
+			}
+			else if(event.data.type === 'SERVICE_FAILURE') {
+				//Identity process failed most likely due to a service outage, but the user is stuck as they cannot continue without passing identity
+				console.log(&quot;Identity service failure&quot;);
+			}
+		}
+
+		function getData(req, action) {
+		var xhr = new XMLHttpRequest();
+			xhr.responesType = 'json';
+			xhr.onload = action;
+			xhr.open(&quot;GET&quot;, req);
+			xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;application/json&quot;);
+			xhr.send();
+		}
+
+	}
+	&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;

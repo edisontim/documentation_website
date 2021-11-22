@@ -777,6 +777,861 @@ var xhr = new XMLHttpRequest();
 							</p>
 							Consumer Credit Postman Collections include pre-defined API calls to help you understand and develop your solution. See the Test API scripts for additional documentation.
 							</p>
+							<div class="postman_code">
+								<p>Direct API</p>
+								<pre><code data-language="json">
+	{
+		"info": {
+			"_postman_id": "1e3be246-0e2d-472e-8d8b-462f00852568",
+			"name": "StitchCredit - Direct API",
+			"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		},
+		"item": [
+			{
+				"name": "Customer Login",
+				"event": [
+					{
+						"listen": "test",
+						"script": {
+							"id": "c7ffe89c-fa8a-4891-9231-e69679dc2259",
+							"exec": [
+								"var data = pm.response.json();",
+								"if(data) {",
+								"    if(data.token) pm.environment.set(\"dtoken\",data.token);",
+								"    if(data.refresh) pm.environment.set(\"rdtoken\",data.refresh);",
+								"}"
+							],
+							"type": "text/javascript"
+						}
+					}
+				],
+				"request": {
+					"method": "POST",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"type": "text"
+						}
+					],
+					"body": {
+						"mode": "raw",
+						"raw": "{\n\t\"secret\": \"{{SECRET}}\",\n    \"apikey\": \"{{API_KEY}}\"\n}",
+						"options": {
+							"raw": {
+								"language": "json"
+							}
+						}
+					},
+					"url": {
+						"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/login",
+						"protocol": "{{PROTOCOL}}",
+						"host": [
+							"{{HOST}}"
+						],
+						"port": "{{PORT}}{{BASE_URL}}",
+						"path": [
+							"direct",
+							"login"
+						]
+					}
+				},
+				"response": []
+			},
+			{
+				"name": "Customer Refresh Token",
+				"event": [
+					{
+						"listen": "test",
+						"script": {
+							"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+							"exec": [
+								"var data = pm.response.json();",
+								"if(data) {",
+								"    if(data.token) pm.environment.set(\"dtoken\",data.token);",
+								"    if(data.refresh) pm.environment.set(\"rdtoken\",data.refresh);",
+								"}"
+							],
+							"type": "text/javascript"
+						}
+					}
+				],
+				"protocolProfileBehavior": {
+					"disableBodyPruning": true
+				},
+				"request": {
+					"method": "GET",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						},
+						{
+							"key": "",
+							"type": "text",
+							"value": "",
+							"disabled": true
+						}
+					],
+					"body": {
+						"mode": "raw",
+						"raw": "",
+						"options": {
+							"raw": {
+								"language": "json"
+							}
+						}
+					},
+					"url": {
+						"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/refresh-token?token={{rdtoken}}",
+						"protocol": "{{PROTOCOL}}",
+						"host": [
+							"{{HOST}}"
+						],
+						"port": "{{PORT}}{{BASE_URL}}",
+						"path": [
+							"direct",
+							"refresh-token"
+						],
+						"query": [
+							{
+								"key": "token",
+								"value": "{{rdtoken}}"
+							}
+						]
+					}
+				},
+				"response": []
+			},
+			{
+				"name": "Register New User",
+				"event": [
+					{
+						"listen": "test",
+						"script": {
+							"id": "550c9d9e-0719-4eea-9ee8-dbc634154585",
+							"exec": [
+								"var data = pm.response.json();",
+								"if (data) {",
+								"    if (data.token) pm.environment.set(\"paToken\", data.token);",
+								"    if (data.userId) pm.environment.set(\"userId\", data.userId);",
+								"}"
+							],
+							"type": "text/javascript"
+						}
+					}
+				],
+				"request": {
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{dtoken}}",
+								"type": "string"
+							}
+						]
+					},
+					"method": "POST",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"body": {
+						"mode": "raw",
+						"raw": "{\"email\":\"{{USER_EMAIL}}\",\"fname\":\"{{USER_FNAME}}\",\"lname\":\"{{USER_LNAME}}\",\"mobile\":\"{{USER_MOBILE}}\"}",
+						"options": {
+							"raw": {
+								"language": "json"
+							}
+						}
+					},
+					"url": {
+						"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/user-reg",
+						"protocol": "{{PROTOCOL}}",
+						"host": [
+							"{{HOST}}"
+						],
+						"port": "{{PORT}}{{BASE_URL}}",
+						"path": [
+							"direct",
+							"user-reg"
+						]
+					}
+				},
+				"response": []
+			},
+			{
+				"name": "New User Token",
+				"event": [
+					{
+						"listen": "test",
+						"script": {
+							"id": "ceca0cf9-2f98-4dce-9c20-ec51795e6aa1",
+							"exec": [
+								"var data = pm.response.json();",
+								"if (data) {",
+								"    if (data.token) pm.environment.set(\"paToken\", data.token);",
+								"    if (data.userId) pm.environment.set(\"userId\", data.userId);",
+								"}"
+							],
+							"type": "text/javascript"
+						}
+					}
+				],
+				"request": {
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{dtoken}}",
+								"type": "string"
+							}
+						]
+					},
+					"method": "GET",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"url": {
+						"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/preauth-token/{{userId}}",
+						"protocol": "{{PROTOCOL}}",
+						"host": [
+							"{{HOST}}"
+						],
+						"port": "{{PORT}}{{BASE_URL}}",
+						"path": [
+							"direct",
+							"preauth-token",
+							"{{userId}}"
+						]
+					}
+				},
+				"response": []
+			},
+			{
+				"name": "Close User Account",
+				"event": [
+					{
+						"listen": "test",
+						"script": {
+							"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+							"exec": [
+								""
+							],
+							"type": "text/javascript"
+						}
+					}
+				],
+				"request": {
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{dtoken}}",
+								"type": "string"
+							}
+						]
+					},
+					"method": "POST",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"url": {
+						"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/close-account/{{userId}}",
+						"protocol": "{{PROTOCOL}}",
+						"host": [
+							"{{HOST}}"
+						],
+						"port": "{{PORT}}{{BASE_URL}}",
+						"path": [
+							"direct",
+							"close-account",
+							"{{userId}}"
+						]
+					}
+				},
+				"response": []
+			},
+			{
+				"name": "Change User Email",
+				"event": [
+					{
+						"listen": "test",
+						"script": {
+							"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+							"exec": [
+								""
+							],
+							"type": "text/javascript"
+						}
+					}
+				],
+				"request": {
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{dtoken}}",
+								"type": "string"
+							}
+						]
+					},
+					"method": "POST",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"body": {
+						"mode": "raw",
+						"raw": "{\"email\": \"test@test.com\"}",
+						"options": {
+							"raw": {
+								"language": "json"
+							}
+						}
+					},
+					"url": {
+						"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/change-email/{{userId}}",
+						"protocol": "{{PROTOCOL}}",
+						"host": [
+							"{{HOST}}"
+						],
+						"port": "{{PORT}}{{BASE_URL}}",
+						"path": [
+							"direct",
+							"change-email",
+							"{{userId}}"
+						]
+					}
+				},
+				"response": []
+			},
+			{
+				"name": "Change User Phone",
+				"event": [
+					{
+						"listen": "test",
+						"script": {
+							"id": "870bd1c5-5348-49ad-9fc1-7e05469b2ef9",
+							"exec": [
+								""
+							],
+							"type": "text/javascript"
+						}
+					}
+				],
+				"request": {
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{dtoken}}",
+								"type": "string"
+							}
+						]
+					},
+					"method": "POST",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"body": {
+						"mode": "raw",
+						"raw": "{\"mobile\": \"1234567890\"}",
+						"options": {
+							"raw": {
+								"language": "json"
+							}
+						}
+					},
+					"url": {
+						"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/change-mobile/{{userId}}",
+						"protocol": "{{PROTOCOL}}",
+						"host": [
+							"{{HOST}}"
+						],
+						"port": "{{PORT}}{{BASE_URL}}",
+						"path": [
+							"direct",
+							"change-mobile",
+							"{{userId}}"
+						]
+					}
+				},
+				"response": []
+			},
+			{
+				"name": "Change User Host",
+				"event": [
+					{
+						"listen": "test",
+						"script": {
+							"id": "e93f5174-f782-4c38-8a95-5dfb4e336521",
+							"exec": [
+								""
+							],
+							"type": "text/javascript"
+						}
+					}
+				],
+				"request": {
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{dtoken}}",
+								"type": "string"
+							}
+						]
+					},
+					"method": "POST",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"url": {
+						"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/change-host/{{userId}}?host={{HOST_ID}}",
+						"protocol": "{{PROTOCOL}}",
+						"host": [
+							"{{HOST}}"
+						],
+						"port": "{{PORT}}{{BASE_URL}}",
+						"path": [
+							"direct",
+							"change-host",
+							"{{userId}}"
+						],
+						"query": [
+							{
+								"key": "host",
+								"value": "{{HOST_ID}}"
+							}
+						]
+					}
+				},
+				"response": []
+			},
+			{
+				"name": "Update User Refresh Date",
+				"event": [
+					{
+						"listen": "test",
+						"script": {
+							"id": "04ee5e00-2b02-429f-b7bb-dcfcc9451d13",
+							"exec": [
+								""
+							],
+							"type": "text/javascript"
+						}
+					}
+				],
+				"request": {
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{dtoken}}",
+								"type": "string"
+							}
+						]
+					},
+					"method": "POST",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"url": {
+						"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/update-refresh/{{userId}}?rmonly=false",
+						"protocol": "{{PROTOCOL}}",
+						"host": [
+							"{{HOST}}"
+						],
+						"port": "{{PORT}}{{BASE_URL}}",
+						"path": [
+							"direct",
+							"update-refresh",
+							"{{userId}}"
+						],
+						"query": [
+							{
+								"key": "rmonly",
+								"value": "false"
+							}
+						]
+					},
+					"description": "*Premium Feature - May Require Additional Access"
+				},
+				"response": []
+			},
+			{
+				"name": "Get Alert Detail",
+				"event": [
+					{
+						"listen": "test",
+						"script": {
+							"id": "50689d78-4a1f-4f41-9eb3-698257f83698",
+							"exec": [
+								"var data = pm.response.json();",
+								"if (data) {",
+								"    if (data.token) pm.environment.set(\"paToken\", data.token);",
+								"    if (data.userId) pm.environment.set(\"userId\", data.userId);",
+								"}"
+							],
+							"type": "text/javascript"
+						}
+					}
+				],
+				"request": {
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{dtoken}}",
+								"type": "string"
+							}
+						]
+					},
+					"method": "GET",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"url": {
+						"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/efx-alert/{{alertId}}",
+						"protocol": "{{PROTOCOL}}",
+						"host": [
+							"{{HOST}}"
+						],
+						"port": "{{PORT}}{{BASE_URL}}",
+						"path": [
+							"direct",
+							"efx-alert",
+							"{{alertId}}"
+						]
+					},
+					"description": "*Premium Feature - May Require Additional Access"
+				},
+				"response": []
+			}
+		],
+		"protocolProfileBehavior": {}
+	}
+								</code></pre>
+							</div>
+							<div class="postman_code">
+								<p>Test API</p>
+								<pre><code data-language="json">
+{
+	"info": {
+		"_postman_id": "ecfa55bb-7382-4439-ae40-8916233c0ed9",
+		"name": "Consumer Credit - Test API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Pre-auth Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/test/preauth-token/{{userId}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"test",
+						"preauth-token",
+						"{{userId}}"
+					]
+				},
+				"description": "Quickly create a preauth token for a preexisting user without having to implement the full Direct Authentication API or complete a full user login."
+			},
+			"response": []
+		},
+		{
+			"name": "Webhook Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//var data = pm.response.json();",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "test",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/test/webhook/send/{{userId}}?count=1&type=ACCNEW",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"test",
+						"webhook",
+						"send",
+						"{{userId}}"
+					],
+					"query": [
+						{
+							"key": "count",
+							"value": "1"
+						},
+						{
+							"key": "type",
+							"value": "ACCNEW",
+							"description": "Choose from: ACCNEW, IDFAIL, IDSVCOUT, ACCREG, ACCREGFAIL, ACCCLOSED, ACCLOCKED, ACCLOGINFAIL, SCOREREF, REPORTREF, TEST, ERROR"
+						}
+					]
+				},
+				"description": "Send a sample webhook request for a registered userid under your host.\n\nChoose a webhook type from: ACCNEW, IDFAIL, IDSVCOUT, ACCREG, ACCREGFAIL, ACCCLOSED, ACCLOCKED, ACCLOGINFAIL, SCOREREF, REPORTREF, TEST, ERROR"
+			},
+			"response": []
+		},
+		{
+			"name": "Webhook Sink",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//var data = pm.response;",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "test",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"type\": \"ERROR\",\r\n    \"user_id\": \"d9126b53-48ea-40b7-933d-3bc6084f287e\",\r\n    \"time\": \"2020-07-26T05:36:00\",\r\n    \"error_code\": \"SC999\",\r\n    \"error_msg\": \"Test Error\"\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/test/webhook/sink",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"test",
+						"webhook",
+						"sink"
+					],
+					"query": [
+						{
+							"key": "fail",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				},
+				"description": "This endpoint simulates sending a webhook.  The current URL responds with success unless the fail parameter is marked.\n\nUse to directly verify that your webhook endpoint is working.  Change the URL to point to your server endpoint.  Update the Basic Authentication username & password accordingly."
+			},
+			"response": []
+		},
+		{
+			"name": "Webhook Test: Alert",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//var data = pm.response.json();",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "test",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"alertId\":\"CRT:36641804\",\"alertType\":\"BlockedInquiryAlert\",\"creationDate\":\"2021-01-02-20:32\",\"dataSource\":\"EQUIFAX\",\"dateReported\":\"2021-01-02-20:31\",\"enrollmentId\":\"281380\",\"partnerKey\":\"3e78eae7-a3d0-4b72-9bc3-6493b91e84b6\",\"reportingFrequency\":\"RTINQ\",\"tenantKey\":\"EFX-US\",\"institutionType\":\"Miscellaneous Utilities\",\"institutionName\":\"APPLIED TECHNOLOGY GROUP INC\",\"memberNumber\":\"990UZ07496\",\"inquiryIntent\":\"Real Estate\",\"postedDuringMaintenancePeriod\":\"no\",\"inquiryType\":\"CR\",\"endUserText\":\"Naval Credit Union\",\"institutionAddressLine1\":\"Site Address 1\",\"institutionAddressLine2\":\"St# 2 2nd line\",\"institutionCity\":\"ROANOKE\",\"institutionState\":\"IN\",\"institutionPostalCode\":\"46783\",\"institutionPhoneNumber\":\"\",\"customerReferenceNumber\":\"6B0A07E6-4965-4063-A866-5A96C3E21762\"}"
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/test/webhook/send/{{userId}}?count=1&type=ACCALERT",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"test",
+						"webhook",
+						"send",
+						"{{userId}}"
+					],
+					"query": [
+						{
+							"key": "count",
+							"value": "1"
+						},
+						{
+							"key": "type",
+							"value": "ACCALERT"
+						}
+					]
+				},
+				"description": "Send a sample alert request for a registered userid under your host.  The sample alert body included is representative of a real-time alert.  Standard alerts have considerably less information.  The additional alert information is only available using the Direct API endpoint Get Alert Detail at this time."
+			},
+			"response": []
+		}
+	]
+}
+								</code></pre>
+							</div>
 						</section>
 						<section class="docs-section" id="item-3-3-7">
 							<h3 class="section-heading">Samples</h3>
@@ -914,19 +1769,330 @@ var xhr = new XMLHttpRequest();
 							<p>
 							Here is an implementation of All-in-One User Interface with dynamic Consumer Authentication integration (<em>aio_sample.html</em>):
 							<pre><code data-language="html">
-							TODO
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;StitchCredit&lt;/title&gt;
+    &lt;link rel=&quot;icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;StitchCredit Consumer Credit Reports&quot; /&gt;
+    &lt;meta
+      name=&quot;viewport&quot;
+      content=&quot;minimum-scale=1, initial-scale=1, width=device-width&quot;
+    /&gt;
+    &lt;style&gt;
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        background: #eeeeee;
+      }
+      #sc-iframe {
+        margin: 0;
+        padding: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100vh;
+        border: none;
+        overflow: hidden;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;iframe
+      id=&quot;sc-iframe&quot; allowTransparency=&quot;true&quot;
+      src=&quot;https://efx-dev.stitchcredit.com/login-aio?key=5a10e0d7-1dc8-4325-929f-d0d131990527&amp;ocf=2039&quot;
+    &gt;&lt;/iframe&gt;
+    &lt;script&gt;
+    //this just throws in a default ID if one isn't provided on the query string
+    const id = document.location.search.length &gt; 0 ? document.location.search.split('&amp;')[0].split('=')[1] : '988a6fd7-7297-4757-8b96-907daa14a1f6';
+    console.log(&quot;ID: &quot;,id);
+    console.log(&quot;Loading Message Listener...&quot;);
+
+    window.addEventListener(&quot;message&quot;, receiveMessage, false);
+
+    function receiveMessage(event) {
+        if(event &amp;&amp; event.source &amp;&amp; event.data) {
+            // You only need to implement the types that are important/relevant to your use case.
+            if(event.data.type === 'AUTH_REQUIRED') {
+                //The iframe clident will post this message when a valid preauth token does not exist.
+                //Posting a proper message with a preauth token in response allows the client to continue seemlessly.
+                //console.log(&quot;Auth Required Event Received&quot;);
+                const es = event.source;
+                //this code uses a test endpoint on the server to provide a preauth-token for any user ID without the usual hurdles.
+                //This is ONLY for testing and does not exist in the production environment.
+                getData(&quot;https://efx-dev.stitchcredit.com/api/test/preauth-token/&quot;+id, function() {
+                    const token = JSON.parse(this.responseText).token;
+                    console.log(&quot;Status: &quot;, this.status, &quot;, token: &quot;, token);
+                    es.postMessage({type: 'PREAUTH', token: this.status == 200 ? token : null},&quot;*&quot;);
+                });
+            }
+            else if(event.data.type === 'REG_STARTED') {
+                const es = event.source;
+                //only valid for full web implementation, Direct API already creates the customer, so this will never happen in those instances
+        // (new Date().valueOf()) - is used to generate a new email ID on the fly for testing purposes
+                es.postMessage({type: 'REG', data: {fname:&quot;Gertrude&quot;, lname:&quot;Harkenreadeo&quot;, email: &quot;test+&quot; + (new Date().valueOf()) + &quot;@test.com&quot;}},&quot;*&quot;);
+            }
+            else if(event.data.type === 'IDENTITY_STARTED') {
+                const es = event.source;
+                //You could use this function to pre-populate the given fields.  DoB and SSN will never be prepopulated as it violates compliance
+        // new Date().valueOf().toString() - generates a unique number for street2 to ensure each run goes through the full identity process, remove to test sequential sign up of the same user
+                es.postMessage({type: 'IDENTITY', data: {street1:&quot;305 Linden Av&quot;, street2: new Date().valueOf().toString(), city: &quot;Atlanta&quot;, state: &quot;GA&quot;, zip: &quot;30316&quot;, mobile: &quot;0000000000&quot;}},&quot;*&quot;);
+            }
+            else if(event.data.type === 'LOGIN_SUCCESSFUL') {
+                console.log(&quot;User succesfully logged in&quot;);
+            }
+            else if(event.data.type === 'LOGIN_FAILED') {
+                //if you see this message more than a few times in a row, it's likely an issue
+                //typically this will only occur for full web implementations, not Direct API
+                console.log(&quot;User login failed&quot;);
+            }
+            else if(event.data.type === 'USER_ENROLLED') {
+                //User successfully completed identity and has been enrolled for consumer data
+                console.log(&quot;User enrollment successful&quot;);
+            }
+            else if(event.data.type === 'IDENTITY_FAILED') {
+                //Identity process failed, user is likely &quot;stuck&quot; as they cannot continue
+                console.log(&quot;User identity failure&quot;);
+            }
+            else if(event.data.type === 'SERVICE_FAILURE') {
+                //Identity process failed most likely due to a service outage, but the user is stuck as they cannot continue without passing identity
+                console.log(&quot;Identity service failure&quot;);
+            }
+        }
+
+        function getData(req, action) {
+        var xhr = new XMLHttpRequest();
+            xhr.responesType = 'json';
+            xhr.onload = action;
+            xhr.open(&quot;GET&quot;, req);
+            xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;application/json&quot;);
+            xhr.send();
+        }
+
+    }
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 							</code></pre>
 							</p>
 							<p>
 							Here is an implementation of Tile User Interface with dynamic Consumer Authentication integration (<em>tile_sample.html</em>):
 							<pre><code data-language="html">
-							TODO
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;StitchCredit&lt;/title&gt;
+	&lt;link rel=&quot;icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+	&lt;meta name=&quot;description&quot; content=&quot;StitchCredit Consumer Credit Reports&quot; /&gt;
+	&lt;meta
+	name=&quot;viewport&quot;
+	content=&quot;minimum-scale=1, initial-scale=1, width=device-width&quot;
+	/&gt;
+	&lt;style&gt;
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+		position: relative;
+		background: #eeeeee;
+	}
+	#sc-iframe {
+		display:block;
+		margin: 0 auto;
+		padding: 0;
+		z-index: 1;
+		width: 500px;
+		height: 675px;
+		border: none;
+		overflow: hidden;
+	}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;iframe
+	id=&quot;sc-iframe&quot; allowTransaparency=&quot;true&quot;
+	src=&quot;https://efx-dev.stitchcredit.com/login-tile?key=5a10e0d7-1dc8-4325-929f-d0d131990527&amp;ocf=2039&quot;
+	&gt;&lt;/iframe&gt;
+	&lt;script&gt;
+	//this just throws in a default ID if one isn't provided on the query string
+	const id = document.location.search.length &gt; 0 ? document.location.search.split('&amp;')[0].split('=')[1] : '988a6fd7-7297-4757-8b96-907daa14a1f6';
+	console.log(&quot;ID: &quot;,id);
+	console.log(&quot;Loading Message Listener...&quot;);
+
+	window.addEventListener(&quot;message&quot;, receiveMessage, false);
+
+	function receiveMessage(event) {
+		if(event &amp;&amp; event.source &amp;&amp; event.data) {
+			// You only need to implement the types that are important/relevant to your use case.
+			if(event.data.type === 'AUTH_REQUIRED') {
+				//The iframe clident will post this message when a valid preauth token does not exist.
+				//Posting a proper message with a preauth token in response allows the client to continue seemlessly.
+				//console.log(&quot;Auth Required Event Received&quot;);
+				const es = event.source;
+				//this code uses a test endpoint on the server to provide a preauth-token for any user ID without the usual hurdles.
+				//This is ONLY for testing and does not exist in the production environment.
+				getData(&quot;https://efx-dev.stitchcredit.com/api/test/preauth-token/&quot;+id, function() {
+					const token = JSON.parse(this.responseText).token;
+					console.log(&quot;Status: &quot;, this.status, &quot;, token: &quot;, token);
+					es.postMessage({type: 'PREAUTH', token: this.status == 200 ? token : null},&quot;*&quot;);
+				});
+			}
+			else if(event.data.type === 'REG_STARTED') {
+				const es = event.source;
+				//only valid for full web implementation, Direct API already creates the customer, so this will never happen in those instances
+		// (new Date().valueOf()) - is used to generate a new email ID on the fly for testing purposes
+				es.postMessage({type: 'REG', data: {fname:&quot;Gertrude&quot;, lname:&quot;Harkenreadeo&quot;, email: &quot;test+&quot; + (new Date().valueOf()) + &quot;@test.com&quot;}},&quot;*&quot;);
+			}
+			else if(event.data.type === 'IDENTITY_STARTED') {
+				const es = event.source;
+				//You could use this function to pre-populate the given fields.  DoB and SSN will never be prepopulated as it violates compliance
+		// new Date().valueOf().toString() - generates a unique number for street2 to ensure each run goes through the full identity process, remove to test sequential sign up of the same user
+				es.postMessage({type: 'IDENTITY', data: {street1:&quot;305 Linden Av&quot;, street2: new Date().valueOf().toString(), city: &quot;Atlanta&quot;, state: &quot;GA&quot;, zip: &quot;30316&quot;, mobile: &quot;0000000000&quot;}},&quot;*&quot;);
+			}
+			else if(event.data.type === 'LOGIN_SUCCESSFUL') {
+				console.log(&quot;User succesfully logged in&quot;);
+			}
+			else if(event.data.type === 'LOGIN_FAILED') {
+				//if you see this message more than a few times in a row, it's likely an issue
+				//typically this will only occur for full web implementations, not Direct API
+				console.log(&quot;User login failed&quot;);
+			}
+			else if(event.data.type === 'USER_ENROLLED') {
+				//User successfully completed identity and has been enrolled for consumer data
+				console.log(&quot;User enrollment successful&quot;);
+			}
+			else if(event.data.type === 'IDENTITY_FAILED') {
+				//Identity process failed, user is likely &quot;stuck&quot; as they cannot continue
+				console.log(&quot;User identity failure&quot;);
+			}
+			else if(event.data.type === 'SERVICE_FAILURE') {
+				//Identity process failed most likely due to a service outage, but the user is stuck as they cannot continue without passing identity
+				console.log(&quot;Identity service failure&quot;);
+			}
+		}
+
+		function getData(req, action) {
+		var xhr = new XMLHttpRequest();
+			xhr.responesType = 'json';
+			xhr.onload = action;
+			xhr.open(&quot;GET&quot;, req);
+			xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;application/json&quot;);
+			xhr.send();
+		}
+
+	}
+	&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 							</code></pre>
 							</p>
 							<p>
 							Here is an implementation of Tile User Interface with dynamic Consumer Authentication integration and configuration display flags override (<em>tile_sample_score_only.html</em>):
 							<pre><code data-language="html">
-							TODO
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;StitchCredit&lt;/title&gt;
+	&lt;link rel=&quot;icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+	&lt;meta name=&quot;description&quot; content=&quot;StitchCredit Consumer Credit Reports&quot; /&gt;
+	&lt;meta
+	name=&quot;viewport&quot;
+	content=&quot;minimum-scale=1, initial-scale=1, width=device-width&quot;
+	/&gt;
+	&lt;style&gt;
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+		position: relative;
+		background: #eeeeee;
+	}
+	#sc-iframe {
+		display:block;
+		margin: 0 auto;
+		padding: 0;
+		z-index: 1;
+		width: 500px;
+		height: 550px;
+		border: none;
+		overflow: hidden;
+	}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;iframe
+	id=&quot;sc-iframe&quot; allowTransaparency=&quot;true&quot;
+	src=&quot;https://efx-dev.stitchcredit.com/login-tile?key=5a10e0d7-1dc8-4325-929f-d0d131990527&amp;ocf=1&quot;
+	&gt;&lt;/iframe&gt;
+	&lt;script&gt;
+	//this just throws in a default ID if one isn't provided on the query string
+	const id = document.location.search.length &gt; 0 ? document.location.search.split('&amp;')[0].split('=')[1] : '988a6fd7-7297-4757-8b96-907daa14a1f6';
+	console.log(&quot;ID: &quot;,id);
+	console.log(&quot;Loading Message Listener...&quot;);
+
+	window.addEventListener(&quot;message&quot;, receiveMessage, false);
+
+	function receiveMessage(event) {
+		if(event &amp;&amp; event.source &amp;&amp; event.data) {
+			// You only need to implement the types that are important/relevant to your use case.
+			if(event.data.type === 'AUTH_REQUIRED') {
+				//The iframe clident will post this message when a valid preauth token does not exist.
+				//Posting a proper message with a preauth token in response allows the client to continue seemlessly.
+				//console.log(&quot;Auth Required Event Received&quot;);
+				const es = event.source;
+				//this code uses a test endpoint on the server to provide a preauth-token for any user ID without the usual hurdles.
+				//This is ONLY for testing and does not exist in the production environment.
+				getData(&quot;https://efx-dev.stitchcredit.com/api/test/preauth-token/&quot;+id, function() {
+					const token = JSON.parse(this.responseText).token;
+					console.log(&quot;Status: &quot;, this.status, &quot;, token: &quot;, token);
+					es.postMessage({type: 'PREAUTH', token: this.status == 200 ? token : null},&quot;*&quot;);
+				});
+			}
+			else if(event.data.type === 'REG_STARTED') {
+				const es = event.source;
+				//only valid for full web implementation, Direct API already creates the customer, so this will never happen in those instances
+		// (new Date().valueOf()) - is used to generate a new email ID on the fly for testing purposes
+				es.postMessage({type: 'REG', data: {fname:&quot;Gertrude&quot;, lname:&quot;Harkenreadeo&quot;, email: &quot;test+&quot; + (new Date().valueOf()) + &quot;@test.com&quot;}},&quot;*&quot;);
+			}
+			else if(event.data.type === 'IDENTITY_STARTED') {
+				const es = event.source;
+				//You could use this function to pre-populate the given fields.  DoB and SSN will never be prepopulated as it violates compliance
+		// new Date().valueOf().toString() - generates a unique number for street2 to ensure each run goes through the full identity process, remove to test sequential sign up of the same user
+				es.postMessage({type: 'IDENTITY', data: {street1:&quot;305 Linden Av&quot;, street2: new Date().valueOf().toString(), city: &quot;Atlanta&quot;, state: &quot;GA&quot;, zip: &quot;30316&quot;, mobile: &quot;0000000000&quot;}},&quot;*&quot;);
+			}
+			else if(event.data.type === 'LOGIN_SUCCESSFUL') {
+				console.log(&quot;User succesfully logged in&quot;);
+			}
+			else if(event.data.type === 'LOGIN_FAILED') {
+				//if you see this message more than a few times in a row, it's likely an issue
+				//typically this will only occur for full web implementations, not Direct API
+				console.log(&quot;User login failed&quot;);
+			}
+			else if(event.data.type === 'USER_ENROLLED') {
+				//User successfully completed identity and has been enrolled for consumer data
+				console.log(&quot;User enrollment successful&quot;);
+			}
+			else if(event.data.type === 'IDENTITY_FAILED') {
+				//Identity process failed, user is likely &quot;stuck&quot; as they cannot continue
+				console.log(&quot;User identity failure&quot;);
+			}
+			else if(event.data.type === 'SERVICE_FAILURE') {
+				//Identity process failed most likely due to a service outage, but the user is stuck as they cannot continue without passing identity
+				console.log(&quot;Identity service failure&quot;);
+			}
+		}
+
+		function getData(req, action) {
+		var xhr = new XMLHttpRequest();
+			xhr.responesType = 'json';
+			xhr.onload = action;
+			xhr.open(&quot;GET&quot;, req);
+			xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;application/json&quot;);
+			xhr.send();
+		}
+
+	}
+	&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 							</code></pre>
 							</p>
 
@@ -1318,8 +2484,3083 @@ var xhr = new XMLHttpRequest();
 							</ul>
 							In the <strong>test</strong> environment it is important that you use the User Test Identity provided to you verbatim. You may change the email address and phone number <strong>ONLY.</strong>
 							</p>
+							<p>Direct API</p>
+							<div class="postman_code">
+								<pre><code data-language="json">
+{
+	"info": {
+		"_postman_id": "1e3be246-0e2d-472e-8d8b-462f00852568",
+		"name": "StitchCredit - Direct API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customer Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c7ffe89c-fa8a-4891-9231-e69679dc2259",
+						"exec": [
+							"var data = pm.response.json();",
+							"if(data) {",
+							"    if(data.token) pm.environment.set(\"dtoken\",data.token);",
+							"    if(data.refresh) pm.environment.set(\"rdtoken\",data.refresh);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"secret\": \"{{SECRET}}\",\n    \"apikey\": \"{{API_KEY}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/login",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Refresh Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							"var data = pm.response.json();",
+							"if(data) {",
+							"    if(data.token) pm.environment.set(\"dtoken\",data.token);",
+							"    if(data.refresh) pm.environment.set(\"rdtoken\",data.refresh);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/refresh-token?token={{rdtoken}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"refresh-token"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{rdtoken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register New User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "550c9d9e-0719-4eea-9ee8-dbc634154585",
+						"exec": [
+							"var data = pm.response.json();",
+							"if (data) {",
+							"    if (data.token) pm.environment.set(\"paToken\", data.token);",
+							"    if (data.userId) pm.environment.set(\"userId\", data.userId);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"{{USER_EMAIL}}\",\"fname\":\"{{USER_FNAME}}\",\"lname\":\"{{USER_LNAME}}\",\"mobile\":\"{{USER_MOBILE}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/user-reg",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"user-reg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New User Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ceca0cf9-2f98-4dce-9c20-ec51795e6aa1",
+						"exec": [
+							"var data = pm.response.json();",
+							"if (data) {",
+							"    if (data.token) pm.environment.set(\"paToken\", data.token);",
+							"    if (data.userId) pm.environment.set(\"userId\", data.userId);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/preauth-token/{{userId}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"preauth-token",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Close User Account",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/close-account/{{userId}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"close-account",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change User Email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"test@test.com\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/change-email/{{userId}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"change-email",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change User Phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "870bd1c5-5348-49ad-9fc1-7e05469b2ef9",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"mobile\": \"1234567890\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/change-mobile/{{userId}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"change-mobile",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change User Host",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e93f5174-f782-4c38-8a95-5dfb4e336521",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/change-host/{{userId}}?host={{HOST_ID}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"change-host",
+						"{{userId}}"
+					],
+					"query": [
+						{
+							"key": "host",
+							"value": "{{HOST_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Refresh Date",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "04ee5e00-2b02-429f-b7bb-dcfcc9451d13",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/update-refresh/{{userId}}?rmonly=false",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"update-refresh",
+						"{{userId}}"
+					],
+					"query": [
+						{
+							"key": "rmonly",
+							"value": "false"
+						}
+					]
+				},
+				"description": "*Premium Feature - May Require Additional Access"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Alert Detail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "50689d78-4a1f-4f41-9eb3-698257f83698",
+						"exec": [
+							"var data = pm.response.json();",
+							"if (data) {",
+							"    if (data.token) pm.environment.set(\"paToken\", data.token);",
+							"    if (data.userId) pm.environment.set(\"userId\", data.userId);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/efx-alert/{{alertId}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"efx-alert",
+						"{{alertId}}"
+					]
+				},
+				"description": "*Premium Feature - May Require Additional Access"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
+								</code></pre>
+							</div>
+							<p>EFX API</p>
+							<div class="postman_code">
+								<pre>
+									<code data-language="json">
+{
+	"info": {
+		"_postman_id": "6a775eeb-7324-447c-9564-157940e7d587",
+		"name": "StitchCredit - EFX API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OAUTH Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cad6b17b-9322-4759-9809-c06b85ddeca9",
+						"exec": [
+							"var response = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"efxtoken\", response.access_token);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "scope",
+							"value": "delivery",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "jwt-bearer",
+							"type": "text"
+						},
+						{
+							"key": "api_key",
+							"value": "{{efx_api_key}}",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion",
+							"value": "{{efx_assertion}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{efx_url}}/oauth/token",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "scope",
+									"value": "delivery",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "jwt-bearer",
+									"type": "text"
+								},
+								{
+									"key": "api_key",
+									"value": "{{efx_api_key}}",
+									"type": "text"
+								},
+								{
+									"key": "client_assertion",
+									"value": "{{efx_assertion}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{efx_url}}/oauth/token",
+							"host": [
+								"{{efx_url}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "javascript",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate, no-store",
+							"name": "Cache-Control",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip",
+							"name": "Content-Encoding",
+							"description": "The type of encoding used on the data."
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Aug 2015 13:31:36 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Expires",
+							"value": "0",
+							"name": "Expires",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache, no-cache",
+							"name": "Pragma",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"key": "Server",
+							"value": "Apache-Coyote/1.1",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"name": "X-Content-Type-Options",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY",
+							"name": "X-Frame-Options",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"name": "X-XSS-Protection",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookie": [],
+					"body": "{\"access_token\":\"87e22d35-0089-4613-809b-62f248c2c978\",\"token_type\":\"bearer\",\"expires_in\":610,\"scope\":\"read write\"}"
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "{{content-type}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditMonitoring/healthcheck?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditMonitoring",
+						"healthcheck"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit Monitoring",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditMonitoring?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditMonitoring"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit Report List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "64ef860f-2992-4d8b-a1f4-86173f8e1793",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"reportId\",data[0].id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit Report Summary (First in list)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}/summary?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}",
+						"summary"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Full Credit Report (First in list)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit Report (First in list) - PRINT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}/print?access_token={{efxtoken}}",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}",
+						"print"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "{{efxtoken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit Score Latest",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditScore/latest?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditScore",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit Score History",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditScore/history?historicalLimit=24&format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditScore",
+						"history"
+					],
+					"query": [
+						{
+							"key": "historicalLimit",
+							"value": "24"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
+									</code>
+								</pre>
+							</div>
+							<p>User API</p>
+							<div class="postman_code">
+								<pre>
+									<code data-language="json">
+{
+	"info": {
+		"_postman_id": "78ea84a5-dd24-48c3-872a-2654e894b062",
+		"name": "StitchCredit - User API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Preauth Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "370399eb-c2d3-4d02-b5e6-28e4cd217059",
+						"exec": [
+							"var data = pm.response.json();\r",
+							"if (data) {\r",
+							"    if (data.token) pm.environment.set(\"utoken\", data.token);\r",
+							"    if (data.refresh) pm.environment.set(\"rutoken\", data.refresh);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/preauth-token/{{paToken}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"preauth-token",
+						"{{paToken}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Refresh Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							"var data = pm.response.json();",
+							"if(data) {",
+							"    if(data.token) pm.environment.set(\"utoken\",data.token);",
+							"    if(data.refresh) pm.environment.set(\"rutoken\",data.refresh);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/refresh-token?token={{rutoken}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"refresh-token"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{rutoken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Identity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"ssn\":\"{{USER_SSN}}\",\"dob\":\"{{USER_DOB}}\",\"mobile\":\"{{USER_MOBILE}}\",\"street1\":\"{{USER_STREET1}}\",\"street2\":\"{{USER_STREET2}}\",\"city\":\"{{USER_CITY}}\",\"state\":\"{{USER_STATE}}\",\"zip\":\"{{USER_ZIP}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/identity",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"identity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Phone Verify",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"mtoken\",data.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/get-mobile",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"get-mobile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Mobile Code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"mTransactionKey\",data.key);",
+							"pm.environment.set(\"passcode\",data.passcode);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/send-code/{{mtoken}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"send-code",
+						"{{mtoken}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Renew Mobile Code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"mTransactionKey\",data.key);",
+							"pm.environment.set(\"passcode\",data.passcode);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"key\":\"{{mTransactionKey}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/renew-code",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"renew-code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Mobile Code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"key\":\"{{mTransactionKey}}\",\"code\":\"{{passcode}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/verify-code",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"verify-code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Identity Quiz",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"qTransactionKey\",data.key);",
+							"pm.environment.set(\"qzId\",data.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/get-quiz",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"get-quiz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Identity Quiz",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"key\":\"{{qTransactionKey}}\",\"id\":\"{{qzId}}\",\"answers\": [{\"qid\":1,\"aid\":3},{\"qid\":2,\"aid\":3},{\"qid\":3,\"aid\":3}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/verify-quiz",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"verify-quiz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get EFX Config",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3d8c071-4aa5-4622-ac58-0a2597c34f87",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"efx_url\",data.url);",
+							"pm.environment.set(\"efx_api_key\",data.id);",
+							"pm.environment.set(\"efx_assertion\",data.secret);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/efx-config",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"efx-config"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}										
+									</code>
+								</pre>
+							</div>
+							<p>Test API</p>
+							<div class="postman_code">
+								<pre>
+									<code data-language="json">
+{
+	"info": {
+		"_postman_id": "ecfa55bb-7382-4439-ae40-8916233c0ed9",
+		"name": "Consumer Credit - Test API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Pre-auth Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/test/preauth-token/{{userId}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"test",
+						"preauth-token",
+						"{{userId}}"
+					]
+				},
+				"description": "Quickly create a preauth token for a preexisting user without having to implement the full Direct Authentication API or complete a full user login."
+			},
+			"response": []
+		},
+		{
+			"name": "Webhook Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//var data = pm.response.json();",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "test",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/test/webhook/send/{{userId}}?count=1&type=ACCNEW",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"test",
+						"webhook",
+						"send",
+						"{{userId}}"
+					],
+					"query": [
+						{
+							"key": "count",
+							"value": "1"
+						},
+						{
+							"key": "type",
+							"value": "ACCNEW",
+							"description": "Choose from: ACCNEW, IDFAIL, IDSVCOUT, ACCREG, ACCREGFAIL, ACCCLOSED, ACCLOCKED, ACCLOGINFAIL, SCOREREF, REPORTREF, TEST, ERROR"
+						}
+					]
+				},
+				"description": "Send a sample webhook request for a registered userid under your host.\n\nChoose a webhook type from: ACCNEW, IDFAIL, IDSVCOUT, ACCREG, ACCREGFAIL, ACCCLOSED, ACCLOCKED, ACCLOGINFAIL, SCOREREF, REPORTREF, TEST, ERROR"
+			},
+			"response": []
+		},
+		{
+			"name": "Webhook Sink",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//var data = pm.response;",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "test",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"type\": \"ERROR\",\r\n    \"user_id\": \"d9126b53-48ea-40b7-933d-3bc6084f287e\",\r\n    \"time\": \"2020-07-26T05:36:00\",\r\n    \"error_code\": \"SC999\",\r\n    \"error_msg\": \"Test Error\"\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/test/webhook/sink",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"test",
+						"webhook",
+						"sink"
+					],
+					"query": [
+						{
+							"key": "fail",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				},
+				"description": "This endpoint simulates sending a webhook.  The current URL responds with success unless the fail parameter is marked.\n\nUse to directly verify that your webhook endpoint is working.  Change the URL to point to your server endpoint.  Update the Basic Authentication username & password accordingly."
+			},
+			"response": []
+		},
+		{
+			"name": "Webhook Test: Alert",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//var data = pm.response.json();",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "test",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"alertId\":\"CRT:36641804\",\"alertType\":\"BlockedInquiryAlert\",\"creationDate\":\"2021-01-02-20:32\",\"dataSource\":\"EQUIFAX\",\"dateReported\":\"2021-01-02-20:31\",\"enrollmentId\":\"281380\",\"partnerKey\":\"3e78eae7-a3d0-4b72-9bc3-6493b91e84b6\",\"reportingFrequency\":\"RTINQ\",\"tenantKey\":\"EFX-US\",\"institutionType\":\"Miscellaneous Utilities\",\"institutionName\":\"APPLIED TECHNOLOGY GROUP INC\",\"memberNumber\":\"990UZ07496\",\"inquiryIntent\":\"Real Estate\",\"postedDuringMaintenancePeriod\":\"no\",\"inquiryType\":\"CR\",\"endUserText\":\"Naval Credit Union\",\"institutionAddressLine1\":\"Site Address 1\",\"institutionAddressLine2\":\"St# 2 2nd line\",\"institutionCity\":\"ROANOKE\",\"institutionState\":\"IN\",\"institutionPostalCode\":\"46783\",\"institutionPhoneNumber\":\"\",\"customerReferenceNumber\":\"6B0A07E6-4965-4063-A866-5A96C3E21762\"}"
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/test/webhook/send/{{userId}}?count=1&type=ACCALERT",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"test",
+						"webhook",
+						"send",
+						"{{userId}}"
+					],
+					"query": [
+						{
+							"key": "count",
+							"value": "1"
+						},
+						{
+							"key": "type",
+							"value": "ACCALERT"
+						}
+					]
+				},
+				"description": "Send a sample alert request for a registered userid under your host.  The sample alert body included is representative of a real-time alert.  Standard alerts have considerably less information.  The additional alert information is only available using the Direct API endpoint Get Alert Detail at this time."
+			},
+			"response": []
+		}
+	]
+}										
+									</code>
+								</pre>
+							</div>
+							<p>Getting Started - New User</p>
+							<div class="postman_code">
+								<pre>
+									<code data-language="json">
+{
+	"info": {
+		"_postman_id": "f65c1f1d-3127-4b15-9ee6-0b85182b16e5",
+		"name": "StitchCredit - Getting Started - New User",
+		"description": "Consumer API - Getting Started Instructions\r\nUse the provided Postman Environment in conjunction with this collection of requests.\r\nThe steps are provided in order to create a new user and retrieve the data.\r\nStep 2 changes depending on whether it is a new or returning user.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Step 1: Customer Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c973714d-5902-4cb8-a5f7-a0668ecbfba9",
+						"exec": [
+							"var data = pm.response.json();",
+							"if(data) {",
+							"    if(data.token) pm.environment.set(\"dtoken\",data.token);",
+							"    if(data.refresh) pm.environment.set(\"rdtoken\",data.refresh);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"secret\": \"{{SECRET}}\",\n    \"apikey\": \"{{API_KEY}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/login",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 2: Register New User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e792209a-7d96-47bf-9d1e-34f0a81b407b",
+						"exec": [
+							"var data = pm.response.json();",
+							"if (data) {",
+							"    if (data.token) pm.environment.set(\"paToken\", data.token);",
+							"    if (data.userId) pm.environment.set(\"userId\", data.userId);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"{{USER_EMAIL}}\",\"fname\":\"{{USER_FNAME}}\",\"lname\":\"{{USER_LNAME}}\",\"mobile\":\"{{USER_MOBILE}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/user-reg",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"user-reg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 3: Preauth Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4ec1bd9d-1e69-4bee-ab8f-e62bfb4936a2",
+						"exec": [
+							"var data = pm.response.json();\r",
+							"if (data) {\r",
+							"    if (data.token) pm.environment.set(\"utoken\", data.token);\r",
+							"    if (data.refresh) pm.environment.set(\"rutoken\", data.refresh);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/preauth-token/{{paToken}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"preauth-token",
+						"{{paToken}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 4: User Identity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4844f292-674b-4a57-aeb9-fcc54b7f32c3",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"ssn\":\"{{USER_SSN}}\",\"dob\":\"{{USER_DOB}}\",\"mobile\":\"{{USER_MOBILE}}\",\"street1\":\"{{USER_STREET1}}\",\"street2\":\"{{USER_STREET2}}{{$randomint}}\",\"city\":\"{{USER_CITY}}\",\"state\":\"{{USER_STATE}}\",\"zip\":\"{{USER_ZIP}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/identity",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"identity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 5: Phone Verify",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b24aa4f-6416-4267-b007-ec17926c66b0",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"mtoken\",data.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/get-mobile",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"get-mobile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 6: Send Mobile Code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e167cb9e-3ed4-4caa-ad53-ec6aa6fdc965",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"mTransactionKey\",data.key);",
+							"pm.environment.set(\"passcode\",data.passcode);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/send-code/{{mtoken}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"send-code",
+						"{{mtoken}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 7: Verify Mobile Code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f7628e0d-6e0a-4d3e-8047-aa5c7be00c78",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"key\":\"{{mTransactionKey}}\",\"code\":\"{{passcode}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/verify-code",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"verify-code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 8: Get EFX Config",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "91b6c3dd-27b6-4247-951d-64bdbcd84a3f",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"efx_url\",data.url);",
+							"pm.environment.set(\"efx_api_key\",data.id);",
+							"pm.environment.set(\"efx_assertion\",data.secret);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/efx-config",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"efx-config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 9: OAUTH Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "765b8623-45f4-41ab-9d6a-77cd709b4612",
+						"exec": [
+							"var response = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"efxtoken\", response.access_token);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "scope",
+							"value": "delivery",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "jwt-bearer",
+							"type": "text"
+						},
+						{
+							"key": "api_key",
+							"value": "{{efx_api_key}}",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion",
+							"value": "{{efx_assertion}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{efx_url}}/oauth/token",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 10]: Credit Monitoring",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditMonitoring?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditMonitoring"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 10]: Credit Score Latest",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditScore/latest?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditScore",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 10]: Credit Score History",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditScore/history?historicalLimit=24&format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditScore",
+						"history"
+					],
+					"query": [
+						{
+							"key": "historicalLimit",
+							"value": "24"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 11: Credit Report List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1e02ed8-b430-4b11-9129-b3c55c5177e2",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"reportId\",data[0].id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 12]: Credit Report Summary (First in list)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}/summary?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}",
+						"summary"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 12]: Full Credit Report (First in list)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 12]: Credit Report (First in list) - PRINT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}/print?access_token={{efxtoken}}",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}",
+						"print"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "{{efxtoken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
+									</code>
+								</pre>
+							</div>
+							<p>Getting Started - Returning User</p>
+							<div class="postman_code">
+								<pre>
+									<code data-language="json">
+{
+	"info": {
+		"_postman_id": "f65c1f1d-3127-4b15-9ee6-0b85182b16e5",
+		"name": "StitchCredit - Getting Started - Returning User",
+		"description": "Consumer API - Getting Started Instructions\r\nUse the provided Postman Environment in conjunction with this collection of requests.\r\nThe steps are provided in order to create a new user and retrieve the data.\r\nStep 2 changes depending on whether it is a new or returning user.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Step 1: Customer Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c973714d-5902-4cb8-a5f7-a0668ecbfba9",
+						"exec": [
+							"var data = pm.response.json();",
+							"if(data) {",
+							"    if(data.token) pm.environment.set(\"dtoken\",data.token);",
+							"    if(data.refresh) pm.environment.set(\"rdtoken\",data.refresh);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"secret\": \"{{SECRET}}\",\n    \"apikey\": \"{{API_KEY}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/login",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 2: New User Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "75867ce0-7f8d-4531-a7f1-9939d485fb60",
+						"exec": [
+							"var data = pm.response.json();",
+							"if (data) {",
+							"    if (data.token) pm.environment.set(\"paToken\", data.token);",
+							"    if (data.userId) pm.environment.set(\"userId\", data.userId);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/preauth-token/{{userId}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"preauth-token",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 3: Preauth Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4ec1bd9d-1e69-4bee-ab8f-e62bfb4936a2",
+						"exec": [
+							"var data = pm.response.json();\r",
+							"if (data) {\r",
+							"    if (data.token) pm.environment.set(\"utoken\", data.token);\r",
+							"    if (data.refresh) pm.environment.set(\"rutoken\", data.refresh);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/preauth-token/{{paToken}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"preauth-token",
+						"{{paToken}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 4: Get EFX Config",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "91b6c3dd-27b6-4247-951d-64bdbcd84a3f",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"efx_url\",data.url);",
+							"pm.environment.set(\"efx_api_key\",data.id);",
+							"pm.environment.set(\"efx_assertion\",data.secret);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/efx-config",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"efx-config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 5: OAUTH Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "765b8623-45f4-41ab-9d6a-77cd709b4612",
+						"exec": [
+							"var response = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"efxtoken\", response.access_token);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "scope",
+							"value": "delivery",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "jwt-bearer",
+							"type": "text"
+						},
+						{
+							"key": "api_key",
+							"value": "{{efx_api_key}}",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion",
+							"value": "{{efx_assertion}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{efx_url}}/oauth/token",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 6]: Credit Monitoring",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditMonitoring?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditMonitoring"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 6]: Credit Score Latest",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditScore/latest?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditScore",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 6]: Credit Score History",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditScore/history?historicalLimit=24&format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditScore",
+						"history"
+					],
+					"query": [
+						{
+							"key": "historicalLimit",
+							"value": "24"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 7: Credit Report List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1e02ed8-b430-4b11-9129-b3c55c5177e2",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"reportId\",data[0].id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 8]: Credit Report Summary (First in list)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}/summary?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}",
+						"summary"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 8]: Full Credit Report (First in list)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 8]: Credit Report (First in list) - PRINT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}/print?access_token={{efxtoken}}",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}",
+						"print"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "{{efxtoken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
+									</code>
+								</pre>
+							</div>
 
-						</section>
+</section>
 
 
 					</section><!--//section-->
@@ -1378,7 +5619,1212 @@ var xhr = new XMLHttpRequest();
 						In the <strong>test</strong> environment it is important that you use the User Test Identity provided to you verbatim. You may change the email address and phone number <strong>ONLY.</strong>
 						</p>
 						<p>
-						TODO: include Postman Collections
+						<p>Getting Started - New User</p>
+						<div class="postman_code">
+							<pre><code data-language="json">
+{
+	"info": {
+		"_postman_id": "f65c1f1d-3127-4b15-9ee6-0b85182b16e5",
+		"name": "StitchCredit - Getting Started - New User",
+		"description": "Consumer API - Getting Started Instructions\r\nUse the provided Postman Environment in conjunction with this collection of requests.\r\nThe steps are provided in order to create a new user and retrieve the data.\r\nStep 2 changes depending on whether it is a new or returning user.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Step 1: Customer Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c973714d-5902-4cb8-a5f7-a0668ecbfba9",
+						"exec": [
+							"var data = pm.response.json();",
+							"if(data) {",
+							"    if(data.token) pm.environment.set(\"dtoken\",data.token);",
+							"    if(data.refresh) pm.environment.set(\"rdtoken\",data.refresh);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"secret\": \"{{SECRET}}\",\n    \"apikey\": \"{{API_KEY}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/login",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 2: Register New User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e792209a-7d96-47bf-9d1e-34f0a81b407b",
+						"exec": [
+							"var data = pm.response.json();",
+							"if (data) {",
+							"    if (data.token) pm.environment.set(\"paToken\", data.token);",
+							"    if (data.userId) pm.environment.set(\"userId\", data.userId);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"{{USER_EMAIL}}\",\"fname\":\"{{USER_FNAME}}\",\"lname\":\"{{USER_LNAME}}\",\"mobile\":\"{{USER_MOBILE}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/user-reg",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"user-reg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 3: Preauth Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4ec1bd9d-1e69-4bee-ab8f-e62bfb4936a2",
+						"exec": [
+							"var data = pm.response.json();\r",
+							"if (data) {\r",
+							"    if (data.token) pm.environment.set(\"utoken\", data.token);\r",
+							"    if (data.refresh) pm.environment.set(\"rutoken\", data.refresh);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/preauth-token/{{paToken}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"preauth-token",
+						"{{paToken}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 4: User Identity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4844f292-674b-4a57-aeb9-fcc54b7f32c3",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"ssn\":\"{{USER_SSN}}\",\"dob\":\"{{USER_DOB}}\",\"mobile\":\"{{USER_MOBILE}}\",\"street1\":\"{{USER_STREET1}}\",\"street2\":\"{{USER_STREET2}}{{$randomint}}\",\"city\":\"{{USER_CITY}}\",\"state\":\"{{USER_STATE}}\",\"zip\":\"{{USER_ZIP}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/identity",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"identity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 5: Phone Verify",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b24aa4f-6416-4267-b007-ec17926c66b0",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"mtoken\",data.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/get-mobile",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"get-mobile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 6: Send Mobile Code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e167cb9e-3ed4-4caa-ad53-ec6aa6fdc965",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"mTransactionKey\",data.key);",
+							"pm.environment.set(\"passcode\",data.passcode);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/send-code/{{mtoken}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"send-code",
+						"{{mtoken}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 7: Verify Mobile Code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f7628e0d-6e0a-4d3e-8047-aa5c7be00c78",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"key\":\"{{mTransactionKey}}\",\"code\":\"{{passcode}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/verify-code",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"verify-code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 8: Get EFX Config",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "91b6c3dd-27b6-4247-951d-64bdbcd84a3f",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"efx_url\",data.url);",
+							"pm.environment.set(\"efx_api_key\",data.id);",
+							"pm.environment.set(\"efx_assertion\",data.secret);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/efx-config",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"efx-config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 9: OAUTH Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "765b8623-45f4-41ab-9d6a-77cd709b4612",
+						"exec": [
+							"var response = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"efxtoken\", response.access_token);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "scope",
+							"value": "delivery",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "jwt-bearer",
+							"type": "text"
+						},
+						{
+							"key": "api_key",
+							"value": "{{efx_api_key}}",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion",
+							"value": "{{efx_assertion}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{efx_url}}/oauth/token",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 10]: Credit Monitoring",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditMonitoring?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditMonitoring"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 10]: Credit Score Latest",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditScore/latest?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditScore",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 10]: Credit Score History",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditScore/history?historicalLimit=24&format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditScore",
+						"history"
+					],
+					"query": [
+						{
+							"key": "historicalLimit",
+							"value": "24"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 11: Credit Report List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1e02ed8-b430-4b11-9129-b3c55c5177e2",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"reportId\",data[0].id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 12]: Credit Report Summary (First in list)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}/summary?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}",
+						"summary"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 12]: Full Credit Report (First in list)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 12]: Credit Report (First in list) - PRINT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}/print?access_token={{efxtoken}}",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}",
+						"print"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "{{efxtoken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
+							</code></pre>
+						</div>
+						<p>Getting Started - Returning User</p>
+						<div class="postman_code">
+							<pre><code data-language="json">
+{
+	"info": {
+		"_postman_id": "f65c1f1d-3127-4b15-9ee6-0b85182b16e5",
+		"name": "StitchCredit - Getting Started - Returning User",
+		"description": "Consumer API - Getting Started Instructions\r\nUse the provided Postman Environment in conjunction with this collection of requests.\r\nThe steps are provided in order to create a new user and retrieve the data.\r\nStep 2 changes depending on whether it is a new or returning user.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Step 1: Customer Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c973714d-5902-4cb8-a5f7-a0668ecbfba9",
+						"exec": [
+							"var data = pm.response.json();",
+							"if(data) {",
+							"    if(data.token) pm.environment.set(\"dtoken\",data.token);",
+							"    if(data.refresh) pm.environment.set(\"rdtoken\",data.refresh);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"secret\": \"{{SECRET}}\",\n    \"apikey\": \"{{API_KEY}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/login",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 2: New User Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "75867ce0-7f8d-4531-a7f1-9939d485fb60",
+						"exec": [
+							"var data = pm.response.json();",
+							"if (data) {",
+							"    if (data.token) pm.environment.set(\"paToken\", data.token);",
+							"    if (data.userId) pm.environment.set(\"userId\", data.userId);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{dtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/direct/preauth-token/{{userId}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"direct",
+						"preauth-token",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 3: Preauth Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4ec1bd9d-1e69-4bee-ab8f-e62bfb4936a2",
+						"exec": [
+							"var data = pm.response.json();\r",
+							"if (data) {\r",
+							"    if (data.token) pm.environment.set(\"utoken\", data.token);\r",
+							"    if (data.refresh) pm.environment.set(\"rutoken\", data.refresh);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/preauth-token/{{paToken}}",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"preauth-token",
+						"{{paToken}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 4: Get EFX Config",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "91b6c3dd-27b6-4247-951d-64bdbcd84a3f",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"efx_url\",data.url);",
+							"pm.environment.set(\"efx_api_key\",data.id);",
+							"pm.environment.set(\"efx_assertion\",data.secret);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{utoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}{{BASE_URL}}/users/efx-config",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}{{BASE_URL}}",
+					"path": [
+						"users",
+						"efx-config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 5: OAUTH Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "765b8623-45f4-41ab-9d6a-77cd709b4612",
+						"exec": [
+							"var response = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"efxtoken\", response.access_token);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "scope",
+							"value": "delivery",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "jwt-bearer",
+							"type": "text"
+						},
+						{
+							"key": "api_key",
+							"value": "{{efx_api_key}}",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion",
+							"value": "{{efx_assertion}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{efx_url}}/oauth/token",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 6]: Credit Monitoring",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditMonitoring?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditMonitoring"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 6]: Credit Score Latest",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditScore/latest?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditScore",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 6]: Credit Score History",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditScore/history?historicalLimit=24&format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditScore",
+						"history"
+					],
+					"query": [
+						{
+							"key": "historicalLimit",
+							"value": "24"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 7: Credit Report List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1e02ed8-b430-4b11-9129-b3c55c5177e2",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set(\"reportId\",data[0].id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 8]: Credit Report Summary (First in list)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}/summary?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}",
+						"summary"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 8]: Full Credit Report (First in list)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{efxtoken}}"
+					}
+				],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}?format=json",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Step 8]: Credit Report (First in list) - PRINT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{efx_url}}/v1/creditReport/{{reportId}}/print?access_token={{efxtoken}}",
+					"host": [
+						"{{efx_url}}"
+					],
+					"path": [
+						"v1",
+						"creditReport",
+						"{{reportId}}",
+						"print"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "{{efxtoken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
+							</code></pre>
+						</div>
 						</p>
 
 					</section><!--//section-->
