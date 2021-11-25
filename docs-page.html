@@ -319,10 +319,16 @@
 							The StitchCredit widget allows easy integration into any site. There is no coding experience required to activate the web widget. The widget is designed as a responive interface to support both full websites and mobile experiences.
 							</p>
 							<p>
-							The StitchCredit widget can be customized to represent your look and feel in order to strengthen your relationship with customers. It can be customized to embed seamlessly into your site including an embedded logo for personalization. 
+							The StitchCredit widget can be customized to represent your look and feel in order to strengthen your relationship with customers. It can be customized to embed seamlessly into your site including an embedded logo for personalization. It is possible to embed a logo for additional personalization
+							</p>
+							<p>
+								The StitchCredit widget includes credit features configured to your needs. These features are upgradeable as your site and requirements grow. No changes are required to your site for compliance.
 							</p>
 							<p>
 							For this option, you embed an iframe and configure the Host URL where you will be loading the widget. For testing, StitchCredit can configure that any Host URL to load the widget (including localhost); this allows you to try this integration option by locally serving an html file with the following iframe. For production, the URL must be locked down so that the widget can only be rendered from that host. 
+							</p>
+							<p>
+								From sign up to launch in less than one week
 							</p>
 						</section><!--//section-->
 						<section class="docs-section" id="item-3-2-2">
@@ -335,12 +341,40 @@
 							<li><span style="background-color: #BBEE77">Integration Host &amp; parameters</span></li>
 							<li><span style="background-color: #FF6666">Configuration Flags</span></li>
 							<li><span style="background-color: #B2FFFF">Primary Theme Color (six character hex, without #)</span></li>
+							<li><span style="background-color: #d2b2e5">View Option (options include: dashboard, all-in-one, or tile)</span></li>
+							<li><span style="background-color: #FFA500">Logo URL  (URL of a logo to replace the StitchCredit logo)</span></li>
 						</ul>
-
+						<p>
+							Only the registered host can serve the UI with the designated API Key. Embed iFrame on a blank page under the registered host. Style the iFrame/page to suit your needs
+						</p>
 						<p>
 						To embed into HTML, create an iframe as shown in the following example with its <strong>src</strong> reflecting this color-coded URL:
 						<br>
-						<strong>"<span style="background-color: #BBEE77"><a href="https://efx-dev.stitchcredit.com/api/users/start?key=">https://efx-dev.stitchcredit.com/api/users/start?key=</a></span><span style="background-color: #FFFF99">[API-KEY]</span><span style="background-color: #BBEE77">&amp;ocf=</span><span style="background-color: #FF6666">[FLAGS]</span><span style="background-color: #BBEE77">&amp;oct=</span><span style="background-color: #B2FFFF">[COLOR]</span>"</strong>
+						<strong>"<span style="background-color: #BBEE77"><a href="https://efx-dev.stitchcredit.com/api/users/start?key=">https://efx-dev.stitchcredit.com/api/users/start?key=</a></span><span style="background-color: #FFFF99">[API-KEY]</span><span style="background-color: #BBEE77">&amp;ocf=</span><span style="background-color: #FF6666">[FLAGS]</span><span style="background-color: #BBEE77">&amp;oct=</span><span style="background-color: #B2FFFF">[COLOR]</span><span style="background-color: #BBEE77">&amp;view=</span><span style="background-color: #d2b2e5">[VIEW-OPTION]</span><span style="background-color: #BBEE77">&amp;ocl=</span><span style="background-color: #FFA500">[LOGO-URL]</span>"</strong>
+						</p>
+						<h4>Sample Embed page</h4>
+						<p>
+							<pre><code data-language="html">
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;StitchCredit&lt;/title&gt;
+	&lt;meta name=&quot;description&quot; content=&quot;StitchCredit Consumer Credit Reports&quot;/&gt;
+	&lt;link rel=&quot;icon&quot; href=&quot;/favicon.ico&quot;&gt;
+	&lt;style&gt;
+		body { background: #F9FAFB; }
+		#sc-iframe { border:none;overflow:hidden;padding:0px;margin:0px;
+		width:100%;height:100vh;z-index:1;position:absolute;left:0;top:0; }
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;iframe id=&quot;sc-iframe&quot;
+		src=&quot;https://efx-dev.stitchcredit.com/api/users/start?key=[API-KEY]&amp;ocf=[FLAGS]&amp;oct=[COLOR]&amp;view=[VIEW-OPTION]&amp;ocl=[LOGO-URL]&quot; 
+		width=&ldquo;100%&rdquo; height=&ldquo;100vh&rdquo;&gt;
+	&lt;/iframe&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+						
+							</code></pre>
 						</p>
 						</section><!--//section-->
 
@@ -579,7 +613,7 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 						<section class="docs-section" id="item-3-3-2">
 							<h3 class="section-heading">API Process Flow</h3>
 							<p>
-							A token from /direct/login is required for all other <a href="#item-4-4">Direct API</a>end-points in yellow.
+							A token from /direct/login is required for all other <a href="#item-4-4">Direct API</a> end-points in yellow.
 							It is a bearer authorization token.
 							</p>
 							<p>
@@ -2175,7 +2209,7 @@ var xhr = new XMLHttpRequest();
 								<p>Consumers must be notified and express specific consent to access third party data to verify identity</p>
 								<p>Required Identity Consent language:</p>
 								<blockquote>
-								<p>You understand that by clicking “Continue”, you are explicitly agreeing to and providing “written instructions” to StitchCredit under the Fair Credit Reporting Act to obtain my credit information from one or more of the three nationwide credit reporting agencies. Third-party sources, including your mobile carrier may be used to verify your identity. You authorize StitchCredit to obtain such information for you to confirm your identity, and, for as long as you are a member of StitchCredit, to provide you with your credit information. You may elect to terminate your account and this authorization at any time.</p>
+								<p>You understand that by clicking “Continue”, you are explicitly agreeing to and providing “written instructions” to StitchCredit under the Fair Credit Reporting Act to obtain your credit information from one or more of the three nationwide credit reporting agencies. Third-party sources, including your mobile carrier may be used to verify your identity. You authorize StitchCredit to obtain such information for you to confirm your identity, and, for as long as you are a member of StitchCredit, to provide you with your credit information. You may elect to terminate your account and this authorization at any time.</p>
 								</blockquote>
 								<div class="row crop" style="display: flex" class="crop">
 								<div class="column" style="flex: 50%; padding: 5px;">
@@ -2223,7 +2257,7 @@ var xhr = new XMLHttpRequest();
 								<h4>Credit Score - Dashboard</h4>
 								<p>
 								The provider of the score is required – do not use a logo, you must have marketing approval from a bureau to use their logo. 
-								<strong>VantageScore&copy; 3.0 using Equifax Data</strong> – must be present, just like that (VantageScore is one word and it’s a brand, ignore the mistake in this image). The date the score was pulled is required. The date the next score will be available is strongly encouraged, this is based on the weekly or monthly refresh you subscribe to VantageScore&copy; 3.0 is known as an “educational score” and may differ from the FICO&copy; Score used to determine credit availability – notice must be given
+								<strong>VantageScore&reg; 3.0 using Equifax Data</strong> – must be present, just like that (VantageScore is one word and it’s a brand, ignore the mistake in this image). The date the score was pulled is required. The date the next score will be available is strongly encouraged, this is based on the weekly or monthly refresh you subscribe to VantageScore&reg; 3.0 is known as an “educational score” and may differ from the FICO&reg; Score used to determine credit availability – notice must be given
 
 								</p>
 
@@ -2266,7 +2300,7 @@ var xhr = new XMLHttpRequest();
 								This product content must be delivered as is.
 								</p>
 								<p>
-								<strong>Equifax&copy; ID Restoration</strong><br>
+								<strong>Equifax&reg; ID Restoration</strong><br>
 								Has your identity been compromised?<br>
 								<ul>
 								<li>A specialist will help you work through the process.</li>
@@ -6985,7 +7019,7 @@ var xhr = new XMLHttpRequest();
 						<em><strong>Direct API</strong> calls must originate from your server</em>
 						</p>
 						<p>
-						A token from /direct/login is required for all other <a href="#item-4-4">Direct API</a>end-points in yellow.
+						A token from /direct/login is required for all other <a href="#item-4-4">Direct API</a> end-points in yellow.
 						It is a bearer authorization token.
 						</p>
 						<p>
@@ -7256,7 +7290,7 @@ var xhr = new XMLHttpRequest();
 						<h3 class="section-heading">Endpoints</h3>
 							<p>
 							<div style="display: table; clear: both; width:80%">
-							  <div style="float: left; width: 50%;">
+								<div style="float: left; width: 50%;">
 							    Preauth Token
 							    <br>
 							    User Identity
@@ -7295,6 +7329,9 @@ var xhr = new XMLHttpRequest();
 							    /users/efx-config
 							  </div>
 							</div>
+							<br/>
+							<p><em>Endpoints above are all available to the customer and require a preauth token, returned from /direct/user-reg or /direct/preauth-token</em></p>
+							<br/>
 							<div style="display: table; clear: both; width:80%">
 							  <div style="float: left; width: 50%;">
 							    Start
@@ -7353,6 +7390,10 @@ var xhr = new XMLHttpRequest();
 							    <br>
 							  </div>
 							</div>
+							<br/>
+							<p><em>Endpoints above are not available for use when Direct API calls are in play.
+							</em></p>
+							<br/>
 							</p>
 							<ol>
 								<h4><li>TODO</h4>
