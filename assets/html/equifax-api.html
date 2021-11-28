@@ -1,0 +1,990 @@
+<div id="operation/OAUTHToken" data-section-id="operation/OAUTHToken" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/OAUTHToken" aria-label="operation/OAUTHToken">
+</a>OAUTH Token<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/{efx_url}/oauth/token</h2>
+
+<ul>
+<li>For this path parameter, <strong>{efx_url}</strong>, use the url found in the response of a call to <strong>/users/efx-config</strong>.     </li>
+<li>A successful request to <strong>{efx_url}/oauth/token</strong> will return credentials required for other <strong>Equifax API calls</strong>.</li>
+</ul>
+</div>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">path<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="efx_url">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>efx_url</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<span class="sc-fzqzlV PRWqF"> <!-- -->Example:<!-- --> </span> <span class="sc-fzqzlV sc-fzonjX hbCucb">https://api.efx-url.com/consumer-data</span>
+</div>
+<div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 class="sc-fzplWN kzCYbv">Request Body schema: <span class="sc-fzpkJw ezqAQI">application/x-www-form-urlencoded</span>
+</h5>
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+</div>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr>
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="scope">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>scope</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="grant_type">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>grant_type</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="api_key">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>api_key</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="client_assertion">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>client_assertion</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw kluWNM">
+<svg class="sc-fznKkj fscamO" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+<p>The token in this response can be used to access the Equifax API</p>
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="post" class="sc-qYiqT fOPsDV http-verb post">post</span>
+<span class="sc-prOVx eZNvzE">/{efx_url}/oauth/token</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/{efx_url}/oauth/token</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="sc-fzpans lerNRm"> Response samples </h3>
+<div class="sc-fznzOf kuWevu" data-tabs="true">
+<ul class="react-tabs__tab-list" role="tablist">
+<li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-26" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-27" tabindex="0">200</li>
+</ul>
+<div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-27" aria-labelledby="react-tabs-26">
+<div>
+<div class="sc-fzpisO dBHtDj">
+<span class="sc-fzoVTD hYwnSl">Content type</span>
+<div class="sc-fzoJus ixzWHz">application/json;charset=UTF-8</div>
+</div>
+<div class="sc-fznXWL iZtsQe">
+<div class="sc-fzqMdD cDvkPr">
+<div class="sc-fzomME nAZSf">
+<button>
+<div class="sc-fznAgC jKdGWZ">Copy</div>
+</button>
+<button> Expand all </button>
+<button> Collapse all </button>
+</div>
+<div class="sc-fzoant dwarDg sc-fzowVh blNKQn">
+<div class="redoc-json">
+<code>
+<button class="collapser" aria-label="collapse">
+</button>
+<span class="token punctuation">{</span>
+<span class="ellipsis">
+</span>
+<ul class="obj collapsible">
+<li>
+<div class="hoverable ">
+<span class="property token string">"access_token"</span>: <span class="token string">&quot;87e22d35-0089-4613-809b-62f248c2c978&quot;</span>
+<span class="token punctuation">,</span>
+</div>
+</li>
+<li>
+<div class="hoverable ">
+<span class="property token string">"token_type"</span>: <span class="token string">&quot;bearer&quot;</span>
+<span class="token punctuation">,</span>
+</div>
+</li>
+<li>
+<div class="hoverable ">
+<span class="property token string">"expires_in"</span>: <span class="token number">610</span>
+<span class="token punctuation">,</span>
+</div>
+</li>
+<li>
+<div class="hoverable ">
+<span class="property token string">"scope"</span>: <span class="token string">&quot;read write&quot;</span>
+</div>
+</li>
+</ul>
+<span class="token punctuation">}</span>
+</code>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="operation/HealthCheck" data-section-id="operation/HealthCheck" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/HealthCheck" aria-label="operation/HealthCheck">
+</a>Health Check<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/{efx_url}/v1/creditMonitoring/healthcheck</h2>
+</div>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">query<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="format">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>format</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<span class="sc-fzqzlV PRWqF"> <!-- -->Example:<!-- --> </span> <span class="sc-fzqzlV sc-fzonjX hbCucb">format=json</span>
+</div>
+<div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">header<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="Content-Type">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>Content-Type</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<span class="sc-fzqzlV PRWqF"> <!-- -->Example:<!-- --> </span> <span class="sc-fzqzlV sc-fzonjX hbCucb">{{content-type}}</span>
+</div>
+<div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw fAPeri" disabled="">
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="get" class="sc-qYiqT fjEWKb http-verb get">get</span>
+<span class="sc-prOVx eZNvzE">/{efx_url}/v1/creditMonitoring/healthcheck</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/{efx_url}/v1/creditMonitoring/healthcheck</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="operation/CreditMonitoring" data-section-id="operation/CreditMonitoring" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/CreditMonitoring" aria-label="operation/CreditMonitoring">
+</a>Credit Monitoring<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/{efx_url}/v1/creditMonitoring</h2>
+</div>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">query<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="format">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>format</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<span class="sc-fzqzlV PRWqF"> <!-- -->Example:<!-- --> </span> <span class="sc-fzqzlV sc-fzonjX hbCucb">format=json</span>
+</div>
+<div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw fAPeri" disabled="">
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="get" class="sc-qYiqT fjEWKb http-verb get">get</span>
+<span class="sc-prOVx eZNvzE">/{efx_url}/v1/creditMonitoring</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/{efx_url}/v1/creditMonitoring</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="operation/CreditReportList" data-section-id="operation/CreditReportList" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/CreditReportList" aria-label="operation/CreditReportList">
+</a>CreditReportList<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/{efx_url}/v1/creditReport</h2>
+</div>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">query<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="format">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>format</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<span class="sc-fzqzlV PRWqF"> <!-- -->Example:<!-- --> </span> <span class="sc-fzqzlV sc-fzonjX hbCucb">format=json</span>
+</div>
+<div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw fAPeri" disabled="">
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="get" class="sc-qYiqT fjEWKb http-verb get">get</span>
+<span class="sc-prOVx eZNvzE">/{efx_url}/v1/creditReport</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/{efx_url}/v1/creditReport</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="operation/CreditReportSummary(Firstinlist)" data-section-id="operation/CreditReportSummary(Firstinlist)" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/CreditReportSummary(Firstinlist)" aria-label="operation/CreditReportSummary(Firstinlist)">
+</a>Credit Report Summary (First in list)<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/{efx_url}/v1/creditReport/{reportId}/summary</h2>
+</div>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">path<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="reportId">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>reportId</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">query<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="format">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>format</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<span class="sc-fzqzlV PRWqF"> <!-- -->Example:<!-- --> </span> <span class="sc-fzqzlV sc-fzonjX hbCucb">format=json</span>
+</div>
+<div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw fAPeri" disabled="">
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="get" class="sc-qYiqT fjEWKb http-verb get">get</span>
+<span class="sc-prOVx eZNvzE">/{efx_url}/v1/creditReport/{reportId}/summary</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/{efx_url}/v1/creditReport/{reportId}/summary</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="operation/FullCreditReport(Firstinlist)" data-section-id="operation/FullCreditReport(Firstinlist)" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/FullCreditReport(Firstinlist)" aria-label="operation/FullCreditReport(Firstinlist)">
+</a>Full Credit Report (First in list)<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/{efx_url}/v1/creditReport/{reportId}</h2>
+</div>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">path<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="reportId">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>reportId</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">query<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="format">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>format</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<span class="sc-fzqzlV PRWqF"> <!-- -->Example:<!-- --> </span> <span class="sc-fzqzlV sc-fzonjX hbCucb">format=json</span>
+</div>
+<div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw fAPeri" disabled="">
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="get" class="sc-qYiqT fjEWKb http-verb get">get</span>
+<span class="sc-prOVx eZNvzE">/{efx_url}/v1/creditReport/{reportId}</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/{efx_url}/v1/creditReport/{reportId}</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="operation/CreditReport(Firstinlist)-PRINT" data-section-id="operation/CreditReport(Firstinlist)-PRINT" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/CreditReport(Firstinlist)-PRINT" aria-label="operation/CreditReport(Firstinlist)-PRINT">
+</a>Credit Report (First in list) - PRINT<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/{efx_url}/v1/creditReport/{reportId}/print</h2>
+</div>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">path<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="reportId">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>reportId</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">query<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="access_token">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>access_token</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<span class="sc-fzqzlV PRWqF"> <!-- -->Example:<!-- --> </span> <span class="sc-fzqzlV sc-fzonjX hbCucb">access_token={{efxtoken}}</span>
+</div>
+<div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw fAPeri" disabled="">
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="get" class="sc-qYiqT fjEWKb http-verb get">get</span>
+<span class="sc-prOVx eZNvzE">/{efx_url}/v1/creditReport/{reportId}/print</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/{efx_url}/v1/creditReport/{reportId}/print</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="operation/CreditScoreLatest" data-section-id="operation/CreditScoreLatest" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/CreditScoreLatest" aria-label="operation/CreditScoreLatest">
+</a>Credit Score Latest<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/{efx_url}/v1/creditScore/latest</h2>
+</div>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">query<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="format">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>format</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<span class="sc-fzqzlV PRWqF"> <!-- -->Example:<!-- --> </span> <span class="sc-fzqzlV sc-fzonjX hbCucb">format=json</span>
+</div>
+<div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw fAPeri" disabled="">
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="get" class="sc-qYiqT fjEWKb http-verb get">get</span>
+<span class="sc-prOVx eZNvzE">/{efx_url}/v1/creditScore/latest</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/{efx_url}/v1/creditScore/latest</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="operation/CreditScoreHistory" data-section-id="operation/CreditScoreHistory" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/CreditScoreHistory" aria-label="operation/CreditScoreHistory">
+</a>Credit Score History<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/{efx_url}/v1/creditScore/history</h2>
+</div>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">query<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr>
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="historicalLimit">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>historicalLimit</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">integer</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH"> <!-- -->&lt;<!-- -->int32<!-- -->&gt;<!-- --> </span>
+</div> <div>
+<span class="sc-fzqzlV PRWqF"> <!-- -->Example:<!-- --> </span> <span class="sc-fzqzlV sc-fzonjX hbCucb">historicalLimit=24</span>
+</div>
+<div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="format">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>format</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<span class="sc-fzqzlV PRWqF"> <!-- -->Example:<!-- --> </span> <span class="sc-fzqzlV sc-fzonjX hbCucb">format=json</span>
+</div>
+<div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw fAPeri" disabled="">
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="get" class="sc-qYiqT fjEWKb http-verb get">get</span>
+<span class="sc-prOVx eZNvzE">/{efx_url}/v1/creditScore/history</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/{efx_url}/v1/creditScore/history</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

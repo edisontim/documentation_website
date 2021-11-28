@@ -1,0 +1,1253 @@
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="get" class="sc-qYiqT fjEWKb http-verb get">get</span>
+<span class="sc-prOVx eZNvzE">/users/preauth-token/{paToken}</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/users/preauth-token/{paToken}</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="operation/UserIdentity" data-section-id="operation/UserIdentity" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/UserIdentity" aria-label="operation/UserIdentity">
+</a>User Identity<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/users/identity</h2>
+
+<ul>
+<li>This endpoint is most useful for checking whether the user&#39;s identity needs to be verified. <br>
+</li>
+<li>If the response has <strong>idpass</strong> set to <em>true</em>, then the user&#39;s identity is already verified.<br>
+</li>
+<li>If <strong>idpass</strong> is <em>false</em>, then the user&#39;s identity needs to be verified. <ul>
+<li>The user&#39;s identity can then be verified with either:<ul>
+<li>
+<strong>/users/get-mobile</strong> (phone sms verification)</li>
+<li>
+<strong>/users/get-quiz</strong> (an identity quiz)<br>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The user&#39;s identity must be verified in order to enable the user&#39;s device to request the <strong>Equifax config</strong> data. <ul>
+<li>The data in the <strong>Equifax config</strong> provides the necessary credentials for making requests to the Equifax API from the consumer&#39;s device.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<h5 class="sc-fzplWN kzCYbv">Request Body schema: <span class="sc-fzpkJw ezqAQI">application/json</span>
+</h5>
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+</div>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr>
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="ssn">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>ssn</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="dob">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>dob</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="mobile">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>mobile</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="street1">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>street1</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="street2">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>street2</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="city">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>city</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="state">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>state</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="zip">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>zip</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw kluWNM">
+<svg class="sc-fznKkj fscamO" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+<p>The Response contains identity information and the status of &quot;idpass&quot;.
+<br>
+&quot;idpass&quot; represents whether the user has been verified yet. (users can be verified with phone sms verification or an identity quiz)</p>
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="post" class="sc-qYiqT fOPsDV http-verb post">post</span>
+<span class="sc-prOVx eZNvzE">/users/identity</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/users/identity</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="sc-fzpans lerNRm"> Request samples </h3>
+<div class="sc-fznzOf kuWevu" data-tabs="true">
+<ul class="react-tabs__tab-list" role="tablist">
+<li class="react-tabs__tab react-tabs__tab--selected" role="tab" id="react-tabs-18" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-19" tabindex="0">Payload</li>
+</ul>
+<div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-19" aria-labelledby="react-tabs-18">
+<div>
+<div class="sc-fzpisO dBHtDj">
+<span class="sc-fzoVTD hYwnSl">Content type</span>
+<div class="sc-fzoJus ixzWHz">application/json</div>
+</div>
+<div class="sc-fznXWL iZtsQe">
+<div class="sc-fzqMdD cDvkPr">
+<div class="sc-fzomME nAZSf">
+<button>
+<div class="sc-fznAgC jKdGWZ">Copy</div>
+</button>
+<button> Expand all </button>
+<button> Collapse all </button>
+</div>
+<div class="sc-fzoant dwarDg sc-fzowVh blNKQn">
+<div class="redoc-json">
+<code>
+<button class="collapser" aria-label="collapse">
+</button>
+<span class="token punctuation">{</span>
+<span class="ellipsis">
+</span>
+<ul class="obj collapsible">
+<li>
+<div class="hoverable ">
+<span class="property token string">"ssn"</span>: <span class="token string">&quot;{{USER_SSN}}&quot;</span>
+<span class="token punctuation">,</span>
+</div>
+</li>
+<li>
+<div class="hoverable ">
+<span class="property token string">"dob"</span>: <span class="token string">&quot;{{USER_DOB}}&quot;</span>
+<span class="token punctuation">,</span>
+</div>
+</li>
+<li>
+<div class="hoverable ">
+<span class="property token string">"mobile"</span>: <span class="token string">&quot;{{USER_MOBILE}}&quot;</span>
+<span class="token punctuation">,</span>
+</div>
+</li>
+<li>
+<div class="hoverable ">
+<span class="property token string">"street1"</span>: <span class="token string">&quot;{{USER_STREET1}}&quot;</span>
+<span class="token punctuation">,</span>
+</div>
+</li>
+<li>
+<div class="hoverable ">
+<span class="property token string">"street2"</span>: <span class="token string">&quot;{{USER_STREET2}}&quot;</span>
+<span class="token punctuation">,</span>
+</div>
+</li>
+<li>
+<div class="hoverable ">
+<span class="property token string">"city"</span>: <span class="token string">&quot;{{USER_CITY}}&quot;</span>
+<span class="token punctuation">,</span>
+</div>
+</li>
+<li>
+<div class="hoverable ">
+<span class="property token string">"state"</span>: <span class="token string">&quot;{{USER_STATE}}&quot;</span>
+<span class="token punctuation">,</span>
+</div>
+</li>
+<li>
+<div class="hoverable ">
+<span class="property token string">"zip"</span>: <span class="token string">&quot;{{USER_ZIP}}&quot;</span>
+</div>
+</li>
+</ul>
+<span class="token punctuation">}</span>
+</code>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="operation/PhoneVerify" data-section-id="operation/PhoneVerify" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/PhoneVerify" aria-label="operation/PhoneVerify">
+</a>Phone Verify<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/users/get-mobile</h2>
+</div>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">header<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="Content-Type">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>Content-Type</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<span class="sc-fzqzlV PRWqF"> <!-- -->Example:<!-- --> </span> <span class="sc-fzqzlV sc-fzonjX hbCucb">application/json</span>
+</div>
+<div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw fAPeri" disabled="">
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="get" class="sc-qYiqT fjEWKb http-verb get">get</span>
+<span class="sc-prOVx eZNvzE">/users/get-mobile</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/users/get-mobile</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="operation/SendMobileCode" data-section-id="operation/SendMobileCode" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/SendMobileCode" aria-label="operation/SendMobileCode">
+</a>Send Mobile Code<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/users/send-code/{mtoken}</h2>
+</div>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">path<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="mtoken">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>mtoken</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">header<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="Content-Type">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>Content-Type</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<span class="sc-fzqzlV PRWqF"> <!-- -->Example:<!-- --> </span> <span class="sc-fzqzlV sc-fzonjX hbCucb">application/json</span>
+</div>
+<div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw fAPeri" disabled="">
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="post" class="sc-qYiqT fOPsDV http-verb post">post</span>
+<span class="sc-prOVx eZNvzE">/users/send-code/{mtoken}</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/users/send-code/{mtoken}</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="operation/RenewMobileCode" data-section-id="operation/RenewMobileCode" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/RenewMobileCode" aria-label="operation/RenewMobileCode">
+</a>Renew Mobile Code<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/users/renew-code</h2>
+</div>
+</div>
+<h5 class="sc-fzplWN kzCYbv">Request Body schema: <span class="sc-fzpkJw ezqAQI">application/json</span>
+</h5>
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+</div>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="key">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>key</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw kluWNM">
+<svg class="sc-fznKkj fscamO" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+<p>default response</p>
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="post" class="sc-qYiqT fOPsDV http-verb post">post</span>
+<span class="sc-prOVx eZNvzE">/users/renew-code</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/users/renew-code</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="sc-fzpans lerNRm"> Request samples </h3>
+<div class="sc-fznzOf kuWevu" data-tabs="true">
+<ul class="react-tabs__tab-list" role="tablist">
+<li class="react-tabs__tab react-tabs__tab--selected" role="tab" id="react-tabs-20" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-21" tabindex="0">Payload</li>
+</ul>
+<div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-21" aria-labelledby="react-tabs-20">
+<div>
+<div class="sc-fzpisO dBHtDj">
+<span class="sc-fzoVTD hYwnSl">Content type</span>
+<div class="sc-fzoJus ixzWHz">application/json</div>
+</div>
+<div class="sc-fznXWL iZtsQe">
+<div class="sc-fzqMdD cDvkPr">
+<div class="sc-fzomME nAZSf">
+<button>
+<div class="sc-fznAgC jKdGWZ">Copy</div>
+</button>
+<button> Expand all </button>
+<button> Collapse all </button>
+</div>
+<div class="sc-fzoant dwarDg sc-fzowVh blNKQn">
+<div class="redoc-json">
+<code>
+<button class="collapser" aria-label="collapse">
+</button>
+<span class="token punctuation">{</span>
+<span class="ellipsis">
+</span>
+<ul class="obj collapsible">
+<li>
+<div class="hoverable ">
+<span class="property token string">"key"</span>: <span class="token string">&quot;{{mTransactionKey}}&quot;</span>
+</div>
+</li>
+</ul>
+<span class="token punctuation">}</span>
+</code>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="operation/VerifyMobileCode" data-section-id="operation/VerifyMobileCode" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/VerifyMobileCode" aria-label="operation/VerifyMobileCode">
+</a>Verify Mobile Code<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/users/verify-code</h2>
+</div>
+</div>
+<h5 class="sc-fzplWN kzCYbv">Request Body schema: <span class="sc-fzpkJw ezqAQI">application/json</span>
+</h5>
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+</div>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr>
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="key">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>key</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="code">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>code</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw kluWNM">
+<svg class="sc-fznKkj fscamO" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+<p>default response</p>
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="post" class="sc-qYiqT fOPsDV http-verb post">post</span>
+<span class="sc-prOVx eZNvzE">/users/verify-code</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/users/verify-code</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="sc-fzpans lerNRm"> Request samples </h3>
+<div class="sc-fznzOf kuWevu" data-tabs="true">
+<ul class="react-tabs__tab-list" role="tablist">
+<li class="react-tabs__tab react-tabs__tab--selected" role="tab" id="react-tabs-22" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-23" tabindex="0">Payload</li>
+</ul>
+<div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-23" aria-labelledby="react-tabs-22">
+<div>
+<div class="sc-fzpisO dBHtDj">
+<span class="sc-fzoVTD hYwnSl">Content type</span>
+<div class="sc-fzoJus ixzWHz">application/json</div>
+</div>
+<div class="sc-fznXWL iZtsQe">
+<div class="sc-fzqMdD cDvkPr">
+<div class="sc-fzomME nAZSf">
+<button>
+<div class="sc-fznAgC jKdGWZ">Copy</div>
+</button>
+<button> Expand all </button>
+<button> Collapse all </button>
+</div>
+<div class="sc-fzoant dwarDg sc-fzowVh blNKQn">
+<div class="redoc-json">
+<code>
+<button class="collapser" aria-label="collapse">
+</button>
+<span class="token punctuation">{</span>
+<span class="ellipsis">
+</span>
+<ul class="obj collapsible">
+<li>
+<div class="hoverable ">
+<span class="property token string">"key"</span>: <span class="token string">&quot;{{mTransactionKey}}&quot;</span>
+<span class="token punctuation">,</span>
+</div>
+</li>
+<li>
+<div class="hoverable ">
+<span class="property token string">"code"</span>: <span class="token string">&quot;{{passcode}}&quot;</span>
+</div>
+</li>
+</ul>
+<span class="token punctuation">}</span>
+</code>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="operation/GetIdentityQuiz" data-section-id="operation/GetIdentityQuiz" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/GetIdentityQuiz" aria-label="operation/GetIdentityQuiz">
+</a>Get Identity Quiz<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/users/get-quiz</h2>
+</div>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">header<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="Content-Type">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>Content-Type</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<span class="sc-fzqzlV PRWqF"> <!-- -->Example:<!-- --> </span> <span class="sc-fzqzlV sc-fzonjX hbCucb">application/json</span>
+</div>
+<div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw kluWNM">
+<svg class="sc-fznKkj fscamO" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="get" class="sc-qYiqT fjEWKb http-verb get">get</span>
+<span class="sc-prOVx eZNvzE">/users/get-quiz</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/users/get-quiz</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="operation/VerifyIdentityQuiz" data-section-id="operation/VerifyIdentityQuiz" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/VerifyIdentityQuiz" aria-label="operation/VerifyIdentityQuiz">
+</a>Verify Identity Quiz<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/users/verify-quiz</h2>
+</div>
+</div>
+<h5 class="sc-fzplWN kzCYbv">Request Body schema: <span class="sc-fzpkJw ezqAQI">application/json</span>
+</h5>
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+</div>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr>
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="key">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>key</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="id">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>id</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV sc-fzokvW dUqafC" kind="field" title="answers">
+<span class="sc-fzoXzr Lihot">
+</span>
+<button aria-label="expand properties">
+<span>answers</span>
+<svg class="sc-fznKkj czpFYH" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">Array of </span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">objects</span>
+<span class="sc-fzqzlV sc-fzoMdx kUcHWW"> (<!-- -->Answer<!-- -->) </span>
+</div> <div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw kluWNM">
+<svg class="sc-fznKkj fscamO" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+<p>default response</p>
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="post" class="sc-qYiqT fOPsDV http-verb post">post</span>
+<span class="sc-prOVx eZNvzE">/users/verify-quiz</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/users/verify-quiz</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="sc-fzpans lerNRm"> Request samples </h3>
+<div class="sc-fznzOf kuWevu" data-tabs="true">
+<ul class="react-tabs__tab-list" role="tablist">
+<li class="react-tabs__tab react-tabs__tab--selected" role="tab" id="react-tabs-24" aria-selected="true" aria-disabled="false" aria-controls="react-tabs-25" tabindex="0">Payload</li>
+</ul>
+<div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-25" aria-labelledby="react-tabs-24">
+<div>
+<div class="sc-fzpisO dBHtDj">
+<span class="sc-fzoVTD hYwnSl">Content type</span>
+<div class="sc-fzoJus ixzWHz">application/json</div>
+</div>
+<div class="sc-fznXWL iZtsQe">
+<div class="sc-fzqMdD cDvkPr">
+<div class="sc-fzomME nAZSf">
+<button>
+<div class="sc-fznAgC jKdGWZ">Copy</div>
+</button>
+<button> Expand all </button>
+<button> Collapse all </button>
+</div>
+<div class="sc-fzoant dwarDg sc-fzowVh blNKQn">
+<div class="redoc-json">
+<code>
+<button class="collapser" aria-label="collapse">
+</button>
+<span class="token punctuation">{</span>
+<span class="ellipsis">
+</span>
+<ul class="obj collapsible">
+<li>
+<div class="hoverable ">
+<span class="property token string">"key"</span>: <span class="token string">&quot;{{qTransactionKey}}&quot;</span>
+<span class="token punctuation">,</span>
+</div>
+</li>
+<li>
+<div class="hoverable ">
+<span class="property token string">"id"</span>: <span class="token string">&quot;{{qzId}}&quot;</span>
+<span class="token punctuation">,</span>
+</div>
+</li>
+<li>
+<div class="hoverable ">
+<span class="property token string">"answers"</span>: <button class="collapser" aria-label="collapse">
+</button>
+<span class="token punctuation">[</span>
+<span class="ellipsis">
+</span>
+<ul class="array collapsible">
+<li>
+<div class="hoverable collapsed">
+<button class="collapser" aria-label="expand">
+</button>
+<span class="token punctuation">{</span>
+<span class="ellipsis">
+</span>
+<ul class="obj collapsible">
+<li>
+<div class="hoverable collapsed">
+<span class="property token string">"qid"</span>: <span class="token number">1</span>
+<span class="token punctuation">,</span>
+</div>
+</li>
+<li>
+<div class="hoverable collapsed">
+<span class="property token string">"aid"</span>: <span class="token number">3</span>
+</div>
+</li>
+</ul>
+<span class="token punctuation">}</span>,</div>
+</li>
+<li>
+<div class="hoverable collapsed">
+<button class="collapser" aria-label="expand">
+</button>
+<span class="token punctuation">{</span>
+<span class="ellipsis">
+</span>
+<ul class="obj collapsible">
+<li>
+<div class="hoverable collapsed">
+<span class="property token string">"qid"</span>: <span class="token number">2</span>
+<span class="token punctuation">,</span>
+</div>
+</li>
+<li>
+<div class="hoverable collapsed">
+<span class="property token string">"aid"</span>: <span class="token number">3</span>
+</div>
+</li>
+</ul>
+<span class="token punctuation">}</span>,</div>
+</li>
+<li>
+<div class="hoverable collapsed">
+<button class="collapser" aria-label="expand">
+</button>
+<span class="token punctuation">{</span>
+<span class="ellipsis">
+</span>
+<ul class="obj collapsible">
+<li>
+<div class="hoverable collapsed">
+<span class="property token string">"qid"</span>: <span class="token number">3</span>
+<span class="token punctuation">,</span>
+</div>
+</li>
+<li>
+<div class="hoverable collapsed">
+<span class="property token string">"aid"</span>: <span class="token number">3</span>
+</div>
+</li>
+</ul>
+<span class="token punctuation">}</span>
+</div>
+</li>
+</ul>
+<span class="token punctuation">]</span>
+</div>
+</li>
+</ul>
+<span class="token punctuation">}</span>
+</code>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="operation/GetEFXConfig" data-section-id="operation/GetEFXConfig" class="sc-AxhUy emOdQX">
+<div class="sc-Axmtr sc-pBzUF doDHgT">
+<div class="sc-AxhCb kwETCN">
+<h2 class="sc-fzozJi iieAzF">
+<a class="sc-fznyAO itFEXV" href="#operation/GetEFXConfig" aria-label="operation/GetEFXConfig">
+</a>Get EFX Config<!-- --> </h2>
+<div class="sc-pJUVA dpVwlj">
+<div class="sc-fzoant sc-fzoYHE cDQnzz">
+<h2>/users/efx-config</h2>
+
+<ul>
+<li>Use this endpoint to get the Equifax credentials and url<ul>
+<li>These will be needed for the consumer app to send requests to the Equifax API.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div>
+<h5 class="sc-fzplWN kzCYbv">header<!-- --> Parameters</h5>
+<table class="sc-fznxsB jlDjZa">
+<tbody>
+<tr class="last undefined">
+<td class="sc-fzqBZW sc-fzoyAV daSLCE" kind="field" title="Content-Type">
+<span class="sc-fzoXzr Lihot">
+</span>
+<span>Content-Type</span>
+<div class="sc-fzoWqW sc-fzplgP chnCRo"> required </div>
+</td>
+<td class="sc-fzoLag cdMYwp">
+<div>
+<div>
+<span class="sc-fzqzlV sc-fzqLLg jbhQmP">
+</span>
+<span class="sc-fzqzlV sc-fzoxnE dUEjwH">string</span>
+</div> <div>
+<span class="sc-fzqzlV PRWqF"> <!-- -->Example:<!-- --> </span> <span class="sc-fzqzlV sc-fzonjX hbCucb">application/json</span>
+</div>
+<div>
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h3 class="sc-qQxXP cgMNyW">Responses</h3>
+<div>
+<button class="sc-qapaw kluWNM">
+<svg class="sc-fznKkj fscamO" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+<span class="sc-fzpkqZ ebKPJY">
+<p>the response contains config data to be used for authenticating the consumer app to make requests directly to the Equifax API</p>
+</span>
+</button>
+</div>
+</div>
+</div>
+<div class="sc-AxgMl sc-AxheI iyqNNA">
+<div class="sc-pjSSY laiyxR">
+<button class="sc-qQmou cLaWfy">
+<span type="get" class="sc-qYiqT fjEWKb http-verb get">get</span>
+<span class="sc-prOVx eZNvzE">/users/efx-config</span>
+<svg class="sc-fznKkj ejwrda" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 ">
+</polygon>
+</svg>
+</button>
+<div aria-hidden="true" class="sc-pAZqv ekzMPL">
+<div class="sc-pJurq dfduhr">
+<div class="sc-fzoant sc-fzoYHE kTjICZ">
+<p>Generated server url</p>
+</div>
+<div tabindex="0" role="button">
+<div class="sc-pRTZB kYZNvV">
+<span>http://efx-dev.stitchcredit.com/api</span>/users/efx-config</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tag/Equifax-API" data-section-id="tag/Equifax-API" class="sc-AxhUy kNmpyA">
+<div class="sc-Axmtr bnFFEW">
+<div class="sc-AxhCb kwETCN">
+<h1 class="sc-AxmLO jveiGz">
+<a class="sc-fznyAO itFEXV" href="#tag/Equifax-API" aria-label="tag/Equifax-API">
+</a>Equifax API</h1>
+</div>
+</div>
+</div>
