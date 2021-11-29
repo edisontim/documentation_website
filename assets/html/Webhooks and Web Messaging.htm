@@ -1,0 +1,230 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+</head>
+
+<body>
+
+<p>Webhooks are pertain to all 3 integration options and they're optional.
+Web Messaging only applies to the Widget (integration option 1 and 2), and is a feature of the widget that customers can use for
+greater extensibility and/or insight into the stages that the widget is
+rendering.<o:p></o:p></p>
+
+<p>I'll describe both in more detail, but first I'll quickly
+summarize.&nbsp;<o:p></o:p></p>
+
+<ul type=disc>
+ <li><b>webhooks</b>&nbsp;-
+     Customers should implement webhooks if they want their users to receive
+     notifications. The customer's webhook endpoint receives the notifications
+     for all their users in nightly batches, and then the customer can send
+     these notifications to their users in whatever fashion they wish.<o:p></o:p></li>
+ <li><b>web
+     messaging</b>&nbsp;- the widget has window events that can
+     be listened for using an event listener (<a
+     href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"
+     target="_blank">mozilla doc</a>)<o:p></o:p></li>
+ <ul type=circle>
+  <li>window.addEventListener(&quot;message&quot;,
+      receiveMessage, false);&nbsp;<o:p></o:p></li>
+  <ul type=square>
+   <li>this
+       creates the &quot;listener&quot; callback
+       function, receiveMessage, which receives
+       notifications for events<o:p></o:p></li>
+  </ul>
+  <li>these
+      events have types that can be checked by the customer for triggering
+      whatever javascript code they want when a
+      desired event.data.type
+      value is received.<o:p></o:p></li>
+  <li>there
+      is a function on the event.source
+      object called&nbsp;<b>postMessage</b><b>()</b>.
+      This function can be used for pre-populating certain fields --
+      additionally, for integration option 2, postMessage({}) can be
+      used for redeeming the preauth token
+      (authenticating a user) as an alternative to passing the preauth token as an iframe URL parameter.<o:p></o:p></li>
+ </ul>
+</ul>
+
+<p><b>Webhooks</b>&nbsp;-- implementing webhooks is optional and the
+same for each of the 3 integration options. If the customer wants to send
+notifications to their users, then they need to set up their webhook, which is
+where we will send their users' notifications as http requests. For their
+reference while setting this up, the Test API postman collection has an example
+demonstrating how their webhook should respond to the requests that we send to
+it. When their webhook is ready, they&nbsp;send us the webhook URL, username,
+password -- This info is added to their configuration so that their webhook URL
+receives all their users' notifications (in production notifications are sent
+in nightly batches). The Test API postman collection also has a request that
+will trigger our server to send a webhook to the URL that we have set up for
+their host configuration so the customer can see that their webhook is behaving
+correctly. The required behavior for the customer's
+webhook is specified in &quot;README FIRST.txt&quot;.<o:p></o:p></p>
+
+<p><o:p>&nbsp;</o:p></p>
+
+<p><b>Web Messaging</b>&nbsp;-- Documentation for Web Messaging is
+definitely sparse because the examples have typically been enough for those who
+are using it -- &quot;Web Messaging&quot; is the term used in the doc in
+reference to how the widget events can be listened for by using a Window
+listener -- currently described in the the&nbsp;&quot;ADVANCED
+EMBEDED PAGE W/ MESSAGING&quot; slides in the file, &quot;Consumer Credit - Web
+Integration with Customer Authentication Guide.pdf&quot; -- also the examples
+for listening to these events are in the html files in google drive,&nbsp;<a
+href="https://drive.google.com/file/d/1kSk2KDEWTdCs1S6_1S8--i3UR95gjKiL/view?usp=sharing"
+target="_blank">https://drive.google.com/file/d/1kSk2KDEWTdCs1S6_1S8--i3UR95gjKiL/view?usp=sharing</a><o:p></o:p></p>
+
+<p>The event.data.type
+example messages that the html examples listen to:<o:p></o:p></p>
+
+<p>AUTH_REQUIRED</p>
+
+<p>REG_STARTED</p>
+
+<p>IDENTITY_STARTED</p>
+
+<p>LOGIN_SUCCESSFUL</p>
+
+<p>LOGIN_FAILED</p>
+
+<p>USER_ENROLLED</p>
+
+<p>IDENTITY_FAILED</p>
+
+<p>SERVICE_FAILURE</p>
+
+<p>Essentially, the customer can listen for these events so that when these
+events occur, the customer can handle some of their desired behavior
+(e.g. logging, redeeming preauth
+token, prepopulating fields, etc.).&nbsp;</p>
+
+<p>For example, when the event.data.type,
+&quot;IDENTITY_STARTED&quot;, is listened for/received, the customer can use
+the postMessage({}) function on the event.source in order to prepopulate some identity fields
+that the customer may already have stored (should never be used for pre
+populating the date of birth or ssn per compliance).
+From one of the html examples, here is how the identity form fields can be
+prepopulated after the &quot;IDENTITY_STARTED&quot; event.data.type is received:</p>
+
+<p><o:p>&nbsp;</o:p></p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;const es = event.source;</p>
+
+<p>es.postMessage({type:
+'IDENTITY', data: {street1:&quot;305 Linden Av&quot;, street2: new Date().valueOf().toString(), city:
+&quot;Atlanta&quot;, state: &quot;GA&quot;, zip: &quot;30316&quot;, mobile:
+&quot;0000000000&quot;}},&quot;*&quot;);</p>
+
+<p><o:p>&nbsp;</o:p></p>
+
+<p>A bit of a tangent explaining the Date in the above example:&nbsp;
+Customers are only given 1 demo user, and they're going to want to register
+more than one account using this demo user's identity, and they can by:</p>
+
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;incrementing the email (e.g.&nbsp;<a
+href="mailto:test@test.com" target="_blank">test@test.com</a>,&nbsp;<a
+href="mailto:test%2B1@test.com" target="_blank">test+1@test.com</a>,&nbsp;<a
+href="mailto:test%2B2@test.com" target="_blank">test+2@test.com</a>,
+etc), because the same email can't be registered twice, and by</p>
+
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+providing a unique numeric value for street2 so
+that Equifax Identity system treats the registration as a unique enrollment</p>
+
+<p>street2 is getting a unique value by using the date in the snippet
+above, which is useful for testing because the unique numeric value for
+street2. For the Equifax UAT environment (demo users only), registering a new
+user with the exact same identity as an existing user from the same host
+configuration will be recognized as an existing Equifax enrollment
+(already verified identity), so then &quot;idpass&quot;
+will equal true immediately after this user is registered, and when idpass is true, this new user must skip the identity
+verification process (identity form, OTP/KBA) because they are already
+verified. When idpass is false, the user should be
+taken through the identity verification process (identity form, OTP/KBA). So in order to trigger the identity verification process, a
+unique value for street2 must be used, so that Equifax treats the registration
+as a unique enrollment, which will result in &quot;idpass&quot; equalling false after registration, which
+means the user must be taken through the identity verification process.&nbsp;</p>
+
+<p>The widget handles this behavior accordingly
+based on the value of idpass. For integration option
+2, customers have the option to create their own UI for the identity
+verification process.</p>
+
+<p><o:p>&nbsp;</o:p></p>
+
+<p>...For integration option 2,&nbsp;</p>
+
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>if a customer wants to
+create their own UI for the identity verification&nbsp;process,</u>&nbsp;they simply need to continue the API steps in the getting started
+postman collections with their custom screens until idpass&nbsp;is
+true, before they have the user's device redeem the preauth for the widget. if idpass
+is true for a user whose preauth token is redeemed
+using the widget, then the widget will render that user's credit dashboard
+(skipping the id verification process). If the user's device were to redeem the
+preauth token when idpass
+equals false, then the widget renders the built in
+widget screens for the identity verification process.&nbsp;</p>
+
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>If the customer wants to
+use the widget's screens for the identity verification process</u>, then the user's device can redeem the preauth
+token regardless of the idpass value, and the widget
+will display the identity verification process screens accordingly.</p>
+
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The preauth token can be
+redeemed in two ways for the widget:</p>
+
+<p>o&nbsp;&nbsp;&nbsp;
+<b>1 - Simpler</b>&nbsp;-- By passing the preauth token as an
+iframe URL parameter,&nbsp;</p>
+
+<p>§&nbsp;
+preauth token redeemed as an iframe URL parameter (e.g. &quot;...&amp;token=[preauth token])&quot; is the way
+described in the slides (the preauth token must be
+retrieved from the customer's server)</p>
+
+<p>o&nbsp;&nbsp;&nbsp;
+<b>2 - Advanced</b>&nbsp;-- By using Web Messaging with event.source.postMessage</p>
+
+<p>§&nbsp;
+the preauth token
+redeemed using web messaging is demonstrated in the html examples. listening
+for the&nbsp;event.data.type,&nbsp;AUTH_REQUIRED triggers the user's device to retrieve the preauth
+token from customer's server, then redeemed using event.source.postMessage({type:
+'PREAUTH', token:&nbsp;&lt;insert preauth token
+here&gt;}).</p>
+
+<p>o&nbsp;&nbsp;&nbsp;
+<b>Both ways described above
+for redeeming the preauth token, require that the preauth token be retrieved from the customer's server.</b>&nbsp;</p>
+
+<p>§&nbsp;
+Essentially, the customer should create a secure endpoint
+on their server so that the user's device can request their preauth
+token. After the customer's server authorizes a request from one of their
+user's devices, the customer's server retrieves this user's preauth
+token from our &quot;Direct API&quot; and then their server returns this preauth token to the user's device. This can be
+accomplished in various ways -- but their endpoint must be secure using some
+sort of authorization, especially if they are delivering the userId to accomplish this.</p>
+
+<p>§&nbsp;
+There's an example that demonstrates how an
+endpoint like this can be created for this type of implementation in the Test
+API postman collection in the google drive. This example endpoint is also
+what's is being used in all the html example files, and the code comments in the
+example files explain how this example endpoint is only a demonstration that
+can be used in the testing environment (all the html example files in the
+google drive demonstrate integration option 2)</p>
+
+</body>
+
+</html>
