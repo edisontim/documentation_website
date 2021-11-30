@@ -98,17 +98,19 @@
 							<li class="nav-item list_collapse devtools"><a class="nav-link scrollto fourth_level" href="#item-3-2-5-3">Web Widget in regular (medium) mode</a></li>
 				    <li class="nav-item list_collapse devtools"><a class="nav-link scrollto" href="#item-3-3">Web Integration with Custom Authentication</a></li>
 						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-1">Overview</a></li>
-						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-2">API Process Flow</a></li>
-						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-3">B2C Communication & Token Flow</a></li>
-						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-4">Webhook Integration</a></li>
-						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-5">Web Messaging Integration</a></li>
-						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-6">Postman collections</a></li>
-						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-7">Samples</a></li>
-							<li class="nav-item list_collapse devtools"><a class="nav-link scrollto fourth_level" href="#item-3-3-7-1">Responsiveness Breakpoints</a></li>
+						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-2">Simple Integration Guide</a></li>
+						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-3">Advanced Embedded Pages with Messaging</a></li>
+						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-4">API Process Flow</a></li>
+						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-5">B2C Communication & Token Flow</a></li>
+						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-6">Webhook Integration</a></li>
+						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-7">Web Messaging Integration</a></li>
+						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-8">Postman collections</a></li>
+						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-3-9">Samples</a></li>
+							<li class="nav-item list_collapse devtools"><a class="nav-link scrollto fourth_level" href="#item-3-3-9-1">Responsiveness Breakpoints</a></li>
 				    <li class="nav-item list_collapse devtools"><a class="nav-link scrollto" href="#item-3-4">API Integration for Custom Web or Mobile App</a></li>
 						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-4-1">Overview</a></li>
-						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-4-2">API Process Flow</a></li>
-						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-4-3">App Integration</a></li>
+						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-4-2">App Integration</a></li>
+						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-4-3">API Process Flow</a></li>
 						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-4-4">B2C Communication & Token Flow</a></li>
 						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-4-5">Compliance</a></li>
 						<li class="nav-item list_collapse devtools"><a class="nav-link scrollto third_level" href="#item-3-4-6">Webhook Integration</a></li>
@@ -263,7 +265,7 @@
 							You can have screens for the identity verification process  for SMS one-time-code and identity quiz questions. Also, it is possible to merge the StitchCredit registration/identity process with your own service's registration, as long as you follow the compliance guide for these screens. 
 							</p>
 							<p>
-							The html Sample files in the documentation demonstrate the different views for this integration option. 
+							The html <a href="#item-3-3-9">Sample files</a> in the documentation demonstrate the different views for this integration option. 
 							</p>
 							<p>
 							More information can be found in section <a href="#item-3-3">Web Integration with Custom Authentication</a>.
@@ -450,7 +452,7 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 								</p>
 							</section><!--//section-->
 
-							<section class="docs-section" id="item-3-2-5-1">
+							<section class="docs-section" id="item-3-2-5-2">
 							<h4 class="section-heading">Web Widget in mobile mode</h4>
 								<p>
 								Here are examples of the screens from the Web Widget when viewed in small (mobile) mode:
@@ -638,7 +640,6 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 
 					<section class="docs-section" id="item-3-3">
 						<h2 class="section-heading">Web Integration with Custom Authentication</h2>
-						<p>TODO: verify content versus more up-to-date PPT: Web Integration with Customer Authentication Guide</p>
 						<section class="docs-section" id="item-3-3-1">
 							<h3 class="section-heading">Overview</h3>
 							<p>
@@ -653,6 +654,42 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 						</section>
 
 						<section class="docs-section" id="item-3-3-2">
+							<h3 class="section-heading">Simple Integration Guide</h3>
+							<p>
+							<strong>Web Integration Requirements:</strong>
+							<ul>
+								<li><span style="background-color: #FFFF99">API Key</span></li>
+								<li>Host Registration (eg your web site address)</li>
+								<li><span style="background-color: #BBEE77">Integration Host &amp; parameters</span></li>
+								<li><span style="background-color: #FF6666">Configuration Flags</span></li>
+								<li><span style="background-color: #B2FFFF">Primary Theme Color (six character hex, without #)</span></li>
+								<li><span style="background-color: #FFA500">Logo URL  (URL of a logo to replace the StitchCredit logo)</span></li>
+								<li><span style="background-color: #d2b2e5">Pre-auth token – optional if using postmessage configuration</span></li>
+							</ul>
+							<p>
+								Only the registered host can serve the UI with the designated API Key. Embed iFrame on a blank page under the registered host. Style the iFrame/page to suit your needs
+							</p>
+							<p>
+							To embed into HTML, create an iframe as shown in the following example with its <strong>src</strong> reflecting this color-coded URL:
+							<br>
+							<strong>"<span style="background-color: #BBEE77"><a href="https://efx-dev.stitchcredit.com/api/users/start?key=">https://efx-dev.stitchcredit.com/api/users/start?key=</a></span><span style="background-color: #FFFF99">[API-KEY]</span><span style="background-color: #d2b2e5">&amp;token=[PREAUTH-TOKEN]</span><span style="background-color: #BBEE77">&amp;ocf=</span><span style="background-color: #FF6666">[FLAGS]</span><span style="background-color: #BBEE77">&amp;oct=</span><span style="background-color: #B2FFFF">[COLOR]</span><span style="background-color: #BBEE77">&amp;ocl=</span><span style="background-color: #FFA500">[LOGO-URL]</span>"</strong>
+							</p>
+						</section>
+
+						<section class="docs-section" id="item-3-3-3">
+							<h3 class="section-heading">Advanced Embedded Pages with Messaging</h3>
+							<p>
+							Using more advanced embedded pages with messaging can facilitate communication between your primary application and the embedded StitchCredit application. This technique allows customer applications to react to changes and events in the StitchCredit application.
+							</p>
+							<p>
+							The customer needs to implement AJAX preauth token generation function; the “getData” implementation shown in the <a href="#item-3-3-9">Sample files</a> only works in the testing environment and will not work in production. True user authentication and processing must be done server-side.
+							</p>
+							<p>
+							<a href="#item-3-3-9">Sample files</a> show possible usage and event handling.
+							</p>
+						</section>
+
+						<section class="docs-section" id="item-3-3-4">
 							<h3 class="section-heading">API Process Flow</h3>
 							<p>
 							A token from /direct/login is required for all other <a href="#item-4-4-4">Direct API</a> end-points in yellow.
@@ -675,7 +712,7 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 							</p>
 						</section>
 
-						<section class="docs-section" id="item-3-3-3">
+						<section class="docs-section" id="item-3-3-5">
 							<h3 class="section-heading">B2C Communication & Token Flow</h3>
 							<p>
 							The diagram shows the communication exchange that must occur between the consumer, your servers (marked Customer Servers), StitchCredit servers (marked CRS Tech Servers) and the Equifax Servers.
@@ -685,7 +722,7 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 							</p>
 						</section>
 
-						<section class="docs-section" id="item-3-3-4">
+						<section class="docs-section" id="item-3-3-6">
 						<h3 class="section-heading">Webhook Integration</h3>
 							<p>
 							Webhooks are available to notify you when an alert (or other notifications) comes in so that you can message users in whatever fashion you wish to return to your site.
@@ -695,7 +732,7 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 							</p>
 						</section><!--//section-->
 
-						<section class="docs-section" id="item-3-3-5">
+						<section class="docs-section" id="item-3-3-7">
 						<h3 class="section-heading">Web Messaging Integration</h3>
 							<p>
 							To interact with the Consumer Credit Widget, you will need to implement a structure using POST Message to receive, process and respond to events generated by the Consumer Credit Widget in the iFrame.
@@ -705,7 +742,7 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 							</p>
 						</section><!--//section-->
 
-						<section class="docs-section" id="item-3-3-6">
+						<section class="docs-section" id="item-3-3-8">
 							<h3 class="section-heading">Postman Collections</h3>
 							<p>
 							<a href="#item-4-4-2">Access Credentials</a> have been sent to you in a Postman Environment upon registration via email. The Postman Environment is pre-configured to allow you to use the scripts and walk through the Postman Scripts with minimal intervention to aid in understanding the API call structure.
@@ -714,9 +751,9 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 							Consumer Credit <a href="#item-3-7">Postman Collections</a> include pre-defined API calls to help you understand and develop your solution. See the <a href="#test_api_postman_collection">Test API Postman Collection</a> for additional documentation.
 							</p>
 						</section>
-						<section class="docs-section" id="item-3-3-7">
+						<section class="docs-section" id="item-3-3-9">
 							<h3 class="section-heading">Samples</h3>
-							<p>
+							<p id="iframe_sample.html">
 							Here is an implementation of the Sample iFrame page with inline user token:
 							<pre><code data-language="html">
 &lt;html>
@@ -739,7 +776,7 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 							</code></pre>
 							</p>
 							<p id="direct_sample.html">
-							Here is an implementation of the Tabbed User Interface with Dynamic Consumer Authentication integration (<em>direct_sample.html</em>):
+							Here is a sample implementation of an advanced embedded page with messaging: the Tabbed User Interface with Dynamic Consumer Authentication integration (<em>direct_sample.html</em>):
 							<pre><code data-language="html">
 &lt;html>
   &lt;head>
@@ -847,8 +884,8 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 &lt;/html>
 							</code></pre>
 							</p>
-							<p>
-							Here is an implementation of All-in-One User Interface with dynamic Consumer Authentication integration (<em>aio_sample.html</em>):
+							<p id="aio_sample.html">
+							Here is a sample implementation of an advanced embedded page with messaging: All-in-One User Interface with dynamic Consumer Authentication integration (<em>aio_sample.html</em>):
 							<pre><code data-language="html">
 &lt;html&gt;
   &lt;head&gt;
@@ -956,8 +993,8 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 &lt;/html&gt;
 							</code></pre>
 							</p>
-							<p>
-							Here is an implementation of Tile User Interface with dynamic Consumer Authentication integration (<em>tile_sample.html</em>):
+							<p id="tile_sample.html">
+							Here is a sample implementation of an advanced embedded page with messaging: Tile User Interface with dynamic Consumer Authentication integration (<em>tile_sample.html</em>):
 							<pre><code data-language="html">
 &lt;html&gt;
 &lt;head&gt;
@@ -1066,8 +1103,8 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 &lt;/html&gt;
 							</code></pre>
 							</p>
-							<p>
-							Here is an implementation of Tile User Interface with dynamic Consumer Authentication integration and configuration display flags override (<em>tile_sample_score_only.html</em>):
+							<p id="tile_sample_score_only.html">
+							Here is a sample implementation of an advanced embedded page with messaging: Tile User Interface with dynamic Consumer Authentication integration and configuration display flags override (<em>tile_sample_score_only.html</em>):
 							<pre><code data-language="html">
 &lt;html&gt;
 &lt;head&gt;
@@ -1176,7 +1213,7 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 &lt;/html&gt;
 							</code></pre>
 							</p>
-							<section class="docs-section" id="item-3-3-7-1">
+							<section class="docs-section" id="item-3-3-9-1">
 							<h4 class="section-heading">Responsiveness Breakpoints</h4>
 								<p>
 								These are two main breakpoints we use to scale desktop, tablet, and mobile devices. Devices with a width larger than 960px will be treated as a desktop view, devices with smaller widths fall under tablet and mobile device scaling thus will be displayed as a mobile view. With that being said, the widget should scale well on small, medium, and large devices without issues.
@@ -1189,7 +1226,6 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 								</ul>
 								</p>
 							</section><!--//section-->
-
 						</section><!--//section-->
 					</section><!--//section-->
 
@@ -1213,16 +1249,6 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 						</section>
 
 						<section class="docs-section" id="item-3-4-2">
-							<h3 class="section-heading">API Process Flow</h3>
-							<p>
-							Your custom application must perform the necessary exchange of information via the corresponding APIs. This diagram shows the API process flow.
-							</p>
-							<p>
-							<img src="assets/images/api_process_flow.png" style="display:flex; margin:auto; max-width: 45vw;"/>
-							</p>
-						</section>
-
-						<section class="docs-section" id="item-3-4-3">
 							<h3 class="section-heading">App Integration</h3>
 								<h4>Sign-up / Registration Terms of Use</h4>
 
@@ -1367,6 +1393,16 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 								  </div>
 								</div>
 
+						</section>
+
+						<section class="docs-section" id="item-3-4-3">
+							<h3 class="section-heading">API Process Flow</h3>
+							<p>
+							Your custom application must perform the necessary exchange of information via the corresponding APIs. This diagram shows the API process flow.
+							</p>
+							<p>
+							<img src="assets/images/api_process_flow.png" style="display:flex; margin:auto; max-width: 45vw;"/>
+							</p>
 						</section>
 
 						<section class="docs-section" id="item-3-4-4">
@@ -5426,6 +5462,9 @@ var xhr = new XMLHttpRequest();
 							</p>
 							<p>
 							Equifax end-points are accessible by first using the <a href="#item-4-5">User API</a> <strong>/users/efx-config</strong> response data, and then the Equifax <strong>/oauth/token</strong> call. As mentioned above, <strong><a href="#item-4-5">User API</a></strong> and <strong><a href="#item-4-6">Equifax API</a></strong> calls are intended to be called from the end-client/user's device.
+							</p>
+							<p>
+							<a href="https://sandbox-api.consumer.equifax.com/saas/swagger-ui.html">Equifax Documentation in Swagger</a>
 							</p>
 
 							<section class="docs-section" id="item-4-4-6-1">
