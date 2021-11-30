@@ -12,43 +12,43 @@ xmlns="http://www.w3.org/TR/REC-html40">
 <p>Webhooks are pertain to all 3 integration options and they're optional.
 Web Messaging only applies to the Widget (integration option 1 and 2), and is a feature of the widget that customers can use for
 greater extensibility and/or insight into the stages that the widget is
-rendering.<o:p></o:p></p>
+rendering.</p>
 
 <p>I'll describe both in more detail, but first I'll quickly
-summarize.&nbsp;<o:p></o:p></p>
+summarize.&nbsp;</p>
 
 <ul type=disc>
  <li><b>webhooks</b>&nbsp;-
      Customers should implement webhooks if they want their users to receive
      notifications. The customer's webhook endpoint receives the notifications
      for all their users in nightly batches, and then the customer can send
-     these notifications to their users in whatever fashion they wish.<o:p></o:p></li>
+     these notifications to their users in whatever fashion they wish.</li>
  <li><b>web
      messaging</b>&nbsp;- the widget has window events that can
      be listened for using an event listener (<a
      href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"
-     target="_blank">mozilla doc</a>)<o:p></o:p></li>
+     target="_blank">mozilla doc</a>)</li>
  <ul type=circle>
   <li>window.addEventListener(&quot;message&quot;,
-      receiveMessage, false);&nbsp;<o:p></o:p></li>
+      receiveMessage, false);&nbsp;</li>
   <ul type=square>
    <li>this
        creates the &quot;listener&quot; callback
        function, receiveMessage, which receives
-       notifications for events<o:p></o:p></li>
+       notifications for events</li>
   </ul>
   <li>these
       events have types that can be checked by the customer for triggering
       whatever javascript code they want when a
       desired event.data.type
-      value is received.<o:p></o:p></li>
+      value is received.</li>
   <li>there
       is a function on the event.source
       object called&nbsp;<b>postMessage</b><b>()</b>.
       This function can be used for pre-populating certain fields --
       additionally, for integration option 2, postMessage({}) can be
       used for redeeming the preauth token
-      (authenticating a user) as an alternative to passing the preauth token as an iframe URL parameter.<o:p></o:p></li>
+      (authenticating a user) as an alternative to passing the preauth token as an iframe URL parameter.</li>
  </ul>
 </ul>
 
@@ -65,7 +65,7 @@ in nightly batches). The Test API postman collection also has a request that
 will trigger our server to send a webhook to the URL that we have set up for
 their host configuration so the customer can see that their webhook is behaving
 correctly. The required behavior for the customer's
-webhook is specified in &quot;README FIRST.txt&quot;.<o:p></o:p></p>
+webhook is specified in &quot;README FIRST.txt&quot;.</p>
 
 <p><o:p>&nbsp;</o:p></p>
 
@@ -78,10 +78,10 @@ EMBEDED PAGE W/ MESSAGING&quot; slides in the file, &quot;Consumer Credit - Web
 Integration with Customer Authentication Guide.pdf&quot; -- also the examples
 for listening to these events are in the html files in google drive,&nbsp;<a
 href="https://drive.google.com/file/d/1kSk2KDEWTdCs1S6_1S8--i3UR95gjKiL/view?usp=sharing"
-target="_blank">https://drive.google.com/file/d/1kSk2KDEWTdCs1S6_1S8--i3UR95gjKiL/view?usp=sharing</a><o:p></o:p></p>
+target="_blank">https://drive.google.com/file/d/1kSk2KDEWTdCs1S6_1S8--i3UR95gjKiL/view?usp=sharing</a></p>
 
 <p>The event.data.type
-example messages that the html examples listen to:<o:p></o:p></p>
+example messages that the html examples listen to:</p>
 
 <p>AUTH_REQUIRED</p>
 
