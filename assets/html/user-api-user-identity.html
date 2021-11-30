@@ -1,0 +1,29 @@
+<h4><li>User Identity (GET)<!-- --> </h4><p>/users/identity</p>
+<p>This endpoint is most useful for checking whether the user&#39;s identity needs to be verified.</p>
+<p>If the response has <strong>idpass</strong> set to <em>true</em>, then the user&#39;s identity is already verified.</p>
+<p>If <strong>idpass</strong> is <em>false</em>, then the user&#39;s identity needs to be verified.</p>
+<p>The user&#39;s identity can then be verified with either:
+<ul>
+<li><strong>/users/get-mobile</strong> (phone sms verification)</li>
+<li><strong>/users/get-quiz</strong> (an identity quiz)</li>
+</ul>
+</p>
+<p>The user&#39;s identity must be verified in order to enable the user&#39;s device to request the <strong>Equifax config</strong> data. </p>
+<p>The data in the <strong>Equifax config</strong> provides the necessary credentials for making requests to the Equifax API from the consumer&#39;s device.</p>
+
+<h6>REQUEST BODY SCHEMA: application/json</h6>
+<ul>
+	<li>ssn : string<span class="kVVBQg">required</span></li>
+	<li>dob : string<span class="kVVBQg">required</span></li>
+	<li>mobile : string<span class="kVVBQg">required</span></li>
+	<li>street1 : string<span class="kVVBQg">required</span></li>
+	<li>street2 : string<span class="kVVBQg">required</span></li>
+	<li>city : string<span class="kVVBQg">required</span></li>
+	<li>state : string<span class="kVVBQg">required</span></li>
+	<li>zip : string<span class="kVVBQg">required</span></li>
+</ul>
+<h6>RESPONSE SCHEMA: */*</h6>
+<p>200 default response, contains contains identity information and the status of &quot;idpass&quot;.
+&quot;idpass&quot; represents whether the user has been verified yet. (users can be verified with phone sms verification or an identity quiz).</p>
+<br>
+</li>
