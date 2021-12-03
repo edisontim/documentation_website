@@ -33,9 +33,6 @@
             <div class="container-fluid position-relative py-2">
                 <div class="docs-logo-wrapper">
 					<button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible me-2 d-xl-none" type="button">
-	                    <span></span>
-	                    <span></span>
-	                    <span></span>
 	                </button>
 	                <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/images/StitchCredit_color-02.png" alt="logo"/><span class="logo-text"><span class="text-alt">Docs</span></span></a></div>    
                 </div><!--//docs-logo-wrapper-->
@@ -418,7 +415,7 @@ src="https://efx-dev.stitchcredit.com/api/users/start?key=d4eeb874-c6ae-4977-8b8
 							Users will need to log into the widget with an email and password after having already logged into your service.
 							</p>
 							<p>
-							Here is an embedded example :
+							Here is an embedded example:
 							<pre><code data-language="html">
 &lt;html>
   &lt;head>
@@ -5063,7 +5060,8 @@ var xhr = new XMLHttpRequest();
 								</p>
 								<p>Collection of end-points that should be called from your server.</p>
 								<ol>
-									<h4><li>Customer Login (POST)</h4><p>/direct/login</p>
+									<h4><li>Customer Login (POST)</h4>
+									<p>/direct/login</p>
 										<p>Using your credentials in the request body ("apikey" and "secret"), the response will contain the <em>token</em> and <em>refresh</em> token.<br>
 										These tokens are required for completing the other requests to <strong>Direct API</strong> endpoints.<br></p>
 										<p>This token will be valid for approximately one hour. After the one hour, the refresh token will become valid. <br></p>
@@ -5084,18 +5082,20 @@ var xhr = new XMLHttpRequest();
 									</ul>
 									<br>
 									</li>
-									<h4><li>CUSTOMER REFRESH TOKEN (GET)</h4><p>/direct/refresh-token</p>
+									
+									<h4><li>CUSTOMER REFRESH TOKEN (GET)</h4>
+									<p>/direct/refresh-token</p>
 									<h6>QUERY PARAMETERS</h6>
 									<ul>
 										<li>secret : string<span class="kVVBQg">required</span>
-										<span class="code">Example : token={{rdtoken}}</span>
+										<span class="code">Example: token={{rdtoken}}</span>
 										</li>
 									</ul>
 									</br>
 									<h6>HEADER PARAMETERS</h6>
 									<ul>
 										<li>Content-type : string<span class="kVVBQg">required</span>
-										<span class="code">Example : application/json</span>
+										<span class="code">Example: application/json</span>
 										</li>
 									</ul>
 									<h6>RESPONSE SCHEMA: */*</h6>
@@ -5107,7 +5107,9 @@ var xhr = new XMLHttpRequest();
 									</ul>
 									<br>
 									</li>
-									<h4><li>REGISTER NEW USER (POST)</h4><p>/direct/user-reg</p>
+									
+									<h4><li>REGISTER NEW USER (POST)</h4>
+									<p>/direct/user-reg</p>
 									<p>Creates a new user with unique <strong>userId</strong> and <strong>preauth token</strong>.<br></p>
 									<p>When a user logs back in, use <strong>/direct/preauth-token/{userId}</strong> to generate that user a new <strong>preauth token</strong> and a new <strong>userId</strong> (refer to <strong>Returning User</strong>)</p>
 									<p>Don't store the token across sessions. Use the userId from the previous session to generate a new userId and a new preauth token.</p>
@@ -5127,7 +5129,9 @@ var xhr = new XMLHttpRequest();
 									</ul>
 									<br>
 									</li>
-									<h4><li>NEW USER TOKEN (GET)</h4><p>/direct/preauth-token/{userId}</p>
+									
+									<h4><li>NEW USER TOKEN (GET)</h4>
+									<p>/direct/preauth-token/{userId}</p>
 									<h6>PATH PARAMETERS</h6>
 									<ul>
 										<li>userId : string<span class="kVVBQg">required</span></li>
@@ -5135,7 +5139,7 @@ var xhr = new XMLHttpRequest();
 									<h6>HEADER PARAMETERS</h6>
 									<ul>
 										<li>Content-type : string<span class="kVVBQg">required</span></li>
-										<span class="code">Example : application/json</span>
+										<span class="code">Example: application/json</span>
 									</ul>
 									<h6>RESPONSE SCHEMA: */*</h6>
 									<p>200 default response.</p>
@@ -5145,7 +5149,9 @@ var xhr = new XMLHttpRequest();
 									</ul>
 									<br>
 									</li>
-									<h4><li>CLOSE USER ACCOUNT (POST)</h4><p>/direct/close-account/{userId}</p>
+									
+									<h4><li>CLOSE USER ACCOUNT (POST)</h4>
+									<p>/direct/close-account/{userId}</p>
 									<h6>PATH PARAMETERS</h6>
 									<ul>
 										<li>userId : string<span class="kVVBQg">required</span></li>
@@ -5153,7 +5159,7 @@ var xhr = new XMLHttpRequest();
 									<h6>HEADER PARAMETERS</h6>
 									<ul>
 										<li>Content-type : string<span class="kVVBQg">required</span></li>
-										<span class="code">Example : application/json</span>
+										<span class="code">Example: application/json</span>
 									</ul>
 									<h6>RESPONSE SCHEMA: */*</h6>
 									<p>200 default response.</p>
@@ -5163,7 +5169,9 @@ var xhr = new XMLHttpRequest();
 									<br>
 
 									</li>
-									<h4><li>CHANGE USER EMAIL (POST)</h4><p>/direct/change-email/{userId}</p>
+									
+									<h4><li>CHANGE USER EMAIL (POST)</h4>
+									<p>/direct/change-email/{userId}</p>
 									<h6>PATH PARAMETERS</h6>
 									<ul>
 										<li>userId : string<span class="kVVBQg">required</span></li>
@@ -5179,7 +5187,9 @@ var xhr = new XMLHttpRequest();
 									</ul>
 									<br>
 									</li>
-									<h4><li>CHANGE USER PHONE (POST)</h4><p>/direct/change-mobile/{userId}</p>
+									
+									<h4><li>CHANGE USER PHONE (POST)</h4>
+									<p>/direct/change-mobile/{userId}</p>
 									<h6>PATH PARAMETERS</h6>
 									<ul>
 										<li>userId : string<span class="kVVBQg">required</span></li>
@@ -5196,7 +5206,9 @@ var xhr = new XMLHttpRequest();
 									</ul>
 									<br>
 									</li>
-									<h4><li>CHANGE USER HOST (POST)</h4><p>/direct/change-host/{userId}</p>
+									
+									<h4><li>CHANGE USER HOST (POST)</h4>
+									<p>/direct/change-host/{userId}</p>
 									<h6>PATH PARAMETERS</h6>
 									<ul>
 										<li>userId : string<span class="kVVBQg">required</span></li>
@@ -5204,12 +5216,12 @@ var xhr = new XMLHttpRequest();
 									<h6>QUERY PARAMETERS</h6>
 									<ul>
 										<li>host : string<span class="kVVBQg">required</span></li>
-										<span class="code">Example : application/json</span>
+										<span class="code">Example: application/json</span>
 									</ul>
 									<h6>HEADER PARAMETERS</h6>
 									<ul>
 										<li>Content-type : string<span class="kVVBQg">required</span></li>
-										<span class="code">Example : application/json</span>
+										<span class="code">Example: application/json</span>
 									</ul>
 									<h6>RESPONSE SCHEMA: */*</h6>
 									<p>200 default response.</p>
@@ -5218,7 +5230,9 @@ var xhr = new XMLHttpRequest();
 									</ul>
 									<br>
 									</li>
-									<h4><li>UPDATE USER REFRESH DATA (POST)</h4><p>/direct/update-refresh/{userId}</p>
+									
+									<h4><li>UPDATE USER REFRESH DATA (POST)</h4>
+									<p>/direct/update-refresh/{userId}</p>
 									<p><strong>*Premium Feature - May Require Additional Access</strong></p>
 									<h6>PATH PARAMETERS</h6>
 									<ul>
@@ -5227,12 +5241,12 @@ var xhr = new XMLHttpRequest();
 									<h6>QUERY PARAMETERS</h6>
 									<ul>
 										<li>rmonly : boolean<span class="kVVBQg">required</span></li>
-										<span class="code">Example : rmonly=false</span>
+										<span class="code">Example: rmonly=false</span>
 									</ul>
 									<h6>HEADER PARAMETERS</h6>
 									<ul>
 										<li>Content-type : string<span class="kVVBQg">required</span></li>
-										<span class="code">Example : application/json</span>
+										<span class="code">Example: application/json</span>
 									</ul>
 									<h6>RESPONSE SCHEMA: */*</h6>
 									<p>200 default response.</p>
@@ -5242,7 +5256,9 @@ var xhr = new XMLHttpRequest();
 									<br>
 
 									</li>
-									<h4><li>GET ALERT DETAIL (GET)</h4><p>/direct/efx-alert/{alertId}</p>
+									
+									<h4><li>GET ALERT DETAIL (GET)</h4>
+									<p>/direct/efx-alert/{alertId}</p>
 									<p><strong>*Premium Feature - May Require Additional Access</strong></p>
 									<h6>PATH PARAMETERS</h6>
 									<ul>
@@ -5251,13 +5267,14 @@ var xhr = new XMLHttpRequest();
 									<h6>HEADER PARAMETERS</h6>
 									<ul>
 										<li>Content-type : string<span class="kVVBQg">required</span></li>
-										<span class="code">Example : application/json</span>
+										<span class="code">Example: application/json</span>
 									</ul>
 									<h6>RESPONSE SCHEMA: */*</h6>
 									<p>200 default response.</p>
 									<ul>
 										<li>object</li>
 									</ul>
+									</li>
 								</ol>
 							</section><!--//section-->
 						</section><!--//section-->
@@ -5382,75 +5399,270 @@ var xhr = new XMLHttpRequest();
 								</em></p>
 								<br/>
 								</p>
+								<!-- copied from user-api.html generation plus manual cleanup -->
 								<ol>
-									<h4><li>TODO</h4>
-									<p></p>
+									<h4><li>Preauth Token (get)</h4>
+									<p>/users/preauth-token/{paToken}</p>
+
+									<ul>
+										<li>
+											<p>This request uses <strong>userId</strong> (from the response of <strong>/direct/user-reg</strong>) to generate a <strong>User Token</strong>.</p>
+											<p>
+												<em>The Preauth Token needed for this request is also generated by <strong>/direct/user-reg</strong> or <strong>/direct/preauth-token</strong> </em>
+											</p>
+										</li>
+									</ul>
 
 									<h6>PATH PARAMETERS</h6>
 									<ul>
-										<li>userId : string<span class="kVVBQg">required</span></li>
+										<li>
+											<span>paToken : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
 									</ul>
-									<h6>QUERY PARAMETERS</h6>
+									<br />
+
+									<h6>RESPONSE SCHEMA: */*</h6>
+
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<p>default response</p>
+									<br />
+									</li>
+									
+									<h4><li>User Identity (post)</h4>
+									<p>/users/identity</p>
+
+									<p>This endpoint is most useful for checking whether the user's identity needs to be verified.</p>
+									<p>If the response has <strong>idpass</strong> set to <em>true</em>, then the user's identity is already verified.</p>
+									<p>If <strong>idpass</strong> is <em>false</em>, then the user's identity needs to be verified.</p>
+									<p>The user's identity can be verified with either:</p>
 									<ul>
-										<li>count : integer &lt;int32><span class="kVVBQg">required</span>
-										<span class="code">Example : count=1</span>
+										<li><strong>/users/get-mobile</strong> (phone sms verification)</li>
+										<li><strong>/users/get-quiz</strong> (an identity quiz)</li>
+									</ul>
+									<p>The user's identity must be verified in order to enable the user's device to request the <strong>Equifax config</strong> data.</p>
+									<p>The data in the <strong>Equifax config</strong> provides the necessary credentials for making requests to the Equifax API from the consumer's device.</p>
+
+									<h6>REQUEST BODY SCHEMA: application/json</h6>
+									<ul>
+										<li>
+											<span>ssn : string</span>
+											<span class="kVVBQg">required</span>
 										</li>
-										<li>type : string<span class="kVVBQg">required</span>
-										<span class="code">Example : type=NEW_ACCOUNT</span>
+										<li>
+											<span>dob : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+										<li>
+											<span>mobile : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+										<li>
+											<span>street1 : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+										<li>
+											<span>street2 : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+										<li>
+											<span>city : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+										<li>
+											<span>state : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+										<li>
+											<span>zip : string</span>
+											<span class="kVVBQg">required</span>
 										</li>
 									</ul>
-									</br>
+									<br />
+									
+									<h6>RESPONSE SCHEMA: */*</h6>
+
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<span class="sc-fzpkqZ ebKPJY">
+										<p>
+											The Response contains identity information and the status of "idpass".
+											<br />
+											"idpass" represents whether the user has been verified yet. (users can be verified with phone sms verification or an identity quiz)
+										</p>
+									</span>
+
+									<br />
+									</li>
+
+									<h4><li>Phone Verify (get)</h4>
+									<p>/users/get-mobile</p>
+
 									<h6>HEADER PARAMETERS</h6>
 									<ul>
-										<li>Content-type : string<span class="kVVBQg">required</span></li>
-										<span class="code">Example : application/json</span>
+										<li>
+											<span>Content-Type : string</span>
+											<span class="kVVBQg">required</span>
+											<span class="code">Example: application/json</span>
+										</li>
 									</ul>
-									<h6>REQUEST BODY SCHEMA: application/json</h6>
-									Array () [
-									<ul>
-										<li>type : string<span class="kVVBQg">required</span></li>
-										<li>user_id : string<span class="kVVBQg">required</span></li>
-										<li>time : string<span class="kVVBQg">required</span></li>
-										<li>error_code : string<span class="kVVBQg">required</span></li>
-										<li>error_msg : string<span class="kVVBQg">required</span></li>
-									</ul>
-									]
+									<br />
+
 									<h6>RESPONSE SCHEMA: */*</h6>
-									<p>200 default response.</p>
-									<br>
+
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<span class="sc-fzpkqZ ebKPJY"> </span>
+
+									<br />
 									</li>
 
-									<h4><li>User Identity (GET)<!-- --> </h4><p>/users/identity</p>
-									<p>This endpoint is most useful for checking whether the user&#39;s identity needs to be verified.</p>
-									<p>If the response has <strong>idpass</strong> set to <em>true</em>, then the user&#39;s identity is already verified.</p>
-									<p>If <strong>idpass</strong> is <em>false</em>, then the user&#39;s identity needs to be verified.</p>
-									<p>The user&#39;s identity can then be verified with either:
+									<h4><li>Send Mobile Code (post)</h4>
+									<p>/users/send-code/{mtoken}</p>
+
+									<h6>PATH PARAMETERS</h6>
 									<ul>
-									<li><strong>/users/get-mobile</strong> (phone sms verification)</li>
-									<li><strong>/users/get-quiz</strong> (an identity quiz)</li>
+										<li>
+											<span>mtoken : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
 									</ul>
-									</p>
-									<p>The user&#39;s identity must be verified in order to enable the user&#39;s device to request the <strong>Equifax config</strong> data. </p>
-									<p>The data in the <strong>Equifax config</strong> provides the necessary credentials for making requests to the Equifax API from the consumer&#39;s device.</p>
+									<br />
+
+									<h6>HEADER PARAMETERS</h6>
+									<ul>
+										<li>
+											<span>Content-Type : string</span>
+											<span class="kVVBQg">required</span>
+											<span class="code">Example: application/json</span>
+										</li>
+									</ul>
+									<br />
+
+									<h6>RESPONSE SCHEMA: */*</h6>
+
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<span class="sc-fzpkqZ ebKPJY"> </span>
+
+									<br />
+
+									<h4><li>Renew Mobile Code (post)</h4>
+									<p>/users/renew-code</p>
 
 									<h6>REQUEST BODY SCHEMA: application/json</h6>
 									<ul>
-										<li>ssn : string<span class="kVVBQg">required</span></li>
-										<li>dob : string<span class="kVVBQg">required</span></li>
-										<li>mobile : string<span class="kVVBQg">required</span></li>
-										<li>street1 : string<span class="kVVBQg">required</span></li>
-										<li>street2 : string<span class="kVVBQg">required</span></li>
-										<li>city : string<span class="kVVBQg">required</span></li>
-										<li>state : string<span class="kVVBQg">required</span></li>
-										<li>zip : string<span class="kVVBQg">required</span></li>
+										<li>
+											<span>key : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
 									</ul>
+									<br />
+
 									<h6>RESPONSE SCHEMA: */*</h6>
-									<p>200 default response, contains contains identity information and the status of &quot;idpass&quot;.
-									&quot;idpass&quot; represents whether the user has been verified yet. (users can be verified with phone sms verification or an identity quiz).</p>
-									<br>
+
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<p>default response</p>
+									<br />
 									</li>
 
+									<h4><li>Verify Mobile Code (post)</h4>
+									<p>/users/verify-code</p>
+
+									<h6>REQUEST BODY SCHEMA: application/json</h6>
+									<ul>
+										<li>
+											<span>key : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+										<li>
+											<span>code : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+									</ul>
+									<br />
+
+									<h6>RESPONSE SCHEMA: */*</h6>
+
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<p>default response</p>
+									<br />
+									</li>
+
+									<h4><li>Get Identity Quiz (get)</h4>
+									<p>/users/get-quiz</p>
+
+									<h6>HEADER PARAMETERS</h6>
+									<ul>
+										<li>
+											<span>Content-Type : string</span>
+											<span class="kVVBQg">required</span>
+											<span class="code">Example: application/json</span>
+										</li>
+									</ul>
+									<br />
+
+									<h6>RESPONSE SCHEMA: */*</h6>
+
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<span class="sc-fzpkqZ ebKPJY"> </span>
+
+									<br />
+									</li>
+
+									<h4><li>Verify Identity Quiz (post)</h4>
+									<p>/users/verify-quiz</p>
+
+									<h6>REQUEST BODY SCHEMA: application/json</h6>
+									<ul>
+										<li>
+											<span>key : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+										<li>
+											<span>id : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+										<li>
+											<span>
+												answers : <span class="sc-fzqzlV sc-fzqLLg jbhQmP">Array of </span><span class="sc-fzqzlV sc-fzoxnE dUEjwH">objects</span><span class="sc-fzqzlV sc-fzoMdx kUcHWW"> (<!-- -->Answer<!-- -->) </span>
+											</span>
+											<span class="kVVBQg">required</span>
+										</li>
+									</ul>
+									<br />
+
+									<h6>RESPONSE SCHEMA: */*</h6>
+
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<p>default response</p>
+									<br />
+									</li>
+
+									<h4><li>Get EFX Config (get)</h4>
+									<p>/users/efx-config</p>
+
+									<p>Use this endpoint to get the Equifax credentials and url</p>
+									<p>These will be needed for the consumer app to send requests to the Equifax API.</p>
+
+									<h6>HEADER PARAMETERS</h6>
+									<ul>
+										<li>
+											<span>Content-Type: string</span>
+											<span class="kVVBQg">required</span>
+											<span class="code">Example: application/json</span>
+										</li>
+									</ul>
+									<br />
+
+									<h6>RESPONSE SCHEMA: */*</h6>
+
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<span class="sc-fzpkqZ ebKPJY">
+										<p>the response contains config data to be used for authenticating the consumer app to make requests directly to the Equifax API</p>
+									</span>
+
+									<br />
+									</li>
 								</ol>
+								<!-- end of copied from user-api.html generation plus manual cleanup -->
 							</section><!--//section-->
 
 						</section><!--//section-->
@@ -5511,44 +5723,235 @@ var xhr = new XMLHttpRequest();
 								</p>
 
 								<p>
+								<!-- copied from equifax-api.html generation plus manual cleanup -->
 								<ol>
-									<h4><li>TODO</h4>
-									<p></p>
+									<h4><li>OAUTH Token (post)</h4>
+									<p>/{efx_url}/oauth/token</p>
+									<p>For this path parameter, <strong>{efx_url}</strong>, use the url found in the response of a call to <strong>/users/efx-config</strong>.</p>
+									<p>A successful request to <strong>{efx_url}/oauth/token</strong> will return credentials required for other <strong>Equifax API calls</strong>.</p>
 
 									<h6>PATH PARAMETERS</h6>
 									<ul>
-										<li>userId : string<span class="kVVBQg">required</span></li>
+										<li>
+											<span>efx_url : string</span>
+											<span class="kVVBQg">required</span>
+											<span class="code">Example: https://api.efx-url.com/consumer-data</span>
+										</li>
 									</ul>
+									<br />
+									<h6>REQUEST BODY SCHEMA: application/json</h6>
+									<ul>
+										<li>
+											<span>scope : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+										<li>
+											<span>grant_type : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+										<li>
+											<span>api_key : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+										<li>
+											<span>client_assertion : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+									</ul>
+									<br />
+
+									<h6>RESPONSE SCHEMA: */*</h6>
+
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<p>The token in this response can be used to access the Equifax API</p>
+									<br />
+									</li>
+									
+									<h4><li>Health Check (get)</h4>
+									<p>/{efx_url}/v1/creditMonitoring/healthcheck</p>
+
 									<h6>QUERY PARAMETERS</h6>
 									<ul>
-										<li>count : integer &lt;int32><span class="kVVBQg">required</span>
-										<span class="code">Example : count=1</span>
-										</li>
-										<li>type : string<span class="kVVBQg">required</span>
-										<span class="code">Example : type=NEW_ACCOUNT</span>
+										<li>
+											<span>format : string</span>
+											<span class="kVVBQg">required</span>
+											<span class="code">Example: format=json</span>
 										</li>
 									</ul>
-									</br>
+									<br />
+
 									<h6>HEADER PARAMETERS</h6>
 									<ul>
-										<li>Content-type : string<span class="kVVBQg">required</span></li>
-										<span class="code">Example : application/json</span>
+										<li>Content-type : string<span class="kVVBQg">required</span>
+										<span class="code">Example: {{content-type}}</span>
+										</li>
 									</ul>
-									<h6>REQUEST BODY SCHEMA: application/json</h6>
-									Array () [
-									<ul>
-										<li>type : string<span class="kVVBQg">required</span></li>
-										<li>user_id : string<span class="kVVBQg">required</span></li>
-										<li>time : string<span class="kVVBQg">required</span></li>
-										<li>error_code : string<span class="kVVBQg">required</span></li>
-										<li>error_msg : string<span class="kVVBQg">required</span></li>
-									</ul>
-									]
+									<br />
+
 									<h6>RESPONSE SCHEMA: */*</h6>
-									<p>200 default response.</p>
-									<br>
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<br />
 									</li>
+									
+									<h4><li>Credit Monitoring (get)</h4>
+									<p>/{efx_url}/v1/creditMonitoring</p>
+									<h6>QUERY PARAMETERS</h6>
+									<ul>
+										<li>
+											<span>format : string</span>
+											<span class="kVVBQg">required</span>
+											<span class="code">Example: format=json</span>
+										</li>
+									</ul>
+									<br />
+
+									<h6>RESPONSE SCHEMA: */*</h6>
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<br />
+									</li>
+									
+									<h4><li>CreditReportList (get)</h4>
+									<p>/{efx_url}/v1/creditReport</p>
+									<h6>QUERY PARAMETERS</h6>
+									<ul>
+										<li>
+											<span>format : string</span>
+											<span class="kVVBQg">required</span>
+											<span class="code">Example: format=json</span>
+										</li>
+									</ul>
+									<br />
+
+									<h6>RESPONSE SCHEMA: */*</h6>
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<br />
+									</li>
+									
+									<h4><li>Credit Report Summary (First in list) (get)</h4>
+									<p>/{efx_url}/v1/creditReport/{reportId}/summary</p>
+
+									<h6>PATH PARAMETERS</h6>
+									<ul>
+										<li>
+											<span>reportId : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+									</ul>
+									<br />
+
+									<h6>QUERY PARAMETERS</h6>
+									<ul>
+										<li>
+											<span>format : string</span>
+											<span class="kVVBQg">required</span>
+											<span class="code">Example: format=json</span>
+										</li>
+									</ul>
+									<br />
+
+									<h6>RESPONSE SCHEMA: */*</h6>
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<br />
+									</li>
+									
+									<h4><li>Full Credit Report (First in list) (get)</h4>
+									<p>/{efx_url}/v1/creditReport/{reportId}</p>
+
+									<h6>PATH PARAMETERS</h6>
+									<ul>
+										<li>
+											<span>reportId : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+									</ul>
+									<br />
+
+									<h6>QUERY PARAMETERS</h6>
+									<ul>
+										<li>
+											<span>format : string</span>
+											<span class="kVVBQg">required</span>
+											<span class="code">Example: format=json</span>
+										</li>
+									</ul>
+									<br />
+
+									<h6>RESPONSE SCHEMA: */*</h6>
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<br />
+									</li>
+									
+									<h4><li>Credit Report (First in list) - PRINT (get)</h4>
+									<p>/{efx_url}/v1/creditReport/{reportId}/print</p>
+
+									<h6>PATH PARAMETERS</h6>
+									<ul>
+										<li>
+											<span>reportId : string</span>
+											<span class="kVVBQg">required</span>
+										</li>
+									</ul>
+									<br />
+
+									<h6>QUERY PARAMETERS</h6>
+									<ul>
+										<li>
+											<span>access_token : string</span>
+											<span class="kVVBQg">required</span>
+											<span class="code">Example: access_token={{efxtoken}}</span>
+										</li>
+									</ul>
+									<br />
+
+									<h6>RESPONSE SCHEMA: */*</h6>
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<br />
+									</li>
+									
+									<h4><li>Credit Score Latest (get)</h4>
+									<p>/{efx_url}/v1/creditScore/latest</p>
+
+									<h6>QUERY PARAMETERS</h6>
+									<ul>
+										<li>
+											<span>format : string</span>
+											<span class="kVVBQg">required</span>
+											<span class="code">Example: format=json</span>
+										</li>
+									</ul>
+									<br />
+
+									<h6>RESPONSE SCHEMA: */*</h6>
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<br />
+									</li>
+
+									<h4><li>Credit Score History (get)</h4>
+									<p>/{efx_url}/v1/creditScore/history</p>
+
+									<h6>QUERY PARAMETERS</h6>
+									<ul>
+										<li>
+											<span>historicalLimit : integer&lt;int32&gt;</span>
+											<span class="kVVBQg">required</span>
+											<span class="code">Example: historicalLimit=24</span>
+										</li>
+										<li>
+											<span>format : string</span>
+											<span class="kVVBQg">required</span>
+											<span class="code">Example: format=json</span>
+										</li>
+									</ul>
+									<br />
+
+
+									<h6>RESPONSE SCHEMA: */*</h6>
+									<strong class="sc-psCJM kuedQF">200<!-- --> </strong>
+									<br />
+									</li>
+
 								</ol>
+								<!-- end of copied from equifax-api.html generation plus manual cleanup -->
 								</p>
 							</section><!--//section-->
 
@@ -5574,13 +5977,14 @@ var xhr = new XMLHttpRequest();
 									<h6>HEADER PARAMETERS</h6>
 									<ul>
 										<li>Content-type : string<span class="kVVBQg">required</span></li>
-										<span class="code">Example : application/json</span>
+										<span class="code">Example: application/json</span>
 									</ul>
 									<h6>RESPONSE SCHEMA: */*</h6>
 									<p>200 default response.</p>
 									<br>
 									</li>
-									<li>Webhook Test</h4>
+
+									<h4><li>Webhook Test</h4>
 									<p>/test/webhook/send/{userId}</p>
 
 									<h6>PATH PARAMETERS</h6>
@@ -5590,23 +5994,24 @@ var xhr = new XMLHttpRequest();
 									<h6>QUERY PARAMETERS</h6>
 									<ul>
 										<li>count : integer &lt;int32><span class="kVVBQg">required</span>
-										<span class="code">Example : count=1</span>
+										<span class="code">Example: count=1</span>
 										</li>
 										<li>type : string<span class="kVVBQg">required</span>
-										<span class="code">Example : type=NEW_ACCOUNT</span>
+										<span class="code">Example: type=NEW_ACCOUNT</span>
 										</li>
 									</ul>
 									</br>
 									<h6>HEADER PARAMETERS</h6>
 									<ul>
 										<li>Content-type : string<span class="kVVBQg">required</span></li>
-										<span class="code">Example : application/json</span>
+										<span class="code">Example: application/json</span>
 									</ul>
 									<h6>RESPONSE SCHEMA: */*</h6>
 									<p>200 default response.</p>
 									<br>
 									</li>
-									<li>Webhook Sink</h4>
+									
+									<h4><li>Webhook Sink</h4>
 									<p>/test/webhook/sink</p>
 
 									<h6>REQUEST BODY SCHEMA: application/json</h6>
