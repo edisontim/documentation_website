@@ -1363,113 +1363,113 @@
 </template>
 
 <script>
-  var API_ROOT = 'sc-AxhUy';
-  var START_OL = '\t\t\t\t\t\t\t\t\t<ol>';
-  // This is not properly formed HTML, so putting it into a DocumentFragment causes the DOM to close the <li> and make other changes
-  var API_DESC = '\t\t\t\t\t\t\t\t\t<h4><li>%1% (%2%)</h4><p>%3%</p>\n\t\t\t\t\t\t\t\t\t%4%';
-  var path = document.querySelector('#path');
-  var query = document.querySelector('#query');
-  var header = document.querySelector('#header');
-  var request = document.querySelector('#request');
-  var response = document.querySelector('#response');
-  var END_LI =  '\t\t\t\t\t\t\t\t\t</li>';
-  var END_OL =  '\t\t\t\t\t\t\t\t\t</ol>';
-  var fragment = '';
+	var API_ROOT = 'sc-AxhUy';
+	var START_OL = '\t\t\t\t\t\t\t\t\t<ol>';
+	// This is not properly formed HTML, so putting it into a DocumentFragment causes the DOM to close the <li> and make other changes
+	var API_DESC = '\t\t\t\t\t\t\t\t\t<h4><li>%1% (%2%)</h4><p>%3%</p>\n\t\t\t\t\t\t\t\t\t%4%';
+	var path = document.querySelector('#path');
+	var query = document.querySelector('#query');
+	var header = document.querySelector('#header');
+	var request = document.querySelector('#request');
+	var response = document.querySelector('#response');
+	var END_LI =  '\t\t\t\t\t\t\t\t\t</li>';
+	var END_OL =  '\t\t\t\t\t\t\t\t\t</ol>';
+	var fragment = '';
 
-  // NB: there were <span>%i%</span> tags around each %parameter%
-  function doClone( ) {
-  	if ( arguments.length < 1 ) return;
+	// NB: there were <span>%i%</span> tags around each %parameter%
+	function doClone( ) {
+		if ( arguments.length < 1 ) return;
 
-          var clone = arguments[0].content.cloneNode(true);
-          var span = clone.querySelectorAll('span');
-	for (let i = 1; i < arguments.length; i++) {
-//		console.log('changing ' + span[i-1].innerHTML + ' to ' + arguments[i] );
-		span[i-1].innerHTML = arguments[i];
-//		console.log('changed ' + span[i-1].innerHTML );
+		var clone = arguments[0].content.cloneNode(true);
+		var span = clone.querySelectorAll('span');
+		for (let i = 1; i < arguments.length; i++) {
+	//		console.log('changing ' + span[i-1].innerHTML + ' to ' + arguments[i] );
+			span[i-1].innerHTML = arguments[i];
+	//		console.log('changed ' + span[i-1].innerHTML );
+		}
+		document.getElementById('API').appendChild(clone);
 	}
-	document.getElementById('API').appendChild(clone);
-  }
 
-  function addToFragment( ) {
-  	if ( arguments.length < 1 ) return;
+	function addToFragment( ) {
+		if ( arguments.length < 1 ) return;
 
-	var html = arguments[0].innerHTML;
+		var html = arguments[0].innerHTML;
 
-	for (let i = 1; i < arguments.length; i++) {
-		console.log('replacing ' + '%' + i + '%' + ' by ' + arguments[i] );
-		html = html.replace('%' + i + '%', arguments[i] );
-		console.log('replaced' + html );
+		for (let i = 1; i < arguments.length; i++) {
+			console.log('replacing ' + '%' + i + '%' + ' by ' + arguments[i] );
+			html = html.replace('%' + i + '%', arguments[i] );
+			console.log('replaced' + html );
+		}
+		fragment += html;
+		fragment += '\n' ;
 	}
-	fragment += html;
-	fragment += '\n' ;
-  }
-  function addStrToFragment(  ) {
-  	if ( arguments.length < 1 ) return;
 
-	var html = arguments[0];
+	function addStrToFragment(  ) {
+		if ( arguments.length < 1 ) return;
 
-	for (let i = 1; i < arguments.length; i++) {
-		console.log('replacing ' + '%' + i + '%' + ' by ' + arguments[i] );
-		html = html.replace('%' + i + '%', arguments[i] );
-		console.log('replaced' + html );
+		var html = arguments[0];
+
+		for (let i = 1; i < arguments.length; i++) {
+			console.log('replacing ' + '%' + i + '%' + ' by ' + arguments[i] );
+			html = html.replace('%' + i + '%', arguments[i] );
+			console.log('replaced' + html );
+		}
+		fragment += html;
+		fragment += '\n' ;
 	}
-	fragment += html;
-	fragment += '\n' ;
-  }
 
-  addStrToFragment( START_OL );
+	addStrToFragment( START_OL );
 
-  for (let i = 0; i < document.getElementsByClassName(API_ROOT).length; i++) {
-	name = document.getElementsByClassName(API_ROOT)[i].getElementsByClassName('sc-fzozJi')[0].innerText;
-	type = document.getElementsByClassName(API_ROOT)[i].getElementsByClassName('sc-qYiqT')[0].innerHTML;
-	urlh2 = document.getElementsByClassName(API_ROOT)[i].getElementsByClassName('sc-fzoant')[0].getElementsByTagName('h2')[0];
-	url = urlh2.innerText;
-	urlh2.remove();
-	urlDesc = document.getElementsByClassName(API_ROOT)[i].getElementsByClassName('sc-fzoant')[0].innerHTML;
-	addStrToFragment( API_DESC, name, type, url, urlDesc );
+	for (let i = 0; i < document.getElementsByClassName(API_ROOT).length; i++) {
+		name = document.getElementsByClassName(API_ROOT)[i].getElementsByClassName('sc-fzozJi')[0].innerText;
+		type = document.getElementsByClassName(API_ROOT)[i].getElementsByClassName('sc-qYiqT')[0].innerHTML;
+		urlh2 = document.getElementsByClassName(API_ROOT)[i].getElementsByClassName('sc-fzoant')[0].getElementsByTagName('h2')[0];
+		url = urlh2.innerText;
+		urlh2.remove();
+		urlDesc = document.getElementsByClassName(API_ROOT)[i].getElementsByClassName('sc-fzoant')[0].innerHTML;
+		addStrToFragment( API_DESC, name, type, url, urlDesc );
 
-	descriptors = document.getElementsByClassName(API_ROOT)[i].getElementsByClassName('sc-fzplWN');
-	for (let j = 0; j < descriptors.length; j++) {
-		title = descriptors[j].innerText;
-		titleelems = document.getElementsByClassName(API_ROOT)[i].getElementsByClassName('sc-fznxsB')[j];
-		titleparameters = titleelems.outerHTML;
+		descriptors = document.getElementsByClassName(API_ROOT)[i].getElementsByClassName('sc-fzplWN');
+		for (let j = 0; j < descriptors.length; j++) {
+			title = descriptors[j].innerText;
+			titleelems = document.getElementsByClassName(API_ROOT)[i].getElementsByClassName('sc-fznxsB')[j];
+			titleparameters = titleelems.outerHTML;
 
-		// TOO COMPLICATED
-		// this is a table, get all rows in the table
-		titlerows = titleelems.getElementsByTagName('tr');
-		for (let k = 0; k < titlerows.length; k++) {
-//			titlerowshtml = titlerows[k].innerHTML;
-			titlecells = titlerows[k].getElementsByTagName('td');
-			for (let l = 0; l < titlecells.length; l++) {
-				titlecell = titlecells[l].innerText;
+			// TOO COMPLICATED
+			// this is a table, get all rows in the table
+			titlerows = titleelems.getElementsByTagName('tr');
+			for (let k = 0; k < titlerows.length; k++) {
+	//			titlerowshtml = titlerows[k].innerHTML;
+				titlecells = titlerows[k].getElementsByTagName('td');
+				for (let l = 0; l < titlecells.length; l++) {
+					titlecell = titlecells[l].innerText;
+				}
+			}
+			if ( title.includes('path') ) {
+				addToFragment( path, titleparameters );
+			}
+			if ( title.includes('query') ) {
+				addToFragment( query, titleparameters );
+			}
+			if ( title.includes('header') ) {
+				addToFragment( header, titleparameters );
+			}
+			if ( title.includes('Request') ) {
+				addToFragment( request, titleparameters );
 			}
 		}
-		if ( title.includes('path') ) {
-			addToFragment( path, titleparameters );
+		responses = document.getElementsByClassName(API_ROOT)[i].getElementsByClassName('sc-qQxXP')[0].innerText;
+		responsesparameters = document.getElementsByClassName(API_ROOT)[i].getElementsByClassName('sc-qapaw')[0].innerHTML;
+		if ( responses.includes('Responses') ) {
+			addToFragment( response, responsesparameters );
 		}
-		if ( title.includes('query') ) {
-			addToFragment( query, titleparameters );
-		}
-		if ( title.includes('header') ) {
-			addToFragment( header, titleparameters );
-		}
-		if ( title.includes('Request') ) {
-			addToFragment( request, titleparameters );
-		}
-          }
-	responses = document.getElementsByClassName(API_ROOT)[i].getElementsByClassName('sc-qQxXP')[0].innerText;
-	responsesparameters = document.getElementsByClassName(API_ROOT)[i].getElementsByClassName('sc-qapaw')[0].innerHTML;
-	if ( responses.includes('Responses') ) {
-		addToFragment( response, responsesparameters );
-	}
 
-	addStrToFragment( END_LI );
-	
-  }
-  addStrToFragment( END_OL );
-  document.getElementById('apiResult').innerHTML = fragment;
+		addStrToFragment( END_LI );
+		
+	}
+	addStrToFragment( END_OL );
+	document.getElementById('apiResult').innerHTML = fragment;
 </script>
 
-
 </body>
-
+</html>
