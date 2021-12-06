@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "1e3be246-0e2d-472e-8d8b-462f00852568",
 		"name": "StitchCredit - Direct API",
+		"description": "Direct API calls must originate from your server\r\n\r\nA token from /direct/login is required for all other Direct API end-points. It is a bearer authorization token.\r\n\r\nOnce you have a preauth token, returned from /direct/user-reg or /direct/preauth-token, pass it to the Web UI entry point in the embedded iFrame.\r\n\r\nBe sure to save the ID returned from /direct/user-reg or you won’t be able to reauthorize the user when they return.\r\n\r\n**The preauth token is only valid for 30 seconds\r\n\r\nThe Consumer Credit - Direct API.postman_collection.json will walk you through using the Direct API collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -53,7 +54,8 @@
 						"direct",
 						"login"
 					]
-				}
+				},
+				"description": "Using your credentials in the request body (\"apikey\" and \"secret\"), the response will contain the token and refresh token.  \r\nThese tokens are required for completing the other requests to Direct API endpoints.\r\n\r\nThis token will be valid for approximately one hour. After the one hour, the refresh token will become valid.\r\n\r\nIf the token expires, use /direct/refresh-token?token={refresh} to get a new token"
 			},
 			"response": []
 		},
@@ -120,7 +122,8 @@
 							"value": "{{rdtoken}}"
 						}
 					]
-				}
+				},
+				"description": "Token and refresh tokes are required for completing the other requests to Direct API endpoints.\r\n\r\nThe token will be valid for approximately one hour. After the one hour, the refresh token will become valid.\r\n\r\nWhen the token expires, use /direct/refresh-token?token={refresh} to get a new token"
 			},
 			"response": []
 		},
@@ -182,7 +185,8 @@
 						"direct",
 						"user-reg"
 					]
-				}
+				},
+				"description": "Creates a new user with unique userId and preauth token.\r\n\r\nWhen a user logs back in, use /direct/preauth-token/{userId} to generate that user a new preauth token and a new userId (refer to Returning User)\r\n\r\nDon't store the token across sessions. Use the userId from the previous session to generate a new userId and a new preauth token."
 			},
 			"response": []
 		},

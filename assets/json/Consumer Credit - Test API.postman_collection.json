@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "ecfa55bb-7382-4439-ae40-8916233c0ed9",
 		"name": "Consumer Credit - Test API",
+		"description": "The Consumer Credit - Test API.postman_collection.json includes some webhook tests to help you understand and develop your solution.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [

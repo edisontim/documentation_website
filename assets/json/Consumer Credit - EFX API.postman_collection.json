@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "6a775eeb-7324-447c-9564-157940e7d587",
 		"name": "StitchCredit - EFX API",
+		"description": "Equifax API calls must originate from the end-client\r\n\r\nEquifax end-points are accessible by first using the User API /users/efx-config response data, and then the Equifax /oauth/token call. As mentioned above, User API and Equifax API calls are intended to be called from the end-client/user's device.\r\n\r\nThe Consumer Credit - EFX API.postman_collection.json has examples for all Equifax APIs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -58,7 +59,8 @@
 						"oauth",
 						"token"
 					]
-				}
+				},
+				"description": "For this path parameter, {efx_url}, use the url found in the response of a call to /users/efx-config.\r\n\r\nA successful request to {efx_url}/oauth/token will return credentials required for other Equifax API calls."
 			},
 			"response": [
 				{
